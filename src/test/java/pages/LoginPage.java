@@ -10,14 +10,12 @@ public class LoginPage extends BasePage {
     public static final By CHECKBOX_INPUT = By.className("custom-control-indicator");
     public static final By SIGN_UP_BUTTON = By.linkText("Sign up");
     public static final By LOGIN_BUTTON = By.id("btnLogin");
-    public static final String userLogin = "6870064@gmail.com";
-    public static final String userPassword = "qwe1122qwe";
 
     public LoginPage(WebDriver driver) {
         super(driver);
     }
 
-    public void mainPageOpen() {
+    public void pageOpen() {
         driver.get(BASE_URL);
     }
 
@@ -31,7 +29,7 @@ public class LoginPage extends BasePage {
         return false;
     }
 
-    public void userLogin(String userLogin, String userPassword) {
+    public void login(String userLogin, String userPassword) {
         driver.findElement(LOGIN_INPUT).sendKeys(userLogin);
         driver.findElement(PASSWORD_INPUT).sendKeys(userPassword);
         driver.findElement(CHECKBOX_INPUT).click();
