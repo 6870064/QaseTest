@@ -8,8 +8,8 @@ import static tests.LoginTest.userPassword;
 
 public class ProjectTest extends BaseTest {
 
-    public static final String projectName = "Test project 44";
-    public static final String projectCode = "44444";
+    public static final String projectName = "Test project 999";
+    public static final String projectCode = "999";
     public static final String projectDescription = "Test description of the Test project with the title № 35. " +
             "The best test project written on JAVA.";
 

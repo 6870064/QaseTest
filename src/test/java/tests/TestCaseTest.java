@@ -16,40 +16,41 @@ public class TestCaseTest extends BaseTest {
     public static final String stepText = "Steps of the test case";
 
     @Test
-    public void createFirstTestCase(){
-    loginPage.pageOpen();
-    assertTrue(loginPage.isPageOpened(), "Login page is not opened");
-    loginPage.login(userLogin, userPassword);
-    assertTrue(homePage.isPageOpened(), "Home Page is not opened");
-    testCasePage.projectOpen();
-    assertTrue(testCasePage.addFirstCaseButtonIsDisplayed(), "Repository page is not opened");
-    testCasePage.createFirstTestCaseButtonClick();
-    testCasePage.createTestCase(firstTestCaseTitle, testCaseDescription, preConditions, postConditions, stepText);
-    assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is opened");
+    public void createFirstTestCase() throws InterruptedException {
+        loginPage.pageOpen();
+        assertTrue(loginPage.isPageOpened(), "Login page is not opened");
+        loginPage.login(userLogin, userPassword);
+        assertTrue(homePage.isPageOpened(), "Home Page is not opened");
+        testCasePage.projectOpen();
+        assertTrue(testCasePage.addFirstCaseButtonIsDisplayed(), "Repository page is not opened");
+        testCasePage.createFirstTestCaseButtonClick();
+        testCasePage.createTestCase(firstTestCaseTitle, testCaseDescription, preConditions, postConditions);
+        assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is opened");
     }
 
     @Test
-    public void createTestCase(){
-    loginPage.pageOpen();
-    assertTrue(loginPage.isPageOpened(), "Login page is not opened");
-    loginPage.login(userLogin, userPassword);
-    assertTrue(homePage.isPageOpened(), "Home Page is not opened");
-    testCasePage.projectOpen();
-    assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
-    testCasePage.createTestCaseButtonClick();
-    testCasePage.createTestCase(testCaseTitle, testCaseDescription, preConditions, postConditions, stepText);
-    assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
+    public void createTestCase() throws InterruptedException {
+        loginPage.pageOpen();
+        assertTrue(loginPage.isPageOpened(), "Login page is not opened");
+        loginPage.login(userLogin, userPassword);
+        assertTrue(homePage.isPageOpened(), "Home Page is not opened");
+        testCasePage.projectOpen();
+        assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
+        testCasePage.createTestCaseButtonClick();
+        testCasePage.createTestCase(testCaseTitle, testCaseDescription, preConditions, postConditions);
+        assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
     }
 
     @Test
-    public void deleteAllTestCases(){
-    loginPage.pageOpen();
-    assertTrue(loginPage.isPageOpened(), "Login page is not opened");
-    loginPage.login(userLogin, userPassword);
-    assertTrue(homePage.isPageOpened(), "Home Page is not opened");
-    testCasePage.projectOpen();
-    assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
-    testCasePage.deleteAllTestCases();
-    assertTrue(testCasePage.addFirstCaseButtonIsDisplayed(), "Repository page is not opened");
+    public void deleteAllTestCases() {
+        loginPage.pageOpen();
+        assertTrue(loginPage.isPageOpened(), "Login page is not opened");
+        loginPage.login(userLogin, userPassword);
+        assertTrue(homePage.isPageOpened(), "Home Page is not opened");
+        testCasePage.projectOpen();
+        assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
+        testCasePage.deleteAllTestCases();
+        assertTrue(testCasePage.addFirstCaseButtonIsDisplayed(), "Repository page is not opened");
     }
 }
+// степы пойдут отдельным методом
