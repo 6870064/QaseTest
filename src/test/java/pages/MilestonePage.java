@@ -1,6 +1,7 @@
 package pages;
 
-import org.jsoup.Connection;
+import elements.inputs.Input;
+import elements.inputs.RequiredInput;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -10,9 +11,7 @@ public class MilestonePage extends BasePage {
 
     public static final By MILESTONES_DEFECTS = By.xpath("//*[text()='Milestones']");
     public static final By CREATE_MILESTONE_BUTTON = By.id("createButton");
-    public static final By MILESTONE_NAME = By.id("title");
-    public static final By DESCRIPTION_FIELD = By.xpath("//div[@class='ProseMirror toastui-editor-contents']");
-    public static final By CREATE_NEW_MILESTONE_BUTTON = By.xpath("//div[@class='btn btn-primary me-3 save-button']");
+    public static final By CREATE_NEW_MILESTONE_BUTTON = By.xpath("//button[@class='btn btn-primary me-3 save-button']");
 
     public MilestonePage(WebDriver driver) {
         super(driver);
@@ -35,8 +34,8 @@ public class MilestonePage extends BasePage {
     public void newMilestoneCreated(String releaseTitle, String releaseDescription){
     driver.findElement(MILESTONES_DEFECTS).click();
     driver.findElement(CREATE_MILESTONE_BUTTON).click();
-    driver.findElement(MILESTONE_NAME).sendKeys(releaseTitle);
-    driver.findElement(DESCRIPTION_FIELD).sendKeys(releaseDescription);
+    new RequiredInput(driver, "Milestone name").write(releaseTitle);
+    new Input(driver, "Description").write(releaseDescription);
     driver.findElement(CREATE_NEW_MILESTONE_BUTTON).click();
     }
 }

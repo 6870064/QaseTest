@@ -1,7 +1,9 @@
 package pages;
 
+import dropdown.Dropdown;
+import elements.inputs.NonRequiredInput;
+import elements.inputs.RequiredInput;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -9,14 +11,11 @@ import java.util.List;
 
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
-import static pages.ProjectPage.PROJECT_URL;
 
 public class TestCasePage extends BasePage {
 
     public static final By CREATE_FIRST_CASE_BUTTON = By.xpath("//*[text()='Create new case']");
     public static final By CREATE_CASE_BUTTON = By.id("create-case-button");
-    public static final By TESTCASE_TITLE_FIELD = By.id("title");
-    public static final By TESTCASE_DESCRIPTION = By.xpath("//div[@class='ProseMirror toastui-editor-contents']");
     public static final By TYPE_DROPDOWN = By.xpath("//*[text()='Other']");
     public static final By TYPE_DROPDOWN_FUNCTIONAL = By.xpath("//*[text()='Functional']");
     public static final By MILESTONE_DROPDOWN = By.xpath("//*[text()='Not set']");
@@ -33,8 +32,6 @@ public class TestCasePage extends BasePage {
     public static final By IS_FLAKY_VALUE = By.xpath("//*[text()='Yes']");
     public static final By AUTOMATION_STATUS_DROPDOWN = By.xpath("//*[text()='Not automated']");
     public static final By AUTOMATION_STATUS_VALUE = By.xpath("//*[text()='To be automated']");
-    public static final By PRE_CONDITIONS_FIELD = By.xpath("//div[@class='ProseMirror toastui-editor-contents']");
-    public static final By POST_CONDITIONS_FIELD = By.xpath("//div[@class='ProseMirror toastui-editor-contents']");
     public static final By ADD_STEP_BUTTON = By.xpath("//div[@class='btn btn-invisible after-step b-0 p-0']");
     public static final By STEPS_ACTION = By.xpath("//*[text()='For example: Open Sign in page']");
     public static final By STEPS_INPUT_DATA = By.xpath("//*[text()='For example: Login / password']");
@@ -44,6 +41,9 @@ public class TestCasePage extends BasePage {
     public static final By ALL_CASES_CHECKBOX = By.cssSelector("[type='checkbox']");
     public static final By DELETE_CASES_BUTTON = By.xpath("//*[contains(text(),'Delete')]");
     public static final By DELETE_CASES_CONFIRM_BUTTON = By.xpath("//button[text()='Delete']");
+    String suiteValue = "Test cases without suite";
+    String miletonevalue = "Release 3.0";
+
 
     public TestCasePage(WebDriver driver) {
         super(driver);
@@ -79,29 +79,21 @@ public class TestCasePage extends BasePage {
     driver.findElement(CREATE_CASE_BUTTON).click();
     }
 
-    public void createTestCase(String testCaseTitle, String testCaseDescription, String preCondition, String postConditions, String step){
-    driver.findElement(TESTCASE_TITLE_FIELD).sendKeys(testCaseTitle);
-    driver.findElement(TESTCASE_DESCRIPTION).sendKeys(testCaseDescription);
-    driver.findElement(TYPE_DROPDOWN).click();
-    driver.findElement(TYPE_DROPDOWN_FUNCTIONAL).click();
-    driver.findElement(PRIORITY_DROPDOWN).click();
-    driver.findElement(PRIORITY_VALUE).click();
-    driver.findElement(MILESTONE_DROPDOWN). click();
-    driver.findElement(MILESTONE_VALUE).click();
-    driver.findElement(BEHAVIOUR_DROPDOWN).click();
-    driver.findElement(BEHAVIOUR_VALUE).click();
-    driver.findElement(SEVERITY_DROPDOWN).click();
-    driver.findElement(SEVERITY_VALUE).click();
-    driver.findElement(LAYER_DROPDOWN).click();
-    driver.findElement(LAYER_VALUE).click();
-    driver.findElement(IS_FLAKY_DROPDOWN).click();
-    driver.findElement(IS_FLAKY_VALUE).click();
-    driver.findElement(AUTOMATION_STATUS_DROPDOWN).click();
-    driver.findElement(AUTOMATION_STATUS_VALUE).click();
-    driver.findElement(PRE_CONDITIONS_FIELD).sendKeys(preCondition);
-    // driver.findElement(POST_CONDITIONS_FIELD).sendKeys(postConditions); Узнать как решить вопрос с locator
-//    JavascriptExecutor jse = (JavascriptExecutor)driver;
-//    jse.executeScript("window.scrollBy(0,750)");
+    public void createTestCase(String testCaseTitle, String testCaseDescription, String preConditions, String postConditions) throws InterruptedException {
+    new RequiredInput(driver, "Title").write(testCaseTitle);
+    new Dropdown(driver, "Status", "Actual", "Draft").dropDownClick();
+    new NonRequiredInput(driver,"Description").write(testCaseDescription);
+    new Dropdown(driver,"Suite", "Test cases without suite", suiteValue).dropDownClick();
+    new Dropdown(driver, "Severity","Normal", "Blocker").dropDownClick();
+    new Dropdown(driver,"Priority", "Not set", "High").dropDownClick();
+    new Dropdown(driver, "Type", "Other", "Functional").dropDownClick();
+    new Dropdown(driver,"Layer", "Unknown","E2E").dropDownClick();
+    new Dropdown(driver,"Is Flaky", "No", "Yes").dropDownClick();
+    new Dropdown(driver,"Milestone", "Not set", miletonevalue).dropDownClick();
+    new Dropdown(driver,"Behavior", "Not set", "Positive").dropDownClick();
+    new Dropdown(driver,"Automation status", "Not automated", "To be automated").dropDownClick();
+    new NonRequiredInput(driver,"Pre-conditions").write(preConditions);
+    new NonRequiredInput(driver, "Post-conditions").write(postConditions);
 
     //assertTrue(addStepButtonIsDisplayed(), "Add step button is not displayed");
 

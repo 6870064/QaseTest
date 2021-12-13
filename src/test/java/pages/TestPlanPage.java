@@ -1,11 +1,9 @@
 package pages;
 
-import org.jsoup.Connection;
+import elements.inputs.NonRequiredInput;
+import elements.inputs.RequiredInput;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
-import java.util.List;
 
 import static org.testng.Assert.assertFalse;
 
@@ -44,8 +42,8 @@ public class TestPlanPage extends BasePage {
     public void createTestPlan(String testPlanTitle, String testPlanDescription){
         driver.findElement(TEST_PLANS_BUTTON).click();
         driver.findElement(CREATE_PLAN_BUTTON).click();
-        driver.findElement(TITLE_FIELD).sendKeys(testPlanTitle);
-        driver.findElement(DESCRIPTION_FIELD).sendKeys(testPlanDescription);
+        new RequiredInput(driver, "Title").write(testPlanTitle);
+        new NonRequiredInput(driver, "Description").write(testPlanDescription);
         driver.findElement(ADD_CASES_BUTTON).click();
         driver.findElement(CHECKBOX).click();
         driver.findElement(ADD_CASES_DONE_BUTTON).click();

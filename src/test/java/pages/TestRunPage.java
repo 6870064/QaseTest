@@ -1,5 +1,8 @@
 package pages;
 
+import dropdown.CustomDropdown;
+import dropdown.Dropdown;
+import elements.inputs.NonRequiredInput;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -19,6 +22,10 @@ public class TestRunPage extends BasePage {
     public static final By DONE_BUTTON = By.id("select-cases-done-button");
     public static final By START_RUN_BUTTON = By.id("save-run-button");
 
+    String planValue = "Test plan for regression testing #1";
+    String milestoneValue = "Release 3.0";
+    String assigneeValueToClick = "Dmitry Vyacheslavov";
+
     public TestRunPage(WebDriver driver) {
         super(driver);
     }
@@ -37,16 +44,13 @@ public class TestRunPage extends BasePage {
         return isElementExist(TEST_RUNS_BUTTON);
     }
 
-    public void createTestRun(String testRunDescription){
+    public void createTestRun(String testRunDescription) throws InterruptedException {
     driver.findElement(TEST_RUNS_BUTTON).click();
     driver.findElement(START_NEW_TEST_RUN_BUTTON).click();
-    driver.findElement(DESCRIPTION_FIELD).sendKeys(testRunDescription);
-    driver.findElement(PLAN_FIELD).click();
-    driver.findElement(PLAN_FIELD_VALUE).click();
-    driver.findElement(MILESTONE_DROPDOWN).click();
-    driver.findElement(MILESTONE_VALUE).click();
-    driver.findElement(DEFAULT_ASSIGNEE_DROPDOWN).click();
-    driver.findElement(DEFAULT_ASSIGNEE_VALUE).click();
+    new NonRequiredInput(driver, "Description").write(testRunDescription);
+    new Dropdown(driver, "Plan", "Select...", planValue).dropDownClick();
+    new Dropdown(driver, "Milestone", "Not set", milestoneValue).dropDownClick();
+    new CustomDropdown(driver,"Default assignee", "Select...", assigneeValueToClick).dropDownClick();
     driver.findElement(ADD_CASES_BUTTON).click();
     driver.findElement(CHECKBOX).click();
     driver.findElement(DONE_BUTTON).click();
