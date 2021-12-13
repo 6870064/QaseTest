@@ -3,6 +3,8 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import static tests.ProjectTest.*;
+
 public class ProjectPage extends BasePage {
 
     public static final By CREATE_NEW_PROJECT_BUTTON = By.id("createButton");
@@ -12,11 +14,7 @@ public class ProjectPage extends BasePage {
     public static final By PROJECT_PUBLIC_ACCESS_RADIOBUTTON = By.id("public-access-type");
     public static final By CREATE_PROJECT_BUTTON = By.xpath("//button[text()='Create project']");
     public static final By CREATE_NEW_SUITE = By.xpath("//*[contains(text(),'Create new suite')]");
-    public static final String projectName = "Test project title № 111";
-    public static final String projectCode = "TPC-111";
-    public static final String projectDescription = "Test description of the Test project with the title № 111. " +
-            "The best test project written on JAVA.";
-
+    public static final String PROJECT_URL = "https://app.qase.io/project/12";
 
     public ProjectPage(WebDriver driver) {
         super(driver);
@@ -35,12 +33,17 @@ public class ProjectPage extends BasePage {
     public void createNewProjectButtonClick() {
         driver.findElement(CREATE_NEW_PROJECT_BUTTON).click();
     }
+
     public void createNewProject() {
-    driver.findElement(PROJECT_NAME_FIELD).sendKeys(projectName);
-    driver.findElement(PROJECT_CODE_FILED).sendKeys(projectCode);
-    driver.findElement(PROJECT_DESCRIPTION_FIELD).sendKeys(projectDescription);
-    driver.findElement(PROJECT_PUBLIC_ACCESS_RADIOBUTTON).click();
-    driver.findElement(CREATE_PROJECT_BUTTON).click();
+        driver.findElement(PROJECT_NAME_FIELD).sendKeys(projectName);
+        driver.findElement(PROJECT_CODE_FILED).sendKeys(projectCode);
+        driver.findElement(PROJECT_DESCRIPTION_FIELD).sendKeys(projectDescription);
+        driver.findElement(PROJECT_PUBLIC_ACCESS_RADIOBUTTON).click();
+        driver.findElement(CREATE_PROJECT_BUTTON).click();
+    }
+
+    public void projectOpen(){
+        driver.get(PROJECT_URL);
     }
 
     public boolean isProjectCreated() {
