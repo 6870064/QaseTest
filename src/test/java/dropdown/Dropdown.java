@@ -21,7 +21,7 @@ public class Dropdown {
         this.valueToClick = valueToClick;
     }
 
-    public void dropDownClick() throws InterruptedException {
+    public void dropDownClick(){
         System.out.println(String.format("Clicking Dropdown titled '%s' with default value '%s' and choose value '%s'", label, defaultValue, valueToClick));
 
         driver.findElement(By.xpath(String.format(defaultLocator, label, defaultValue))).click();

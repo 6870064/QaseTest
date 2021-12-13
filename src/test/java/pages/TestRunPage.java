@@ -44,7 +44,7 @@ public class TestRunPage extends BasePage {
         return isElementExist(TEST_RUNS_BUTTON);
     }
 
-    public void createTestRun(String testRunDescription) throws InterruptedException {
+    public void createTestRun(String testRunDescription) {
     driver.findElement(TEST_RUNS_BUTTON).click();
     driver.findElement(START_NEW_TEST_RUN_BUTTON).click();
     new NonRequiredInput(driver, "Description").write(testRunDescription);
