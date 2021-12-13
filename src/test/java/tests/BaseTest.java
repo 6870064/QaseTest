@@ -22,17 +22,21 @@ public abstract class BaseTest {
     TestPlanPage testPlanPage;
     TestRunPage testRunPage;
 
+    public static final String USER_LOGIN = "6870064@gmail.com";
+    public static final String USER_PASSWORD = "qwe1122qwe";
+
     @BeforeMethod
     public void setUp() {
         WebDriverManager.chromedriver().setup();
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
+        //System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--kiosk");
+        //chromeOptions.addArguments("--kiosk");
         driver = new ChromeDriver(chromeOptions);
         //ChromeOptions options = new ChromeOptions();
         //options.addArguments("--start-maximized");
         //driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);//Неявные ожидания
+        driver.manage().window().maximize();
 
         loginPage = new LoginPage(driver); // и перечислять все последующие Pages так же туть
         homePage = new HomePage(driver);

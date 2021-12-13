@@ -3,8 +3,7 @@ package tests;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertTrue;
-import static tests.LoginTest.userLogin;
-import static tests.LoginTest.userPassword;
+
 
 public class ProjectTest extends BaseTest {
 
@@ -18,7 +17,7 @@ public class ProjectTest extends BaseTest {
 
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
-        loginPage.login(userLogin, userPassword);
+        loginPage.login(USER_LOGIN, USER_PASSWORD);
         assertTrue(homePage.isPageOpened(), "Home Page is not opened");
         projectPage.createNewProjectButtonClick();
         assertTrue(projectPage.isPageOpened(), "Projects Page is not opened");

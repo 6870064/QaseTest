@@ -13,8 +13,6 @@ public class CustomDropdown {
             "div[contains(@class,'col-sm-12 col-xs-12')]//div[text()='%s']";
     String locatorToClick = "//div[text()='%s']";
 
-    //*[contains(@class,'me-sm-2')][text()='Default assignee']/ancestor::div[contains(@class,'col-lg-12 col-sm-12 col-xs-12')]//div[text()='Select...']
-    //*[contains(@class,'me-sm-2')][text()='Default assignee']/ancestor::div[contains(@class,'col-lg-4 col-sm-12 col-xs-12')]//div[text()='Select...']
     public CustomDropdown(WebDriver driver, String label, String defaultValue, String valueToClick) {
         this.driver = driver;
         this.label = label;
@@ -22,12 +20,10 @@ public class CustomDropdown {
         this.valueToClick = valueToClick;
     }
 
-    public void dropDownClick() throws InterruptedException {
+    public void dropDownClick() {
         System.out.println(String.format("Clicking Dropdown titled '%s' with default value '%s' and choose value '%s'", label, defaultValue, valueToClick));
 
         driver.findElement(By.xpath(String.format(defaultLocator, label, defaultValue))).click();
         driver.findElement(By.xpath(String.format(locatorToClick, valueToClick))).click();
     }
-
-
 }

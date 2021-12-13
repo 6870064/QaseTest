@@ -32,7 +32,7 @@ public class DefectPage extends BasePage {
         return false;
     }
 
-    public void newDefectCreated(String defectTitle, String actualResult) throws InterruptedException {
+    public void newDefectCreated(String defectTitle, String actualResult) {
     driver.findElement(DEFECTS_BUTTON).click();
     driver.findElement(CREATE_NEW_DEFECT_BUTTON).click();
     new RequiredInput(driver, "Defect title").write(defectTitle);

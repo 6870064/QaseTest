@@ -79,7 +79,7 @@ public class TestCasePage extends BasePage {
     driver.findElement(CREATE_CASE_BUTTON).click();
     }
 
-    public void createTestCase(String testCaseTitle, String testCaseDescription, String preConditions, String postConditions) throws InterruptedException {
+    public void createTestCase(String testCaseTitle, String testCaseDescription, String preConditions, String postConditions) {
     new RequiredInput(driver, "Title").write(testCaseTitle);
     new Dropdown(driver, "Status", "Actual", "Draft").dropDownClick();
     new NonRequiredInput(driver,"Description").write(testCaseDescription);

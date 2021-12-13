@@ -34,6 +34,6 @@ git add .
 git status
 git tag v1.5
 git commit -am ' text of message'
-git push
+git push --set-upstream origin fix/8-tests
  */
 //https://javarush.ru/quests/lectures/questmultithreading.level02.lecture06
