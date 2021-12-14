@@ -1,6 +1,6 @@
 package pages;
 
-import elements.inputs.RequiredInput;
+import elements.Input;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -36,7 +36,7 @@ public class ProjectPage extends BasePage {
     }
 
     public void createNewProject() {
-        new RequiredInput(driver, "Project name").write(projectName);
+        new Input(driver, "Project name").write(projectName);
         driver.findElement(PROJECT_CODE_FILED).sendKeys(projectCode);
         driver.findElement(PROJECT_DESCRIPTION_FIELD).sendKeys(projectDescription);
         driver.findElement(PROJECT_PUBLIC_ACCESS_RADIOBUTTON).click();
