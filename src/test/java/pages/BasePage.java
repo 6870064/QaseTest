@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 
-import static org.testng.AssertJUnit.assertEquals;
+import static org.testng.Assert.assertEquals;
 import static pages.ProjectPage.PROJECT_URL;
 
 public abstract class BasePage {
@@ -54,6 +54,7 @@ public abstract class BasePage {
         driver.findElement(DROP_FILES_AREA).sendKeys(file.getAbsolutePath());
         WebDriverWait wait = new WebDriverWait(driver, 5);
         String titleOfFile = driver.findElement(UPLOADED_FILE).getText();
+
         assertEquals(titleOfFile, "152360.jpeg", "Title of the uploaded file is not equal"); //Проверить, что имя файла
         // на странице совпадает с именем загруженного файла
     }

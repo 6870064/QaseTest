@@ -73,6 +73,7 @@ public class TestCasePage extends BasePage {
         new Dropdown(driver, "Automation status", "Not automated", "To be automated").dropDownClick();
         new Input(driver, "Pre-conditions").write(preConditions);
         new Input(driver, "Post-conditions").write(postConditions);
+        fileUpload();
 
         //assertTrue(addStepButtonIsDisplayed(), "Add step button is not displayed");
 

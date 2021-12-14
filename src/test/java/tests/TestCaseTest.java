@@ -7,8 +7,8 @@ import static org.testng.Assert.assertTrue;
 
 public class TestCaseTest extends BaseTest {
 
-    public static final String firstTestCaseTitle = "First test case title";
-    public static final String testCaseTitle = "The 1+ test case title";
+    public static final String firstTestCaseTitle = "Test case title 12/14";
+    public static final String testCaseTitle = "The test case with picture";
     public static final String testCaseDescription = "Description of the new test case title";
     public static final String preConditions = "Pre-conditions of the test case";
     public static final String postConditions = "Post-conditions of the test case";
