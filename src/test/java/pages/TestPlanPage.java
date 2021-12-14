@@ -4,8 +4,6 @@ import elements.Input;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import static org.testng.Assert.assertFalse;
-
 public class TestPlanPage extends BasePage {
     public static final By TEST_PLANS_BUTTON = By.xpath("//*[text()='Test Plans']");
     public static final By CREATE_PLAN_BUTTON = By.id("createButton");
@@ -29,14 +27,15 @@ public class TestPlanPage extends BasePage {
         return false;
     }
 
-    public boolean createPlaneButtonIsDisplayed(){
+    public boolean createPlaneButtonIsDisplayed() {
         return isElementExist(TEST_PLANS_BUTTON);
     }
-    public void createTestPlanClick(){
+
+    public void createTestPlanClick() {
         driver.findElement(TEST_PLANS_BUTTON);
     }
 
-    public void createTestPlan(String testPlanTitle, String testPlanDescription){
+    public void createTestPlan(String testPlanTitle, String testPlanDescription) {
         driver.findElement(TEST_PLANS_BUTTON).click();
         driver.findElement(CREATE_PLAN_BUTTON).click();
         new Input(driver, "Title").write(testPlanTitle);

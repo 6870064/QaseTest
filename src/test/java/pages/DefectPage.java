@@ -6,8 +6,6 @@ import elements.Input;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import static org.testng.Assert.assertEquals;
-
 public class DefectPage extends BasePage {
 
     public static final By DEFECTS_BUTTON = By.id("menu-link-test-defects");
@@ -32,15 +30,14 @@ public class DefectPage extends BasePage {
     }
 
     public void newDefectCreated(String defectTitle, String actualResult) {
-    driver.findElement(DEFECTS_BUTTON).click();
-    driver.findElement(CREATE_NEW_DEFECT_BUTTON).click();
-    new Input(driver, "Defect title").write(defectTitle);
-    new Input(driver, "Actual result").write(actualResult);
-    new Dropdown(driver,"Milestone", "Not set", milestoneValueToClick).dropDownClick();
-    new Dropdown(driver, "Severity", "Normal", "Blocker").dropDownClick();
-//    new Dropdown(driver, "Assignee", "Unassigned", assigneeValueToClick).dropDownClick();
-    new CustomDropdown(driver, "Assignee", "Unassigned", assigneeValueToClick).dropDownClick();
-    //fileUpload();
-    driver.findElement(CREATE_DEFECT_BUTTON).click();
+        driver.findElement(DEFECTS_BUTTON).click();
+        driver.findElement(CREATE_NEW_DEFECT_BUTTON).click();
+        new Input(driver, "Defect title").write(defectTitle);
+        new Input(driver, "Actual result").write(actualResult);
+        new Dropdown(driver, "Milestone", "Not set", milestoneValueToClick).dropDownClick();
+        new Dropdown(driver, "Severity", "Normal", "Blocker").dropDownClick();
+        new CustomDropdown(driver, "Assignee", "Unassigned", assigneeValueToClick).dropDownClick();
+        fileUpload();
+        driver.findElement(CREATE_DEFECT_BUTTON).click();
     }
 }

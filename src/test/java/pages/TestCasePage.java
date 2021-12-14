@@ -9,7 +9,6 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 import static org.testng.Assert.assertFalse;
-import static org.testng.Assert.assertTrue;
 
 public class TestCasePage extends BasePage {
 
@@ -34,11 +33,11 @@ public class TestCasePage extends BasePage {
         return false;
     }
 
-    public boolean addFirstCaseButtonIsDisplayed(){
+    public boolean addFirstCaseButtonIsDisplayed() {
         return isElementExist(CREATE_FIRST_CASE_BUTTON);
     }
 
-    public boolean addCaseButtonIsDisplayed(){
+    public boolean addCaseButtonIsDisplayed() {
         return isElementExist(CREATE_CASE_BUTTON);
     }
 
@@ -51,31 +50,31 @@ public class TestCasePage extends BasePage {
         return false;
     }
 
-    public void createFirstTestCaseButtonClick(){
-    driver.findElement(CREATE_FIRST_CASE_BUTTON).click();
+    public void createFirstTestCaseButtonClick() {
+        driver.findElement(CREATE_FIRST_CASE_BUTTON).click();
     }
 
-    public void createTestCaseButtonClick(){
-    driver.findElement(CREATE_CASE_BUTTON).click();
+    public void createTestCaseButtonClick() {
+        driver.findElement(CREATE_CASE_BUTTON).click();
     }
 
     public void createTestCase(String testCaseTitle, String testCaseDescription, String preConditions, String postConditions) {
-    new Input(driver, "Title").write(testCaseTitle);
-    new Dropdown(driver, "Status", "Actual", "Draft").dropDownClick();
-    new Input(driver,"Description").write(testCaseDescription);
-    new Dropdown(driver,"Suite", "Test cases without suite", suiteValue).dropDownClick();
-    new Dropdown(driver, "Severity","Normal", "Blocker").dropDownClick();
-    new Dropdown(driver,"Priority", "Not set", "High").dropDownClick();
-    new Dropdown(driver, "Type", "Other", "Functional").dropDownClick();
-    new Dropdown(driver,"Layer", "Unknown","E2E").dropDownClick();
-    new Dropdown(driver,"Is Flaky", "No", "Yes").dropDownClick();
-    new Dropdown(driver,"Milestone", "Not set", miletonevalue).dropDownClick();
-    new Dropdown(driver,"Behavior", "Not set", "Positive").dropDownClick();
-    new Dropdown(driver,"Automation status", "Not automated", "To be automated").dropDownClick();
-    new Input(driver,"Pre-conditions").write(preConditions);
-    new Input(driver, "Post-conditions").write(postConditions);
+        new Input(driver, "Title").write(testCaseTitle);
+        new Dropdown(driver, "Status", "Actual", "Draft").dropDownClick();
+        new Input(driver, "Description").write(testCaseDescription);
+        new Dropdown(driver, "Suite", "Test cases without suite", suiteValue).dropDownClick();
+        new Dropdown(driver, "Severity", "Normal", "Blocker").dropDownClick();
+        new Dropdown(driver, "Priority", "Not set", "High").dropDownClick();
+        new Dropdown(driver, "Type", "Other", "Functional").dropDownClick();
+        new Dropdown(driver, "Layer", "Unknown", "E2E").dropDownClick();
+        new Dropdown(driver, "Is Flaky", "No", "Yes").dropDownClick();
+        new Dropdown(driver, "Milestone", "Not set", miletonevalue).dropDownClick();
+        new Dropdown(driver, "Behavior", "Not set", "Positive").dropDownClick();
+        new Dropdown(driver, "Automation status", "Not automated", "To be automated").dropDownClick();
+        new Input(driver, "Pre-conditions").write(preConditions);
+        new Input(driver, "Post-conditions").write(postConditions);
 
-    //assertTrue(addStepButtonIsDisplayed(), "Add step button is not displayed");
+        //assertTrue(addStepButtonIsDisplayed(), "Add step button is not displayed");
 
 //    for (int i =0;i<3;i++)  {
 //    driver.findElement(ADD_STEP_BUTTON).click();
@@ -84,14 +83,14 @@ public class TestCasePage extends BasePage {
 //    driver.findElement(STEPS_EXPECTED_RESULT).sendKeys(step);
 //    }
 
-    driver.findElement(SAVE_BUTTON).click();
+        driver.findElement(SAVE_BUTTON).click();
     }
 
-    public void deleteAllTestCases(){
-    List<WebElement> checkBoxes = driver.findElements(ALL_CASES_CHECKBOX);
-    assertFalse(checkBoxes.get(1).isSelected(),"Первый чекбокс не выбран");
-    checkBoxes.get(1).click();
-    driver.findElement(DELETE_CASES_BUTTON).click();
-    driver.findElement(DELETE_CASES_CONFIRM_BUTTON).click();
+    public void deleteAllTestCases() {
+        List<WebElement> checkBoxes = driver.findElements(ALL_CASES_CHECKBOX);
+        assertFalse(checkBoxes.get(1).isSelected(), "Первый чекбокс не выбран");
+        checkBoxes.get(1).click();
+        driver.findElement(DELETE_CASES_BUTTON).click();
+        driver.findElement(DELETE_CASES_CONFIRM_BUTTON).click();
     }
 }
