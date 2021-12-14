@@ -1,9 +1,8 @@
 package pages;
 
-import dropdown.CustomDropdown;
-import dropdown.Dropdown;
-import elements.inputs.Input;
-import elements.inputs.RequiredInput;
+import elements.CustomDropdown;
+import elements.Dropdown;
+import elements.Input;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -35,10 +34,11 @@ public class DefectPage extends BasePage {
     public void newDefectCreated(String defectTitle, String actualResult) {
     driver.findElement(DEFECTS_BUTTON).click();
     driver.findElement(CREATE_NEW_DEFECT_BUTTON).click();
-    new RequiredInput(driver, "Defect title").write(defectTitle);
+    new Input(driver, "Defect title").write(defectTitle);
     new Input(driver, "Actual result").write(actualResult);
     new Dropdown(driver,"Milestone", "Not set", milestoneValueToClick).dropDownClick();
     new Dropdown(driver, "Severity", "Normal", "Blocker").dropDownClick();
+//    new Dropdown(driver, "Assignee", "Unassigned", assigneeValueToClick).dropDownClick();
     new CustomDropdown(driver, "Assignee", "Unassigned", assigneeValueToClick).dropDownClick();
     //fileUpload();
     driver.findElement(CREATE_DEFECT_BUTTON).click();

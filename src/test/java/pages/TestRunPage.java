@@ -1,8 +1,8 @@
 package pages;
 
-import dropdown.CustomDropdown;
-import dropdown.Dropdown;
-import elements.inputs.NonRequiredInput;
+import elements.CustomDropdown;
+import elements.Dropdown;
+import elements.Input;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -47,10 +47,10 @@ public class TestRunPage extends BasePage {
     public void createTestRun(String testRunDescription) {
     driver.findElement(TEST_RUNS_BUTTON).click();
     driver.findElement(START_NEW_TEST_RUN_BUTTON).click();
-    new NonRequiredInput(driver, "Description").write(testRunDescription);
+    new Input(driver, "Description").write(testRunDescription);
     new Dropdown(driver, "Plan", "Select...", planValue).dropDownClick();
     new Dropdown(driver, "Milestone", "Not set", milestoneValue).dropDownClick();
-    new CustomDropdown(driver,"Default assignee", "Select...", assigneeValueToClick).dropDownClick();
+    new CustomDropdown(driver, "Default assignee", "Select...", assigneeValueToClick).dropDownClick();
     driver.findElement(ADD_CASES_BUTTON).click();
     driver.findElement(CHECKBOX).click();
     driver.findElement(DONE_BUTTON).click();

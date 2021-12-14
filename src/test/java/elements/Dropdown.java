@@ -1,4 +1,4 @@
-package dropdown;
+package elements;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,9 +10,8 @@ public class Dropdown {
     String defaultValue;
     String valueToClick;
 
-    String defaultLocator = "//*[contains(@class,'control-label')][text()='%s']/ancestor::" +
-            "div[contains(@class,'form-group')]//div[text()='%s']";
-    String locatorToClick = "//div[text()='%s']";
+    String DROPDOWN_LOCATOR = "//label[@class='control-label'][text()='%s']/parent::div/div[contains(@class, 'container')]";
+    String DROPDOWN_VALUE = "//*[contains(@id, 'react-select') and contains(text(), '%s')]";
 
     public Dropdown(WebDriver driver, String label, String defaultValue, String valueToClick) {
         this.driver = driver;
@@ -24,7 +23,7 @@ public class Dropdown {
     public void dropDownClick(){
         System.out.println(String.format("Clicking Dropdown titled '%s' with default value '%s' and choose value '%s'", label, defaultValue, valueToClick));
 
-        driver.findElement(By.xpath(String.format(defaultLocator, label, defaultValue))).click();
-        driver.findElement(By.xpath(String.format(locatorToClick, valueToClick))).click();
+        driver.findElement(By.xpath(String.format(DROPDOWN_LOCATOR, label, defaultValue))).click();
+        driver.findElement(By.xpath(String.format(DROPDOWN_VALUE, valueToClick))).click();
     }
 }
