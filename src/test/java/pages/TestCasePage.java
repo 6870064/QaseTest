@@ -1,10 +1,15 @@
 package pages;
 
+import elements.CustomInput;
 import elements.Dropdown;
 import elements.Input;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
@@ -14,15 +19,19 @@ public class TestCasePage extends BasePage {
 
     public static final By CREATE_FIRST_CASE_BUTTON = By.xpath("//*[text()='Create new case']");
     public static final By CREATE_CASE_BUTTON = By.id("create-case-button");
-    public static final By ADD_STEP_BUTTON = By.xpath("//div[@class='btn btn-invisible after-step b-0 p-0']");
+    public static final By ADD_STEP_BUTTON = By.id("add-step");
     public static final By SAVE_BUTTON = By.id("save-case");
 
     public static final By ALL_CASES_CHECKBOX = By.cssSelector("[type='checkbox']");
     public static final By DELETE_CASES_BUTTON = By.xpath("//*[contains(text(),'Delete')]");
     public static final By DELETE_CASES_CONFIRM_BUTTON = By.xpath("//button[text()='Delete']");
+
     String suiteValue = "Test cases without suite";
     String miletonevalue = "Release 3.0";
-
+    int stepsAmount = 10;
+    String stepAction = "Action of the step";
+    String stepInputData = "Step of the test case";
+    String stepExpectedResult = "Expected result of the test case";
 
     public TestCasePage(WebDriver driver) {
         super(driver);
@@ -74,16 +83,7 @@ public class TestCasePage extends BasePage {
         new Input(driver, "Pre-conditions").write(preConditions);
         new Input(driver, "Post-conditions").write(postConditions);
         fileUpload();
-
-        //assertTrue(addStepButtonIsDisplayed(), "Add step button is not displayed");
-
-//    for (int i =0;i<3;i++)  {
-//    driver.findElement(ADD_STEP_BUTTON).click();
-//    driver.findElement(STEPS_ACTION).sendKeys(step);
-//    driver.findElement(STEPS_INPUT_DATA).sendKeys(step);
-//    driver.findElement(STEPS_EXPECTED_RESULT).sendKeys(step);
-//    }
-
+        addSteps();
         driver.findElement(SAVE_BUTTON).click();
     }
 
@@ -93,5 +93,22 @@ public class TestCasePage extends BasePage {
         checkBoxes.get(1).click();
         driver.findElement(DELETE_CASES_BUTTON).click();
         driver.findElement(DELETE_CASES_CONFIRM_BUTTON).click();
+    }
+
+    public void addSteps() {  //Метод по добавлению шагов в тест-кейс испольуя CustomInput
+
+        WebDriverWait wait = new WebDriverWait(driver, 3); //Element is not clickable at point - решение проблемы
+        // кнопка addStep не видна/скрыта другими элементами
+        JavascriptExecutor js = ((JavascriptExecutor) driver);
+        WebElement element = driver.findElement(ADD_STEP_BUTTON); //scrolling
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
+        wait.until(ExpectedConditions.elementToBeClickable(ADD_STEP_BUTTON)); //clickable
+
+        for (int i = 0; i<=stepsAmount; i++){
+            driver.findElement(ADD_STEP_BUTTON).click();
+            new CustomInput(driver, "action",Integer.toString(i)).write(stepAction);
+            new CustomInput(driver, "data",Integer.toString(i)).write(stepInputData);
+            new CustomInput(driver, "expected_result",Integer.toString(i)).write(stepExpectedResult);
+        }
     }
 }
