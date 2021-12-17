@@ -8,7 +8,6 @@ import static org.testng.Assert.assertTrue;
 public class ProjectTest extends BaseTest {
 
     String projectName = "Test project bla bla bla 999";
-    //String projectCode = "bla bla bla 999";
     String projectDescription = "Test description of the Test project with the title № 35. The best test project written on JAVA.";
 
     @Test

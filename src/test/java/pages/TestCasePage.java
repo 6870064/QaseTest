@@ -22,6 +22,7 @@ public class TestCasePage extends BasePage {
     public static final By SAVE_BUTTON = By.id("save-case");
     public static final By ALL_CASES_CHECKBOX = By.cssSelector("[type='checkbox']");
     public static final By DELETE_CASES_BUTTON = By.xpath("//*[contains(text(),'Delete')]");
+    public static final By CONFIRM_DELETE_FIELD = By.xpath("//input[@class='form-control'][@name='confirm']");
     public static final By DELETE_CASES_CONFIRM_BUTTON = By.xpath("//button[text()='Delete']");
 
     public TestCasePage(WebDriver driver) {
@@ -79,11 +80,12 @@ public class TestCasePage extends BasePage {
     driver.findElement(SAVE_BUTTON).click();
     }
 
-    public void deleteAllTestCases() {
+    public void deleteAllTestCases(String text) {
         List<WebElement> checkBoxes = driver.findElements(ALL_CASES_CHECKBOX);
         assertFalse(checkBoxes.get(1).isSelected(), "Первый чекбокс не выбран");
-        checkBoxes.get(1).click();
+        checkBoxes.get(0).click();
         driver.findElement(DELETE_CASES_BUTTON).click();
+        driver.findElement(CONFIRM_DELETE_FIELD).sendKeys(text);
         driver.findElement(DELETE_CASES_CONFIRM_BUTTON).click();
     }
 

@@ -15,7 +15,19 @@ public class DefectTest extends BaseTest {
     String fileName = "152360.jpeg";
 
     @Test
-    public void createNewDefect() {
+    public void createNewDefectWithoutAttachment() {
+        loginPage.pageOpen();
+        assertTrue(loginPage.isPageOpened(), "Login page is not opened");
+        loginPage.login(USER_LOGIN, USER_PASSWORD);
+        assertTrue(homePage.isPageOpened(), "Home Page is not opened");
+        projectPage.projectOpen();
+        defectPage.newDefectCreated(defectTitle, actualResult, milestoneValueToClick, assigneeValueToClick);
+        defectPage.createDefectButtonClick();
+        assertTrue(defectPage.isPageOpened(), "Defects page is not opened");
+    }
+
+    @Test
+    public void createNewDefectWithAttachment() {
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
         loginPage.login(USER_LOGIN, USER_PASSWORD);

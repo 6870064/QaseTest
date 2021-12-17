@@ -7,10 +7,9 @@ import static org.testng.Assert.assertTrue;
 
 public class TestCaseTest extends BaseTest {
 
-    String firstTestCaseTitle = "Test case title 12/14";
     String testCaseTitle = "The test case with picture";
     String testCaseDescription = "Description of the new test case title";
-    String miletonevalue = "Release 3.0";
+    String milestonevalue = "Release 3.0";
     String preConditions = "Pre-conditions of the test case";
     String postConditions = "Post-conditions of the test case";
     String suiteValue = "Test cases without suite";
@@ -20,6 +19,7 @@ public class TestCaseTest extends BaseTest {
     int amountOfSteps = 10;
     String filePath = "src/test/resources/152360.jpeg";
     String fileName = "152360.jpeg";
+    String confirmText = "CONFIRM";
 
     @Test
     public void createFirstTestCaseWithFile() {
@@ -30,7 +30,7 @@ public class TestCaseTest extends BaseTest {
         testCasePage.projectOpen();
         assertTrue(testCasePage.addFirstCaseButtonIsDisplayed(), "Repository page is not opened");
         testCasePage.createFirstTestCaseButtonClick();
-        testCasePage.createTestCase(testCaseTitle, testCaseDescription, suiteValue, miletonevalue, preConditions, postConditions);
+        testCasePage.createTestCase(testCaseTitle, testCaseDescription, suiteValue, milestonevalue, preConditions, postConditions);
         defectPage.fileUpload(filePath, fileName);
         testCasePage.saveButtonClick();
         assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is opened");
@@ -45,7 +45,7 @@ public class TestCaseTest extends BaseTest {
         testCasePage.projectOpen();
         assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
         testCasePage.createTestCaseButtonClick();
-        testCasePage.createTestCase(testCaseTitle, testCaseDescription, suiteValue, miletonevalue, preConditions, postConditions);
+        testCasePage.createTestCase(testCaseTitle, testCaseDescription, suiteValue, milestonevalue, preConditions, postConditions);
         testCasePage.saveButtonClick();
         assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
     }
@@ -59,7 +59,7 @@ public class TestCaseTest extends BaseTest {
         testCasePage.projectOpen();
         assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
         testCasePage.createTestCaseButtonClick();
-        testCasePage.createTestCase(testCaseTitle, testCaseDescription, suiteValue, miletonevalue, preConditions, postConditions);
+        testCasePage.createTestCase(testCaseTitle, testCaseDescription, suiteValue, milestonevalue, preConditions, postConditions);
         testCasePage.addStep(0,stepAction, stepInputData, stepExpectedResult);
         testCasePage.saveButtonClick();
         assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
@@ -74,7 +74,7 @@ public class TestCaseTest extends BaseTest {
         testCasePage.projectOpen();
         assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
         testCasePage.createTestCaseButtonClick();
-        testCasePage.createTestCase(testCaseTitle, testCaseDescription, suiteValue, miletonevalue, preConditions, postConditions);
+        testCasePage.createTestCase(testCaseTitle, testCaseDescription, suiteValue, milestonevalue, preConditions, postConditions);
         defectPage.fileUpload(filePath, fileName);
         testCasePage.addStep(0,stepAction, stepInputData, stepExpectedResult);
         testCasePage.saveButtonClick();
@@ -90,17 +90,14 @@ public class TestCaseTest extends BaseTest {
         testCasePage.projectOpen();
         assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
         testCasePage.createTestCaseButtonClick();
-        testCasePage.createTestCase(testCaseTitle, testCaseDescription, suiteValue, miletonevalue, preConditions, postConditions);
+        testCasePage.createTestCase(testCaseTitle, testCaseDescription, suiteValue, milestonevalue, preConditions, postConditions);
         defectPage.fileUpload(filePath, fileName);
-
         for ( int b =0;b<amountOfSteps;b++){ //Добавление 10 шагов в тест-кейс
         testCasePage.addStep(b, stepAction, stepInputData, stepExpectedResult);
         }
-
         testCasePage.saveButtonClick();
         assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
     }
-
 
     @Test
     public void deleteAllTestCases() {
@@ -110,7 +107,7 @@ public class TestCaseTest extends BaseTest {
         assertTrue(homePage.isPageOpened(), "Home Page is not opened");
         testCasePage.projectOpen();
         assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
-        testCasePage.deleteAllTestCases();
+        testCasePage.deleteAllTestCases(confirmText);
         assertTrue(testCasePage.addFirstCaseButtonIsDisplayed(), "Repository page is not opened");
     }
 }
