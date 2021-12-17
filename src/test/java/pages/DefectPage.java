@@ -12,9 +12,6 @@ public class DefectPage extends BasePage {
     public static final By CREATE_NEW_DEFECT_BUTTON = By.xpath("//*[text()='Create new defect']");
     public static final By CREATE_DEFECT_BUTTON = By.xpath("//button[@class='btn btn-primary me-3 save-button']");
 
-    String milestoneValueToClick = "Release 3.0";
-    String assigneeValueToClick = "Dmitry Vyacheslavov";
-
     public DefectPage(WebDriver driver) {
         super(driver);
     }
@@ -29,15 +26,17 @@ public class DefectPage extends BasePage {
         return false;
     }
 
-    public void newDefectCreated(String defectTitle, String actualResult) {
+    public void newDefectCreated(String defectTitle, String actualResult, String mileStoneValue, String assigneeValueToClick) {
         driver.findElement(DEFECTS_BUTTON).click();
         driver.findElement(CREATE_NEW_DEFECT_BUTTON).click();
         new Input(driver, "Defect title").write(defectTitle);
         new Input(driver, "Actual result").write(actualResult);
-        new Dropdown(driver, "Milestone", "Not set", milestoneValueToClick).dropDownClick();
+        new Dropdown(driver, "Milestone", "Not set", mileStoneValue).dropDownClick();
         new Dropdown(driver, "Severity", "Normal", "Blocker").dropDownClick();
         new CustomDropdown(driver, "Assignee", "Unassigned", assigneeValueToClick).dropDownClick();
-        fileUpload();
-        driver.findElement(CREATE_DEFECT_BUTTON).click();
+    }
+
+    public void createDefectButtonClick(){
+    driver.findElement(CREATE_DEFECT_BUTTON).click();
     }
 }

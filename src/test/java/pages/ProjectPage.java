@@ -35,9 +35,9 @@ public class ProjectPage extends BasePage {
         driver.findElement(CREATE_NEW_PROJECT_BUTTON).click();
     }
 
-    public void createNewProject() {
+    public void createNewProject(String projectName, String projectDescription) {
         new Input(driver, "Project name").write(projectName);
-        driver.findElement(PROJECT_CODE_FILED).sendKeys(projectCode);
+        //driver.findElement(PROJECT_CODE_FILED).sendKeys(projectCode);
         driver.findElement(PROJECT_DESCRIPTION_FIELD).sendKeys(projectDescription);
         driver.findElement(PROJECT_PUBLIC_ACCESS_RADIOBUTTON).click();
         driver.findElement(CREATE_PROJECT_BUTTON).click();

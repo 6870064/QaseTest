@@ -46,7 +46,6 @@ public abstract class BaseTest {
         testCasePage = new TestCasePage(driver);
         testPlanPage = new TestPlanPage(driver);
         testRunPage = new TestRunPage(driver);
-
     }
 
     @AfterMethod(alwaysRun = true)
@@ -54,6 +53,3 @@ public abstract class BaseTest {
         driver.quit();
     }
 }
-
-// ProseMirror input text selenium
-//wrapper selenium  обертки над элементами selenium

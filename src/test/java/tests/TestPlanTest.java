@@ -7,8 +7,8 @@ import static org.testng.Assert.assertTrue;
 
 public class TestPlanTest extends BaseTest {
 
-    public static final String testPlanTitle = "Test plan for regression testing #1";
-    public static final String testPlanDescription = "Description for regression testing Test plan for #1";
+    String testPlanTitle = "Test plan for regression testing #1";
+    String testPlanDescription = "Description for regression testing Test plan for #1";
 
     @Test
     public void createTestPlan() {

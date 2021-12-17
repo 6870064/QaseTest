@@ -7,7 +7,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -21,17 +20,9 @@ public class TestCasePage extends BasePage {
     public static final By CREATE_CASE_BUTTON = By.id("create-case-button");
     public static final By ADD_STEP_BUTTON = By.id("add-step");
     public static final By SAVE_BUTTON = By.id("save-case");
-
     public static final By ALL_CASES_CHECKBOX = By.cssSelector("[type='checkbox']");
     public static final By DELETE_CASES_BUTTON = By.xpath("//*[contains(text(),'Delete')]");
     public static final By DELETE_CASES_CONFIRM_BUTTON = By.xpath("//button[text()='Delete']");
-
-    String suiteValue = "Test cases without suite";
-    String miletonevalue = "Release 3.0";
-    int stepsAmount = 10;
-    String stepAction = "Action of the step";
-    String stepInputData = "Step of the test case";
-    String stepExpectedResult = "Expected result of the test case";
 
     public TestCasePage(WebDriver driver) {
         super(driver);
@@ -67,7 +58,7 @@ public class TestCasePage extends BasePage {
         driver.findElement(CREATE_CASE_BUTTON).click();
     }
 
-    public void createTestCase(String testCaseTitle, String testCaseDescription, String preConditions, String postConditions) {
+    public void createTestCase(String testCaseTitle, String testCaseDescription, String suiteValue, String milestoneValue, String preConditions, String postConditions) {
         new Input(driver, "Title").write(testCaseTitle);
         new Dropdown(driver, "Status", "Actual", "Draft").dropDownClick();
         new Input(driver, "Description").write(testCaseDescription);
@@ -77,14 +68,15 @@ public class TestCasePage extends BasePage {
         new Dropdown(driver, "Type", "Other", "Functional").dropDownClick();
         new Dropdown(driver, "Layer", "Unknown", "E2E").dropDownClick();
         new Dropdown(driver, "Is Flaky", "No", "Yes").dropDownClick();
-        new Dropdown(driver, "Milestone", "Not set", miletonevalue).dropDownClick();
+        new Dropdown(driver, "Milestone", "Not set", milestoneValue).dropDownClick();
         new Dropdown(driver, "Behavior", "Not set", "Positive").dropDownClick();
         new Dropdown(driver, "Automation status", "Not automated", "To be automated").dropDownClick();
         new Input(driver, "Pre-conditions").write(preConditions);
         new Input(driver, "Post-conditions").write(postConditions);
-        fileUpload();
-        addSteps();
-        driver.findElement(SAVE_BUTTON).click();
+    }
+
+    public void saveButtonClick(){
+    driver.findElement(SAVE_BUTTON).click();
     }
 
     public void deleteAllTestCases() {
@@ -95,7 +87,7 @@ public class TestCasePage extends BasePage {
         driver.findElement(DELETE_CASES_CONFIRM_BUTTON).click();
     }
 
-    public void addSteps() {  //Метод по добавлению шагов в тест-кейс испольуя CustomInput
+    public void addStep(int i, String action, String inputData, String expectedResult) {  //Метод по добавлению шагов в тест-кейс испольуя CustomInput
 
         WebDriverWait wait = new WebDriverWait(driver, 3); //Element is not clickable at point - решение проблемы
         // кнопка addStep не видна/скрыта другими элементами
@@ -104,11 +96,11 @@ public class TestCasePage extends BasePage {
         js.executeScript("arguments[0].scrollIntoView(true);", element);
         wait.until(ExpectedConditions.elementToBeClickable(ADD_STEP_BUTTON)); //clickable
 
-        for (int i = 0; i<=stepsAmount; i++){
+
             driver.findElement(ADD_STEP_BUTTON).click();
-            new CustomInput(driver, "action",Integer.toString(i)).write(stepAction);
-            new CustomInput(driver, "data",Integer.toString(i)).write(stepInputData);
-            new CustomInput(driver, "expected_result",Integer.toString(i)).write(stepExpectedResult);
-        }
+            int a = i+1;
+            new CustomInput(driver, "action",Integer.toString(i)).write(action + a);
+            new CustomInput(driver, "data",Integer.toString(i)).write(inputData + a);
+            new CustomInput(driver, "expected_result",Integer.toString(i)).write(expectedResult + a);
     }
 }
