@@ -30,7 +30,7 @@ public abstract class BaseTest {
         WebDriverManager.chromedriver().setup();
         //System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
         ChromeOptions chromeOptions = new ChromeOptions();
-        //chromeOptions.addArguments("--kiosk");
+      //  chromeOptions.addArguments("--kiosk");
         driver = new ChromeDriver(chromeOptions);
         //ChromeOptions options = new ChromeOptions();
         //options.addArguments("--start-maximized");
@@ -46,7 +46,6 @@ public abstract class BaseTest {
         testCasePage = new TestCasePage(driver);
         testPlanPage = new TestPlanPage(driver);
         testRunPage = new TestRunPage(driver);
-
     }
 
     @AfterMethod(alwaysRun = true)
@@ -54,6 +53,3 @@ public abstract class BaseTest {
         driver.quit();
     }
 }
-
-// ProseMirror input text selenium
-//wrapper selenium  обертки над элементами selenium

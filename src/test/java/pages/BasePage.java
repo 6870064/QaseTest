@@ -13,7 +13,6 @@ import static pages.ProjectPage.PROJECT_URL;
 
 public abstract class BasePage {
     public static final String BASE_URL = "https://app.qase.io/login";
-    public static final String FILE_PATH = "src/test/resources/152360.jpeg";
     public static final By ADD_ATTACHMENT_BUTTON = By.xpath("//button[text()=' Add attachment']");
     public static final By DROP_FILES_AREA = By.xpath("//input[@class='dz-hidden-input']");
     public static final By UPLOADED_FILE = By.xpath("//div//p[@class='suitecase-attachment-filename']");
@@ -45,9 +44,9 @@ public abstract class BasePage {
         }
     }
 
-    public void fileUpload() {
+    public void fileUpload(String filePath, String fileName) {
         driver.findElement(ADD_ATTACHMENT_BUTTON).click();
-        File file = new File(FILE_PATH);
+        File file = new File(filePath);
 
         WebElement input_field = driver.findElement(DROP_FILES_AREA);
         input_field.sendKeys(file.getAbsolutePath());
@@ -55,7 +54,7 @@ public abstract class BasePage {
         WebDriverWait wait = new WebDriverWait(driver, 5);
         String titleOfFile = driver.findElement(UPLOADED_FILE).getText();
 
-        assertEquals(titleOfFile, "152360.jpeg", "Title of the uploaded file is not equal"); //Проверить, что имя файла
+        assertEquals(titleOfFile, fileName, "Title of the uploaded file is not equal"); //Проверить, что имя файла
         // на странице совпадает с именем загруженного файла
     }
 }

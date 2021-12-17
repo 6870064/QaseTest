@@ -6,7 +6,10 @@ import static org.testng.Assert.assertTrue;
 
 
 public class testRunTest extends BaseTest {
-    public static final String testRunTitle = "Test run 333 description";
+    String testRunTitle = "Test run 333 description";
+    String planValue = "Test plan for regression testing #1";
+    String milestoneValue = "Release 3.0";
+    String assigneeValueToClick = "Dmitry Vyacheslavov";
 
     @Test
     public void createTestRun() {
@@ -16,7 +19,7 @@ public class testRunTest extends BaseTest {
         assertTrue(homePage.isPageOpened(), "Home Page is not opened");
         testPlanPage.projectOpen();
         assertTrue(testRunPage.createTestRunButtonIsDisplayed(), "Test run page is not opened");
-        testRunPage.createTestRun(testRunTitle);
+        testRunPage.createTestRun(testRunTitle, planValue, milestoneValue, assigneeValueToClick);
         assertTrue(testRunPage.createTestRunButtonIsDisplayed(), "Test run page is not opened");
     }
 }
