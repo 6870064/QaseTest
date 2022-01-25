@@ -29,20 +29,20 @@ public class TestRunPage extends BasePage {
         return false;
     }
 
-    public boolean createTestRunButtonIsDisplayed(){
+    public boolean createTestRunButtonIsDisplayed() {
         return isElementExist(TEST_RUNS_BUTTON);
     }
 
     public void createTestRun(String testRunDescription, String planValue, String milestoneValue, String assigneeValueToClick) {
-    driver.findElement(TEST_RUNS_BUTTON).click();
-    driver.findElement(START_NEW_TEST_RUN_BUTTON).click();
-    new Input(driver, "Description").write(testRunDescription);
-    new Dropdown(driver, "Plan", "Select...", planValue).dropDownClick();
-    new Dropdown(driver, "Milestone", "Not set", milestoneValue).dropDownClick();
-    new CustomDropdown(driver, "Default assignee", "Select...", assigneeValueToClick).dropDownClick();
-    driver.findElement(ADD_CASES_BUTTON).click();
-    driver.findElement(CHECKBOX).click();
-    driver.findElement(DONE_BUTTON).click();
-    driver.findElement(START_RUN_BUTTON).click();
+        driver.findElement(TEST_RUNS_BUTTON).click();
+        driver.findElement(START_NEW_TEST_RUN_BUTTON).click();
+        new Input(driver, "Description").write(testRunDescription);
+        new Dropdown(driver, "Plan", "Select...", planValue).dropDownClick();
+        new Dropdown(driver, "Milestone", "Not set", milestoneValue).dropDownClick();
+        new CustomDropdown(driver, "Default assignee", "Select...", assigneeValueToClick).dropDownClick();
+        driver.findElement(ADD_CASES_BUTTON).click();
+        driver.findElement(CHECKBOX).click();
+        driver.findElement(DONE_BUTTON).click();
+        driver.findElement(START_RUN_BUTTON).click();
     }
 }

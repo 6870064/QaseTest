@@ -59,31 +59,62 @@ public class TestCasePage extends BasePage {
         driver.findElement(CREATE_CASE_BUTTON).click();
     }
 
-    public void createTestCase(String testCaseTitle, String testCaseDescription, String suiteValue, String milestoneValue, String preConditions, String postConditions) {
+    public void enterTestCaseTitle(String testCaseTitle) {
         new Input(driver, "Title").write(testCaseTitle);
-        new Dropdown(driver, "Status", "Actual", "Draft").dropDownClick();
+    }
+
+    public void selectStatus(String testCaseStatus){
+        new Dropdown(driver, "Status", "Actual", testCaseStatus).dropDownClick();
+    }
+
+    public void enterDescription(String testCaseDescription){
         new Input(driver, "Description").write(testCaseDescription);
-        new Dropdown(driver, "Suite", "Test cases without suite", suiteValue).dropDownClick();
-        new Dropdown(driver, "Severity", "Normal", "Blocker").dropDownClick();
-        new Dropdown(driver, "Priority", "Not set", "High").dropDownClick();
-        new Dropdown(driver, "Type", "Other", "Functional").dropDownClick();
-        new Dropdown(driver, "Layer", "Unknown", "E2E").dropDownClick();
-        new Dropdown(driver, "Is Flaky", "No", "Yes").dropDownClick();
-        new Dropdown(driver, "Milestone", "Not set", milestoneValue).dropDownClick();
-        new Dropdown(driver, "Behavior", "Not set", "Positive").dropDownClick();
-        new Dropdown(driver, "Automation status", "Not automated", "To be automated").dropDownClick();
+    }
+
+    public void selectSeverity(String testCaseSeverity){
+        new Dropdown(driver, "Severity", "Normal", testCaseSeverity).dropDownClick();
+    }
+
+    public void selectPriority(String testCasePriority){
+        new Dropdown(driver, "Priority", "Not set", testCasePriority).dropDownClick();
+    }
+
+    public void selectType(String testCaseType) {
+        new Dropdown(driver, "Type", "Other", testCaseType).dropDownClick();
+    }
+
+    public void selectLayer(String testCaseLayer) {
+        new Dropdown(driver, "Layer", "Unknown", testCaseLayer).dropDownClick();
+    }
+
+    public void selectIsFlaky(String testCaseIsFlaky) {
+        new Dropdown(driver, "Is Flaky", "No", testCaseIsFlaky).dropDownClick();
+    }
+
+    public void selectBehavior(String testCaseBehavior) {
+        new Dropdown(driver, "Behavior", "Not set", testCaseBehavior).dropDownClick();
+    }
+
+    public void selectAutomationStatus(String testCaseAutoStatus) {
+        new Dropdown(driver, "Automation status", "Not automated", testCaseAutoStatus).dropDownClick();
+    }
+
+    public void enterPreConditions(String preConditions) {
         new Input(driver, "Pre-conditions").write(preConditions);
+    }
+
+    public void enterPostConditions(String postConditions) {
         new Input(driver, "Post-conditions").write(postConditions);
     }
 
-    public void saveButtonClick(){
-    driver.findElement(SAVE_BUTTON).click();
+    public void saveButtonClick() {
+        driver.findElement(SAVE_BUTTON).click();
     }
 
     public void deleteAllTestCases(String text) {
         List<WebElement> checkBoxes = driver.findElements(ALL_CASES_CHECKBOX);
         assertFalse(checkBoxes.get(1).isSelected(), "Первый чекбокс не выбран");
-        checkBoxes.get(0).click();
+        checkBoxes.get(1).click();
         driver.findElement(DELETE_CASES_BUTTON).click();
         driver.findElement(CONFIRM_DELETE_FIELD).sendKeys(text);
         driver.findElement(DELETE_CASES_CONFIRM_BUTTON).click();
@@ -95,14 +126,13 @@ public class TestCasePage extends BasePage {
         // кнопка addStep не видна/скрыта другими элементами
         JavascriptExecutor js = ((JavascriptExecutor) driver);
         WebElement element = driver.findElement(ADD_STEP_BUTTON); //scrolling
-        js.executeScript("arguments[0].scrollIntoView(true);", element);
+        js.executeScript("arguments[0].scrollIntoView();", element);
         wait.until(ExpectedConditions.elementToBeClickable(ADD_STEP_BUTTON)); //clickable
 
-
-            driver.findElement(ADD_STEP_BUTTON).click();
-            int a = i+1;
-            new CustomInput(driver, "action",Integer.toString(i)).write(action + a);
-            new CustomInput(driver, "data",Integer.toString(i)).write(inputData + a);
-            new CustomInput(driver, "expected_result",Integer.toString(i)).write(expectedResult + a);
+        driver.findElement(ADD_STEP_BUTTON).click();
+        int a = i + 1;
+        new CustomInput(driver, "action", Integer.toString(i)).write(action + a);
+        new CustomInput(driver, "data", Integer.toString(i)).write(inputData + a);
+        new CustomInput(driver, "expected_result", Integer.toString(i)).write(expectedResult + a);
     }
 }

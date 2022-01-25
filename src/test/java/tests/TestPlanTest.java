@@ -1,6 +1,7 @@
 package tests;
 
 import org.testng.annotations.Test;
+import tests.base.Retry;
 
 import static org.testng.Assert.assertTrue;
 
@@ -10,7 +11,7 @@ public class TestPlanTest extends BaseTest {
     String testPlanTitle = "Test plan for regression testing #1";
     String testPlanDescription = "Description for regression testing Test plan for #1";
 
-    @Test
+    @Test (description = "Creation test plan")
     public void createTestPlan() {
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");

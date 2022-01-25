@@ -16,7 +16,7 @@ public class MilestonePage extends BasePage {
         super(driver);
     }
 
-    public void projectOpen(){
+    public void projectOpen() {
         driver.get(PROJECT_URL);
     }
 
@@ -30,11 +30,25 @@ public class MilestonePage extends BasePage {
         return false;
     }
 
-    public void newMilestoneCreated(String releaseTitle, String releaseDescription){
-    driver.findElement(MILESTONES_DEFECTS).click();
-    driver.findElement(CREATE_MILESTONE_BUTTON).click();
-    new Input(driver, "Milestone name").write(releaseTitle);
-    new Input(driver, "Description").write(releaseDescription);
-    driver.findElement(CREATE_NEW_MILESTONE_BUTTON).click();
+
+    public void MilestoneDefectsClick() {
+        driver.findElement(MILESTONES_DEFECTS).click();
     }
+
+    public void CreateMilestoneButtonClick() {
+        driver.findElement(CREATE_MILESTONE_BUTTON).click();
+    }
+
+    public void EnterMilestoneName(String releaseTitle) {
+        new Input(driver, "Milestone name").write(releaseTitle);
+    }
+
+    public void EnterMilestoneDescription(String releaseDescription) {
+        new Input(driver, "Description").write(releaseDescription);
+    }
+
+    public void CreateNewMilestoneButtonClick() {
+        driver.findElement(CREATE_NEW_MILESTONE_BUTTON).click();
+    }
+
 }

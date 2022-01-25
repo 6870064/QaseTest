@@ -4,13 +4,18 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.*;
 import pages.*;
+import tests.base.TestListener;
 
 import java.util.concurrent.TimeUnit;
 
+@Listeners(TestListener.class)
 public abstract class BaseTest {
+
+    public static final String USER_LOGIN = "6870064@gmail.com";
+    public static final String USER_PASSWORD = "qwe1122qwe";
 
     WebDriver driver;
     LoginPage loginPage;
@@ -22,21 +27,26 @@ public abstract class BaseTest {
     TestPlanPage testPlanPage;
     TestRunPage testRunPage;
 
-    public static final String USER_LOGIN = "6870064@gmail.com";
-    public static final String USER_PASSWORD = "qwe1122qwe";
 
+    @Parameters({"browser"})
     @BeforeMethod
-    public void setUp() {
-        WebDriverManager.chromedriver().setup();
-        //System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
-        ChromeOptions chromeOptions = new ChromeOptions();
-      //  chromeOptions.addArguments("--kiosk");
-        driver = new ChromeDriver(chromeOptions);
-        //ChromeOptions options = new ChromeOptions();
-        //options.addArguments("--start-maximized");
-        //driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);//Неявные ожидания
-        driver.manage().window().maximize();
+    public void setUp(@Optional("chrome") String browser) {
+
+        if (browser.equals("chrome")) {
+            WebDriverManager.chromedriver().setup();
+            //System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
+            ChromeOptions chromeOptions = new ChromeOptions();
+            //  chromeOptions.addArguments("--kiosk");
+            driver = new ChromeDriver(chromeOptions);
+            //ChromeOptions options = new ChromeOptions();
+            //options.addArguments("--start-maximized");
+            //driver = new ChromeDriver(options);
+            driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);//Неявные ожидания
+            driver.manage().window().maximize();
+        } else if (browser.equals("firefox")) {
+            WebDriverManager.firefoxdriver().setup();
+            driver = new FirefoxDriver();
+        }
 
         loginPage = new LoginPage(driver); // и перечислять все последующие Pages так же туть
         homePage = new HomePage(driver);

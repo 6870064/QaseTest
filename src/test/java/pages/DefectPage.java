@@ -26,17 +26,35 @@ public class DefectPage extends BasePage {
         return false;
     }
 
-    public void newDefectCreated(String defectTitle, String actualResult, String mileStoneValue, String assigneeValueToClick) {
+    public void defectsButtonClick(){
         driver.findElement(DEFECTS_BUTTON).click();
+    }
+
+    public void createNewDefectButton(){
         driver.findElement(CREATE_NEW_DEFECT_BUTTON).click();
+    }
+
+    public void enterDefectTitle(String defectTitle) {
         new Input(driver, "Defect title").write(defectTitle);
+    }
+
+    public void enterActualResult(String actualResult) {
         new Input(driver, "Actual result").write(actualResult);
+    }
+
+    public void milestoneValueSelect(String mileStoneValue) {
         new Dropdown(driver, "Milestone", "Not set", mileStoneValue).dropDownClick();
-        new Dropdown(driver, "Severity", "Normal", "Blocker").dropDownClick();
+    }
+
+    public void severitySelect(String severityValue) {
+        new Dropdown(driver, "Severity", "Normal", severityValue).dropDownClick();
+    }
+
+    public void assigneeValueSelect(String assigneeValueToClick) {
         new CustomDropdown(driver, "Assignee", "Unassigned", assigneeValueToClick).dropDownClick();
     }
 
-    public void createDefectButtonClick(){
-    driver.findElement(CREATE_DEFECT_BUTTON).click();
+    public void createDefectButtonClick() {
+        driver.findElement(CREATE_DEFECT_BUTTON).click();
     }
 }
