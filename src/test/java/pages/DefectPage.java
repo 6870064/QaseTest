@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 
 public class DefectPage extends BasePage {
 
-    public static final By DEFECTS_BUTTON = By.id("menu-link-test-defects");
+    public static final By DEFECTS_SUBMENU = By.id("menu-link-test-defects");
     public static final By CREATE_NEW_DEFECT_BUTTON = By.xpath("//*[text()='Create new defect']");
     public static final By CREATE_DEFECT_BUTTON = By.xpath("//button[@class='btn btn-primary me-3 save-button']");
 
@@ -27,7 +27,7 @@ public class DefectPage extends BasePage {
     }
 
     public void defectsButtonClick(){
-        driver.findElement(DEFECTS_BUTTON).click();
+        driver.findElement(DEFECTS_SUBMENU).click();
     }
 
     public void createNewDefectButton(){

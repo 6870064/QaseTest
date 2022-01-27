@@ -10,17 +10,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.List;
-
-import static org.testng.Assert.assertFalse;
-
 public class TestCasePage extends BasePage {
 
     public static final By CREATE_FIRST_CASE_BUTTON = By.xpath("//*[text()='Create new case']");
     public static final By CREATE_CASE_BUTTON = By.id("create-case-button");
     public static final By ADD_STEP_BUTTON = By.id("add-step");
     public static final By SAVE_BUTTON = By.id("save-case");
-    public static final By ALL_CASES_CHECKBOX = By.cssSelector("[type='checkbox']");
+    public static final By ALL_CASES_CHECKBOX = By.xpath("//label[@class='style_checkbox-tLOSg style_checkbox-1ztec style_inHeader-18FWp']");
     public static final By DELETE_CASES_BUTTON = By.xpath("//*[contains(text(),'Delete')]");
     public static final By CONFIRM_DELETE_FIELD = By.xpath("//input[@class='form-control'][@name='confirm']");
     public static final By DELETE_CASES_CONFIRM_BUTTON = By.xpath("//button[text()='Delete']");
@@ -63,19 +59,19 @@ public class TestCasePage extends BasePage {
         new Input(driver, "Title").write(testCaseTitle);
     }
 
-    public void selectStatus(String testCaseStatus){
+    public void selectStatus(String testCaseStatus) {
         new Dropdown(driver, "Status", "Actual", testCaseStatus).dropDownClick();
     }
 
-    public void enterDescription(String testCaseDescription){
+    public void enterDescription(String testCaseDescription) {
         new Input(driver, "Description").write(testCaseDescription);
     }
 
-    public void selectSeverity(String testCaseSeverity){
+    public void selectSeverity(String testCaseSeverity) {
         new Dropdown(driver, "Severity", "Normal", testCaseSeverity).dropDownClick();
     }
 
-    public void selectPriority(String testCasePriority){
+    public void selectPriority(String testCasePriority) {
         new Dropdown(driver, "Priority", "Not set", testCasePriority).dropDownClick();
     }
 
@@ -111,12 +107,19 @@ public class TestCasePage extends BasePage {
         driver.findElement(SAVE_BUTTON).click();
     }
 
-    public void deleteAllTestCases(String text) {
-        List<WebElement> checkBoxes = driver.findElements(ALL_CASES_CHECKBOX);
-        assertFalse(checkBoxes.get(1).isSelected(), "Первый чекбокс не выбран");
-        checkBoxes.get(1).click();
+    public void allCasesCheckBoxClick() {
+        driver.findElement(ALL_CASES_CHECKBOX).click();
+    }
+
+    public void deleteCasesButtonClick() {
         driver.findElement(DELETE_CASES_BUTTON).click();
+    }
+
+    public void enterTextConfirmDeleteField(String text) {
         driver.findElement(CONFIRM_DELETE_FIELD).sendKeys(text);
+    }
+
+    public void deleteCasesConfirmButtonClick() {
         driver.findElement(DELETE_CASES_CONFIRM_BUTTON).click();
     }
 
@@ -127,9 +130,9 @@ public class TestCasePage extends BasePage {
         JavascriptExecutor js = ((JavascriptExecutor) driver);
         WebElement element = driver.findElement(ADD_STEP_BUTTON); //scrolling
         js.executeScript("arguments[0].scrollIntoView();", element);
-        wait.until(ExpectedConditions.elementToBeClickable(ADD_STEP_BUTTON)); //clickable
+        wait.until(ExpectedConditions.elementToBeClickable(element)); //clickable
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click()", element);
 
-        driver.findElement(ADD_STEP_BUTTON).click();
         int a = i + 1;
         new CustomInput(driver, "action", Integer.toString(i)).write(action + a);
         new CustomInput(driver, "data", Integer.toString(i)).write(inputData + a);

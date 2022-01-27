@@ -8,7 +8,7 @@ import static pages.ProjectPage.PROJECT_URL;
 
 public class MilestonePage extends BasePage {
 
-    public static final By MILESTONES_DEFECTS = By.xpath("//*[text()='Milestones']");
+    public static final By MILESTONES_SUBMENU = By.xpath("//*[text()='Milestones']");
     public static final By CREATE_MILESTONE_BUTTON = By.id("createButton");
     public static final By CREATE_NEW_MILESTONE_BUTTON = By.xpath("//button[@class='btn btn-primary me-3 save-button']");
 
@@ -31,8 +31,8 @@ public class MilestonePage extends BasePage {
     }
 
 
-    public void MilestoneDefectsClick() {
-        driver.findElement(MILESTONES_DEFECTS).click();
+    public void MilestoneSubmenuClick() {
+        driver.findElement(MILESTONES_SUBMENU).click();
     }
 
     public void CreateMilestoneButtonClick() {

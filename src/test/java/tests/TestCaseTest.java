@@ -29,7 +29,7 @@ public class TestCaseTest extends BaseTest {
     String fileName = "152360.jpeg";
     String confirmText = "CONFIRM";
 
-    @Test (description = "Creation of the test case without adding conditions and the steps")
+    @Test(description = "Creation of the test case without adding conditions and the steps")
     public void createTestCaseWithoutConditionsAndSteps() { //Pass
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
@@ -52,8 +52,8 @@ public class TestCaseTest extends BaseTest {
         assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
     }
 
-    @Test (description = "Creation of the test case with adding Pre-Conditions and 1 step")
-    public void createTestCaseWithOneStep() { //Fails
+    @Test(description = "Creation of the test case with adding Pre-Conditions and 1 step")
+    public void createTestCaseWithOneStep() { //Pass
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
         loginPage.login(USER_LOGIN, USER_PASSWORD);
@@ -81,7 +81,7 @@ public class TestCaseTest extends BaseTest {
         assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
     }
 
-    @Test (description = "Creation of the test case with adding Pre-Conditions, Post-Conditions and 1 step")
+    @Test(description = "Creation of the test case with adding Pre-Conditions, Post-Conditions and 1 step")
     public void createTestCaseWithConditionsOneStep() {  //Pass
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
@@ -107,8 +107,8 @@ public class TestCaseTest extends BaseTest {
         assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
     }
 
-    @Test (description = "Creation of the test case with adding Pre-Conditions, Post-Conditions and 10 steps without attachment")
-    public void createTestCaseWithTenSteps() { //Fails
+    @Test(description = "Creation of the test case with adding Pre-Conditions, Post-Conditions and 10 steps without attachment")
+    public void createTestCaseWithTenSteps() { //Pass
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
         loginPage.login(USER_LOGIN, USER_PASSWORD);
@@ -136,7 +136,7 @@ public class TestCaseTest extends BaseTest {
         assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
     }
 
-    @Test (description = "Creation of the test case with adding 1 step and attachment")
+    @Test(description = "Creation of the test case with adding 1 step and attachment")
     public void createTestCaseWithFileAndOneStep() {
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
@@ -161,7 +161,7 @@ public class TestCaseTest extends BaseTest {
         assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
     }
 
-    @Test (description = "Creation of the test case with adding 10 step and attachment")
+    @Test(description = "Creation of the test case with adding 10 step and attachment")
     public void createTestCaseWithFileAndTenSteps() {
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
@@ -188,7 +188,7 @@ public class TestCaseTest extends BaseTest {
         assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
     }
 
-    @Test (description = "Delete all cases on the project")
+    @Test(description = "Delete all cases on the project")
     public void deleteAllTestCases() {
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
@@ -196,7 +196,25 @@ public class TestCaseTest extends BaseTest {
         assertTrue(homePage.isPageOpened(), "Home Page is not opened");
         testCasePage.projectOpen();
         assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
-        testCasePage.deleteAllTestCases(confirmText);
+
+        testCasePage.createTestCaseButtonClick();
+        testCasePage.enterTestCaseTitle(testCaseTitleWithoutConditions);
+        testCasePage.enterDescription(testCaseDescription);
+        testCasePage.selectStatus(testCaseStatus);
+        testCasePage.selectSeverity(testCaseSeverity);
+        testCasePage.selectPriority(testCasePriority);
+        testCasePage.selectType(testCaseType);
+        testCasePage.selectLayer(testCaseLayer);
+        testCasePage.selectIsFlaky(testCaseIsFlaky);
+        testCasePage.selectBehavior(testCaseBehavior);
+        testCasePage.selectAutomationStatus(testCaseAutoStatus);
+        testCasePage.saveButtonClick();
+        assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
+
+        testCasePage.allCasesCheckBoxClick();
+        testCasePage.deleteCasesButtonClick();
+        testCasePage.enterTextConfirmDeleteField(confirmText);
+        testCasePage.deleteCasesConfirmButtonClick();
         assertTrue(testCasePage.addFirstCaseButtonIsDisplayed(), "Repository page is not opened");
     }
 }

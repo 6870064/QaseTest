@@ -11,7 +11,6 @@ public class DefectTest extends BaseTest {
 
     String defectTitle = "Test Bug title Jan 25 2022";
     String actualResult = "Bug №555 is exist - this is an actual result";
-    String milestoneValueToClick = "Release 3.0";
     String assigneeValueToClick = "Dmitry Vyacheslavov";
     String severityToCheck = "Critical";
     String filePath = "src/test/resources/152360.jpeg";
@@ -64,6 +63,10 @@ public class DefectTest extends BaseTest {
         defectPage.severitySelect(severityToCheck);
         defectPage.assigneeValueSelect(assigneeValueToClick);
         defectPage.fileUpload(filePath, fileName);
+
+        String titleOfFile = driver.findElement(UPLOADED_FILE).getText();
+        assertEquals(titleOfFile, fileName, "Title of the uploaded file is not equal"); //Проверить, что имя файла
+        // на странице совпадает с именем загруженного файла
         defectPage.createDefectButtonClick();
         assertTrue(defectPage.isPageOpened(), "Defects page is not opened");
     }

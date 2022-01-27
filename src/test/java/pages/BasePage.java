@@ -48,9 +48,9 @@ public abstract class BasePage {
         JavascriptExecutor js = ((JavascriptExecutor) driver);
         WebElement element = driver.findElement(ADD_ATTACHMENT_BUTTON); //scrolling
         js.executeScript("arguments[0].scrollIntoView();", element);
-        wait.until(ExpectedConditions.elementToBeClickable(ADD_ATTACHMENT_BUTTON)); //clickable
+        wait.until(ExpectedConditions.elementToBeClickable(element)); //clickable
 
-        driver.findElement(ADD_ATTACHMENT_BUTTON).click();
+        ((JavascriptExecutor)driver).executeScript("arguments[0].click()", element);
 
         File file = new File(filePath);
 
@@ -59,8 +59,6 @@ public abstract class BasePage {
         driver.findElement(DROP_FILES_AREA).sendKeys(file.getAbsolutePath());
         WebDriverWait wait2 = new WebDriverWait(driver, 5);
 
-        String titleOfFile = driver.findElement(UPLOADED_FILE).getText();
-    //    assertEquals(titleOfFile, fileName, "Title of the uploaded file is not equal"); //Проверить, что имя файла
-        // на странице совпадает с именем загруженного файла
+
     }
 }

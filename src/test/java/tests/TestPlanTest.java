@@ -1,13 +1,22 @@
 package tests;
 
 import org.testng.annotations.Test;
-import tests.base.Retry;
 
 import static org.testng.Assert.assertTrue;
 
 
 public class TestPlanTest extends BaseTest {
 
+    String testCaseTitleWithoutConditions = "The test case without picture and Conditions Jan 25 2022";
+    String testCaseDescription = "Description of the new test case title";
+    String testCaseStatus = "Draft";
+    String testCaseSeverity = "Blocker";
+    String testCasePriority = "High";
+    String testCaseLayer = "E2E";
+    String testCaseType = "Functional";
+    String testCaseIsFlaky = "Yes";
+    String testCaseBehavior = "Positive";
+    String testCaseAutoStatus = "To be automated";
     String testPlanTitle = "Test plan for regression testing #1";
     String testPlanDescription = "Description for regression testing Test plan for #1";
 
@@ -18,9 +27,31 @@ public class TestPlanTest extends BaseTest {
         loginPage.login(USER_LOGIN, USER_PASSWORD);
         assertTrue(homePage.isPageOpened(), "Home Page is not opened");
         testPlanPage.projectOpen();
-        assertTrue(testPlanPage.createPlaneButtonIsDisplayed(), "Test plans page is not opened");
-        testPlanPage.createTestPlanClick();
-        testPlanPage.createTestPlan(testPlanTitle, testPlanDescription);
-        assertTrue(testPlanPage.createPlaneButtonIsDisplayed(), "Test plans page is not opened");
+
+        assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
+        testCasePage.createTestCaseButtonClick();
+        testCasePage.enterTestCaseTitle(testCaseTitleWithoutConditions);
+        testCasePage.enterDescription(testCaseDescription);
+        testCasePage.selectStatus(testCaseStatus);
+        testCasePage.selectSeverity(testCaseSeverity);
+        testCasePage.selectPriority(testCasePriority);
+        testCasePage.selectType(testCaseType);
+        testCasePage.selectLayer(testCaseLayer);
+        testCasePage.selectIsFlaky(testCaseIsFlaky);
+        testCasePage.selectBehavior(testCaseBehavior);
+        testCasePage.selectAutomationStatus(testCaseAutoStatus);
+        testCasePage.saveButtonClick();
+        assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
+
+        testPlanPage.testPlansButtonClick();
+        assertTrue(testPlanPage.createPlanButtonIsDisplayed(), "Test plans page is not opened");
+        testPlanPage.createPlanButtonClick();
+        testPlanPage.enterTestPlanTitle(testPlanTitle);
+        testPlanPage.enterTestPlanDescription(testPlanDescription);
+        testPlanPage.addCasesButtonClick();
+        testPlanPage.checkboxSelect();
+        testPlanPage.addCasesDoneButton();
+        testPlanPage.savePlanButtonClick();
+        assertTrue(testPlanPage.createPlanButtonIsDisplayed(), "Test plans page is not opened");
     }
 }

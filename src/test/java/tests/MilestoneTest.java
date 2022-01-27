@@ -1,7 +1,6 @@
 package tests;
 
 import org.testng.annotations.Test;
-import tests.base.Retry;
 
 import static org.testng.Assert.assertTrue;
 
@@ -18,7 +17,7 @@ public class MilestoneTest extends BaseTest {
         loginPage.login(USER_LOGIN, USER_PASSWORD);
         assertTrue(homePage.isPageOpened(), "Home Page is not opened");
         milestonePage.projectOpen();
-        milestonePage.MilestoneDefectsClick();
+        milestonePage.MilestoneSubmenuClick();
         milestonePage.CreateMilestoneButtonClick();
         milestonePage.EnterMilestoneName(milestoneName);
         milestonePage.EnterMilestoneDescription(milestoneDescription);
