@@ -12,7 +12,7 @@ public class ProjectTest extends BaseTest {
     String publicProjectDescription = "Test description of the Test public project with the title №999";
     String privateProjectDescription = "Test description of the Test private project with the title №111";
 
-    @Test (description = "Creation of the new public project")
+    @Test(description = "Creation of the new public project")
     public void createNewPublicProject() {
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
@@ -26,11 +26,10 @@ public class ProjectTest extends BaseTest {
         projectPage.CreateProjectButton();
         String errorText = String.format("New project titled %s is not created", publicProjectName);
         assertTrue(projectPage.isProjectCreated(), errorText);
-        System.out.println(errorText);
     }
 
-    @Test (description = "Creation of the new private project")
-    public void createNewPrivateProject(){
+    @Test(description = "Creation of the new private project")
+    public void createNewPrivateProject() {
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
         loginPage.login(USER_LOGIN, USER_PASSWORD);
@@ -42,6 +41,5 @@ public class ProjectTest extends BaseTest {
         projectPage.CreateProjectButton();
         String errorText = String.format("New project titled %s is not created", privateProjectName);
         assertTrue(projectPage.isProjectCreated(), errorText);
-        System.out.println(errorText);
     }
 }

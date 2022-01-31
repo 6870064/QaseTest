@@ -155,7 +155,8 @@ public class TestCaseTest extends BaseTest {
         testCasePage.selectIsFlaky(testCaseIsFlaky);
         testCasePage.selectBehavior(testCaseBehavior);
         testCasePage.selectAutomationStatus(testCaseAutoStatus);
-        defectPage.fileUpload(filePath, fileName);
+        defectPage.fileUpload(filePath);
+        defectPage.checkTitleOfFileUploaded(fileName);
         testCasePage.addStep(0, stepAction, stepInputData, stepExpectedResult);
         testCasePage.saveButtonClick();
         assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
@@ -180,7 +181,8 @@ public class TestCaseTest extends BaseTest {
         testCasePage.selectIsFlaky(testCaseIsFlaky);
         testCasePage.selectBehavior(testCaseBehavior);
         testCasePage.selectAutomationStatus(testCaseAutoStatus);
-        defectPage.fileUpload(filePath, fileName);
+        defectPage.fileUpload(filePath);
+        defectPage.checkTitleOfFileUploaded(fileName);
         for (int b = 0; b < amountOfSteps; b++) { //Добавление 10 шагов в тест-кейс
             testCasePage.addStep(b, stepAction, stepInputData, stepExpectedResult);
         }

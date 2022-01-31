@@ -41,16 +41,15 @@ public abstract class BasePage {
         }
     }
 
-    public void fileUpload(String filePath, String fileName) {
+    public void fileUpload(String filePath) {
 
-        WebDriverWait wait = new WebDriverWait(driver, 3); //Element is not clickable at point - решение проблемы
+        //   WebDriverWait wait = new WebDriverWait(driver, 3); //Element is not clickable at point - решение проблемы
         // кнопка addStep не видна/скрыта другими элементами
         JavascriptExecutor js = ((JavascriptExecutor) driver);
         WebElement element = driver.findElement(ADD_ATTACHMENT_BUTTON); //scrolling
         js.executeScript("arguments[0].scrollIntoView();", element);
         wait.until(ExpectedConditions.elementToBeClickable(element)); //clickable
-
-        ((JavascriptExecutor)driver).executeScript("arguments[0].click()", element);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click()", element);
 
         File file = new File(filePath);
 
@@ -58,7 +57,11 @@ public abstract class BasePage {
         input_field.sendKeys(file.getAbsolutePath());
         driver.findElement(DROP_FILES_AREA).sendKeys(file.getAbsolutePath());
         WebDriverWait wait2 = new WebDriverWait(driver, 5);
+    }
 
-
+    public void checkTitleOfFileUploaded(String fileName) {
+        String titleOfFile = driver.findElement(UPLOADED_FILE).getAttribute("innerText");
+        assertEquals(titleOfFile, fileName, "Title of the uploaded file is not equal"); //Проверить, что имя файла
+        // на странице совпадает с именем загруженного файла
     }
 }

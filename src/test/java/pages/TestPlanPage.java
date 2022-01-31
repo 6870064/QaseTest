@@ -31,35 +31,50 @@ public class TestPlanPage extends BasePage {
         return isElementExist(CREATE_PLAN_BUTTON);
     }
 
-    public void testPlansButtonClick(){
+    public void testPlansButtonClick() {
         driver.findElement(TEST_PLANS_SUBMENU).click();
     }
 
-    public void createPlanButtonClick(){
+    public void createPlanButtonClick() {
         driver.findElement(CREATE_PLAN_BUTTON).click();
     }
-    public void enterTestPlanTitle(String testPlanTitle){
+
+    public void enterTestPlanTitle(String testPlanTitle) {
         new Input(driver, "Title").write(testPlanTitle);
     }
 
-    public void enterTestPlanDescription(String testPlanDescription){
+    public void enterTestPlanDescription(String testPlanDescription) {
         new Input(driver, "Description").write(testPlanDescription);
     }
 
-    public void addCasesButtonClick(){
+    public void addCasesButtonClick() {
         driver.findElement(ADD_CASES_BUTTON).click();
     }
 
-    public void checkboxSelect(){
+    public void checkboxSelect() {
         driver.findElement(CHECKBOX).click();
     }
 
-    public void addCasesDoneButton(){
+    public void addCasesDoneButton() {
         driver.findElement(ADD_CASES_DONE_BUTTON).click();
     }
 
-    public void savePlanButtonClick(){
+    public void savePlanButtonClick() {
         driver.findElement(SAVE_PLAN_BUTTON).click();
     }
 
+    /**
+     * Создание базового Тест плана
+     */
+    public void createBaseTestPlan(String testPlanTitleForRun, String testPlanDescriptionForRun){
+        createPlanButtonClick();
+        enterTestPlanTitle(testPlanTitleForRun);
+        enterTestPlanDescription(testPlanDescriptionForRun);
+        addCasesButtonClick();
+        checkboxSelect();
+        addCasesDoneButton();
+        savePlanButtonClick();
+    }
 }
+
+

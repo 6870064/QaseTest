@@ -33,43 +33,43 @@ public class TestRunPage extends BasePage {
         return isElementExist(START_NEW_TEST_RUN_BUTTON);
     }
 
-    public void testRunsSubmenuClick(){
+    public void testRunsSubmenuClick() {
         driver.findElement(TEST_RUNS_SUBMENU).click();
     }
 
-    public void setStartNewTestRunButtonClick(){
+    public void setStartNewTestRunButtonClick() {
         driver.findElement(START_NEW_TEST_RUN_BUTTON).click();
     }
 
-    public void enterRunTitle(String testRunTitle){
+    public void enterRunTitle(String testRunTitle) {
         new Input(driver, "Run title").write(testRunTitle);
     }
 
-    public void enterTestRunDescription(String testRunDescription){
+    public void enterTestRunDescription(String testRunDescription) {
         new Input(driver, "Description").write(testRunDescription);
     }
 
-    public void planValueSelect(String planValue){
+    public void planValueSelect(String planValue) {
         new Dropdown(driver, "Plan", "Select...", planValue).dropDownClick();
     }
 
-    public void assigneeSelect(String assigneeValueToClick){
+    public void assigneeSelect(String assigneeValueToClick) {
         new CustomDropdown(driver, "Default assignee", "Select...", assigneeValueToClick).dropDownClick();
     }
 
-    public void setAddCasesButtonClick(){
+    public void setAddCasesButtonClick() {
         driver.findElement(ADD_CASES_BUTTON).click();
     }
 
-    public void checkboxClick(){
+    public void checkboxClick() {
         driver.findElement(CHECKBOX).click();
     }
 
-    public void doneButtonClick(){
+    public void doneButtonClick() {
         driver.findElement(DONE_BUTTON).click();
     }
 
-    public void startRunButtonClick(){
+    public void startRunButtonClick() {
         driver.findElement(START_RUN_BUTTON).click();
     }
 

@@ -16,7 +16,7 @@ public class TestCasePage extends BasePage {
     public static final By CREATE_CASE_BUTTON = By.id("create-case-button");
     public static final By ADD_STEP_BUTTON = By.id("add-step");
     public static final By SAVE_BUTTON = By.id("save-case");
-    public static final By ALL_CASES_CHECKBOX = By.xpath("//label[@class='style_checkbox-tLOSg style_checkbox-1ztec style_inHeader-18FWp']");
+    public static final By ALL_CASES_WITHOUT_SUITE_CHECKBOX = By.xpath("//h3[@class='style_title-3jKh2']/label");
     public static final By DELETE_CASES_BUTTON = By.xpath("//*[contains(text(),'Delete')]");
     public static final By CONFIRM_DELETE_FIELD = By.xpath("//input[@class='form-control'][@name='confirm']");
     public static final By DELETE_CASES_CONFIRM_BUTTON = By.xpath("//button[text()='Delete']");
@@ -108,7 +108,7 @@ public class TestCasePage extends BasePage {
     }
 
     public void allCasesCheckBoxClick() {
-        driver.findElement(ALL_CASES_CHECKBOX).click();
+        driver.findElement(ALL_CASES_WITHOUT_SUITE_CHECKBOX).click();
     }
 
     public void deleteCasesButtonClick() {
@@ -121,6 +121,27 @@ public class TestCasePage extends BasePage {
 
     public void deleteCasesConfirmButtonClick() {
         driver.findElement(DELETE_CASES_CONFIRM_BUTTON).click();
+    }
+
+
+    /**
+     * обобщенный метод, который принимает много параметров и переиспользует все эти мелкие
+     */
+    public void createBaseTestCase(String testCaseTitle, String testCaseDescription, String testCaseStatus, String testCaseSeverity,
+                                   String testCasePriority, String testCaseType, String testCaseLayer, String testCaseIsFlaky,
+                                   String testCaseBehavior, String testCaseAutoStatus) {
+        createTestCaseButtonClick();
+        enterTestCaseTitle(testCaseTitle);
+        enterDescription(testCaseDescription);
+        selectStatus(testCaseStatus);
+        selectSeverity(testCaseSeverity);
+        selectPriority(testCasePriority);
+        selectType(testCaseType);
+        selectLayer(testCaseLayer);
+        selectIsFlaky(testCaseIsFlaky);
+        selectBehavior(testCaseBehavior);
+        selectAutomationStatus(testCaseAutoStatus);
+        saveButtonClick();
     }
 
     public void addStep(int i, String action, String inputData, String expectedResult) {  //Метод по добавлению шагов в тест-кейс испольуя CustomInput

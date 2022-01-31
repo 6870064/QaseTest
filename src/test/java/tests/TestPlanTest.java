@@ -8,6 +8,7 @@ import static org.testng.Assert.assertTrue;
 public class TestPlanTest extends BaseTest {
 
     String testCaseTitleWithoutConditions = "The test case without picture and Conditions Jan 25 2022";
+    String testCaseTitle = "Base test case";
     String testCaseDescription = "Description of the new test case title";
     String testCaseStatus = "Draft";
     String testCaseSeverity = "Blocker";
@@ -20,7 +21,7 @@ public class TestPlanTest extends BaseTest {
     String testPlanTitle = "Test plan for regression testing #1";
     String testPlanDescription = "Description for regression testing Test plan for #1";
 
-    @Test (description = "Creation test plan")
+    @Test(description = "Creation test plan")
     public void createTestPlan() {
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
@@ -29,18 +30,10 @@ public class TestPlanTest extends BaseTest {
         testPlanPage.projectOpen();
 
         assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
-        testCasePage.createTestCaseButtonClick();
-        testCasePage.enterTestCaseTitle(testCaseTitleWithoutConditions);
-        testCasePage.enterDescription(testCaseDescription);
-        testCasePage.selectStatus(testCaseStatus);
-        testCasePage.selectSeverity(testCaseSeverity);
-        testCasePage.selectPriority(testCasePriority);
-        testCasePage.selectType(testCaseType);
-        testCasePage.selectLayer(testCaseLayer);
-        testCasePage.selectIsFlaky(testCaseIsFlaky);
-        testCasePage.selectBehavior(testCaseBehavior);
-        testCasePage.selectAutomationStatus(testCaseAutoStatus);
-        testCasePage.saveButtonClick();
+
+        testCasePage.createBaseTestCase(testCaseTitle, testCaseDescription, testCaseStatus, testCaseSeverity, testCasePriority,
+                testCaseType, testCaseLayer, testCaseIsFlaky,testCaseBehavior, testCaseAutoStatus);
+
         assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
 
         testPlanPage.testPlansButtonClick();

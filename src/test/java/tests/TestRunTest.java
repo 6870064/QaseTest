@@ -8,7 +8,7 @@ import static tests.MilestoneTest.milestoneDescription;
 
 public class TestRunTest extends BaseTest {
 
-    String testCaseTitleWithoutConditions = "The test case without picture and Conditions Jan 25 2022";
+    String testCaseTitle = "Base test case";
     String testCaseDescription = "Description of the new test case title";
     String testCaseStatus = "Draft";
     String testCaseSeverity = "Critical";
@@ -35,38 +35,17 @@ public class TestRunTest extends BaseTest {
 
         // создание testcase для test run
         assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
-        testCasePage.createTestCaseButtonClick();
-        testCasePage.enterTestCaseTitle(testCaseTitleWithoutConditions);
-        testCasePage.enterDescription(testCaseDescription);
-        testCasePage.selectStatus(testCaseStatus);
-        testCasePage.selectSeverity(testCaseSeverity);
-        testCasePage.selectPriority(testCasePriority);
-        testCasePage.selectType(testCaseType);
-        testCasePage.selectLayer(testCaseLayer);
-        testCasePage.selectIsFlaky(testCaseIsFlaky);
-        testCasePage.selectBehavior(testCaseBehavior);
-        testCasePage.selectAutomationStatus(testCaseAutoStatus);
-        testCasePage.saveButtonClick();
+        testCasePage.createBaseTestCase(testCaseTitle, testCaseDescription, testCaseStatus, testCaseSeverity, testCasePriority,
+                testCaseType, testCaseLayer, testCaseIsFlaky,testCaseBehavior, testCaseAutoStatus);
         assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
 
         // создание milestone для test run
-        milestonePage.MilestoneSubmenuClick();
-        milestonePage.CreateMilestoneButtonClick();
-        milestonePage.EnterMilestoneName(milestoneForTestRunName);
-        milestonePage.EnterMilestoneDescription(milestoneDescription);
-        milestonePage.CreateNewMilestoneButtonClick();
-        milestonePage.isPageOpened();
+        milestonePage.createBaseMilestone(milestoneForTestRunName, milestoneDescription);
 
         //создание test plan для test run
         testPlanPage.testPlansButtonClick();
         assertTrue(testPlanPage.createPlanButtonIsDisplayed(), "Test plans page is not opened");
-        testPlanPage.createPlanButtonClick();
-        testPlanPage.enterTestPlanTitle(testPlanTitleForRun);
-        testPlanPage.enterTestPlanDescription(testPlanDescriptionForRun);
-        testPlanPage.addCasesButtonClick();
-        testPlanPage.checkboxSelect();
-        testPlanPage.addCasesDoneButton();
-        testPlanPage.savePlanButtonClick();
+        testPlanPage.createBaseTestPlan(testPlanTitleForRun, testPlanDescriptionForRun);
         assertTrue(testPlanPage.createPlanButtonIsDisplayed(), "Test plans page is not opened");
 
         //создание test run

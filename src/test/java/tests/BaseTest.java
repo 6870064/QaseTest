@@ -34,13 +34,8 @@ public abstract class BaseTest {
 
         if (browser.equals("chrome")) {
             WebDriverManager.chromedriver().setup();
-            //System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
             ChromeOptions chromeOptions = new ChromeOptions();
-            //  chromeOptions.addArguments("--kiosk");
             driver = new ChromeDriver(chromeOptions);
-            //ChromeOptions options = new ChromeOptions();
-            //options.addArguments("--start-maximized");
-            //driver = new ChromeDriver(options);
             driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);//Неявные ожидания
             driver.manage().window().maximize();
         } else if (browser.equals("firefox")) {

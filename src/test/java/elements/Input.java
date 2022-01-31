@@ -15,7 +15,7 @@ public class Input {
     }
 
     public void write(String text) {
-        //    System.out.println(String.format("Writing text '%s' into input with label %s", text, label));
+        System.out.println(String.format("Writing text '%s' into input with label %s", text, label));
 
         driver.findElement(By.xpath(String.format(INPUT_VALUE_LOCATOR, label))).sendKeys(text);
     }
