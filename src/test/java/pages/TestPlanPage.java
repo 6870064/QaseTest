@@ -66,7 +66,7 @@ public class TestPlanPage extends BasePage {
     /**
      * Создание базового Тест плана
      */
-    public void createBaseTestPlan(String testPlanTitleForRun, String testPlanDescriptionForRun){
+    public void createBaseTestPlan(String testPlanTitleForRun, String testPlanDescriptionForRun) {
         createPlanButtonClick();
         enterTestPlanTitle(testPlanTitleForRun);
         enterTestPlanDescription(testPlanDescriptionForRun);

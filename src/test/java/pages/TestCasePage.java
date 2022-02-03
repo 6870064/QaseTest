@@ -148,9 +148,9 @@ public class TestCasePage extends BasePage {
 
         WebDriverWait wait = new WebDriverWait(driver, 3); //Element is not clickable at point - решение проблемы
         // кнопка addStep не видна/скрыта другими элементами
-        JavascriptExecutor js = ((JavascriptExecutor) driver);
+        //JavascriptExecutor js = ((JavascriptExecutor) driver);
         WebElement element = driver.findElement(ADD_STEP_BUTTON); //scrolling
-        js.executeScript("arguments[0].scrollIntoView();", element);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
         wait.until(ExpectedConditions.elementToBeClickable(element)); //clickable
         ((JavascriptExecutor) driver).executeScript("arguments[0].click()", element);
 

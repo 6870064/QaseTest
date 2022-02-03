@@ -36,7 +36,7 @@ public class TestRunTest extends BaseTest {
         // создание testcase для test run
         assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
         testCasePage.createBaseTestCase(testCaseTitle, testCaseDescription, testCaseStatus, testCaseSeverity, testCasePriority,
-                testCaseType, testCaseLayer, testCaseIsFlaky,testCaseBehavior, testCaseAutoStatus);
+                testCaseType, testCaseLayer, testCaseIsFlaky, testCaseBehavior, testCaseAutoStatus);
         assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
 
         // создание milestone для test run

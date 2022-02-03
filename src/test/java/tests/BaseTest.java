@@ -27,7 +27,6 @@ public abstract class BaseTest {
     TestPlanPage testPlanPage;
     TestRunPage testRunPage;
 
-
     @Parameters({"browser"})
     @BeforeMethod
     public void setUp(@Optional("chrome") String browser) {

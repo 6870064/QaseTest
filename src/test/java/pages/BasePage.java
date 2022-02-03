@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.JSExecutor;
 
 import java.io.File;
 
@@ -42,21 +43,14 @@ public abstract class BasePage {
     }
 
     public void fileUpload(String filePath) {
-
-        //   WebDriverWait wait = new WebDriverWait(driver, 3); //Element is not clickable at point - решение проблемы
-        // кнопка addStep не видна/скрыта другими элементами
-        JavascriptExecutor js = ((JavascriptExecutor) driver);
         WebElement element = driver.findElement(ADD_ATTACHMENT_BUTTON); //scrolling
-        js.executeScript("arguments[0].scrollIntoView();", element);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
         wait.until(ExpectedConditions.elementToBeClickable(element)); //clickable
         ((JavascriptExecutor) driver).executeScript("arguments[0].click()", element);
-
         File file = new File(filePath);
-
         WebElement input_field = driver.findElement(DROP_FILES_AREA);
         input_field.sendKeys(file.getAbsolutePath());
         driver.findElement(DROP_FILES_AREA).sendKeys(file.getAbsolutePath());
-        WebDriverWait wait2 = new WebDriverWait(driver, 5);
     }
 
     public void checkTitleOfFileUploaded(String fileName) {

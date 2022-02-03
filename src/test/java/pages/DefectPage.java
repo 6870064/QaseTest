@@ -73,14 +73,14 @@ public class DefectPage extends BasePage {
      * Метод для открытия созданного баг репорта
      */
 
-    public void createdDefectOpen(String titleOfDefect){
-        driver.findElement(By.xpath(String.format(TITLE_OF_DEFECT_CREATED,titleOfDefect))).click();
+    public void createdDefectOpen(String titleOfDefect) {
+        driver.findElement(By.xpath(String.format(TITLE_OF_DEFECT_CREATED, titleOfDefect))).click();
     }
 
     /**
      * Метод для проверки правильности заполнения параметра Title в созданном баг репорте
      */
-    public String titleValueCheck(){
+    public String titleValueCheck() {
         String titleCreatedValue = driver.findElement(By.xpath(String.format(TITLE_OF_DEFECT_ON_PAGE))).getText();
 
         return titleCreatedValue;
@@ -89,7 +89,7 @@ public class DefectPage extends BasePage {
     /**
      * Метод для проверки правильности заполнения параметра Description в созданном баг репорте
      */
-    public String descriptionValueCheck(){
+    public String descriptionValueCheck() {
         String bugCreatedValue = driver.findElement(By.xpath(String.format(DESCRIPTION_OF_DEFECT_CREATED))).getText();
 
         return bugCreatedValue;
@@ -98,16 +98,16 @@ public class DefectPage extends BasePage {
     /**
      * Метод для проверки правильности заполнения параметров Reporter и Assignee в созданном баг репорте
      */
-     public String caseParameterValueCheck(String reporterValue){
-     String bugCreatedValue = driver.findElement(By.xpath(String.format(CASE_PARAM_LOCATOR,reporterValue))).getText();
+    public String caseParameterValueCheck(String reporterValue) {
+        String bugCreatedValue = driver.findElement(By.xpath(String.format(CASE_PARAM_LOCATOR, reporterValue))).getText();
 
-    return bugCreatedValue;
+        return bugCreatedValue;
     }
 
     /**
      * Метод для проверки правильности заполнения параметра Severity в созданном баг репорте
      */
-    public String caseSeverityValueCheck(){
+    public String caseSeverityValueCheck() {
         String bugSeverityValue = driver.findElement(By.xpath(SEVERITY_PARAM_LOCATOR)).getText();
 
         return bugSeverityValue;

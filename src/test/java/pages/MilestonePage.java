@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import static pages.ProjectPage.PROJECT_URL;
-import static tests.MilestoneTest.milestoneDescription;
 
 public class MilestonePage extends BasePage {
 
@@ -52,13 +51,13 @@ public class MilestonePage extends BasePage {
         driver.findElement(CREATE_NEW_MILESTONE_BUTTON).click();
     }
 
-    public void createBaseMilestone(String milestoneForTestRunName, String milestoneDescription){
-    clickMilestoneSubmenu();
-    clickCreateMilestoneButton();
-    enterMilestoneName(milestoneForTestRunName);
-    enterMilestoneDescription(milestoneDescription);
-    createNewMilestoneButtonClick();
-    isPageOpened();
+    public void createBaseMilestone(String milestoneForTestRunName, String milestoneDescription) {
+        clickMilestoneSubmenu();
+        clickCreateMilestoneButton();
+        enterMilestoneName(milestoneForTestRunName);
+        enterMilestoneDescription(milestoneDescription);
+        createNewMilestoneButtonClick();
+        isPageOpened();
     }
 
 }

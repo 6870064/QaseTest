@@ -32,7 +32,7 @@ public class TestPlanTest extends BaseTest {
         assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
 
         testCasePage.createBaseTestCase(testCaseTitle, testCaseDescription, testCaseStatus, testCaseSeverity, testCasePriority,
-                testCaseType, testCaseLayer, testCaseIsFlaky,testCaseBehavior, testCaseAutoStatus);
+                testCaseType, testCaseLayer, testCaseIsFlaky, testCaseBehavior, testCaseAutoStatus);
 
         assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
 
