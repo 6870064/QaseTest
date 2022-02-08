@@ -17,7 +17,7 @@ public abstract class BasePage {
 
     WebDriver driver;
     WebDriverWait wait;
-   JSExecutor jsExecutor = new JSExecutor(driver, wait);
+    JSExecutor jsExecutor;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;

@@ -11,9 +11,10 @@ public class JSExecutor {
     WebDriver driver;
     WebDriverWait wait;
 
-    public JSExecutor(WebDriver driver, WebDriverWait wait) {
+    public JSExecutor(WebDriver driver) {
         this.driver = driver;
-        this.wait = wait;
+        wait = new WebDriverWait(driver, 20);
+        JSExecutor jsExecutor = new JSExecutor(driver);
     }
 
     public void scrollToElement(WebElement element) {
