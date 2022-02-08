@@ -146,10 +146,7 @@ public class TestCasePage extends BasePage {
     }
 
     public void addStep(int i, String action, String inputData, String expectedResult) {  //Метод по добавлению шагов в тест-кейс испольуя CustomInput
-
-        WebDriverWait wait = new WebDriverWait(driver, 3); //Element is not clickable at point - решение проблемы
-        // кнопка addStep не видна/скрыта другими элементами
-
+        
         WebElement element = driver.findElement(ADD_STEP_BUTTON); //scrolling
         jsExecutor.scrollToElement(element);
         jsExecutor.clickOnElement(element);
