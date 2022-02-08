@@ -9,7 +9,6 @@ public class CustomDropdown {
     String label;
     String defaultValue;
     String valueToClick;
-
     String DROPDOWN_LOCATOR = "//label[@class='me-sm-2'][text()='%s']/parent::div/div[contains(@class, 'container')]";
     String DROPDOWN_VALUE = "//*[text()='%s']";
 
@@ -26,5 +25,4 @@ public class CustomDropdown {
         driver.findElement(By.xpath(String.format(DROPDOWN_LOCATOR, label, defaultValue))).click();
         driver.findElement(By.xpath(String.format(DROPDOWN_VALUE, valueToClick))).click();
     }
-
 }

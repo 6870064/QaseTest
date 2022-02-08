@@ -1,7 +1,6 @@
 package pages;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.JSExecutor;
 
@@ -18,6 +17,7 @@ public abstract class BasePage {
 
     WebDriver driver;
     WebDriverWait wait;
+   JSExecutor jsExecutor = new JSExecutor(driver, wait);
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
@@ -44,9 +44,8 @@ public abstract class BasePage {
 
     public void fileUpload(String filePath) {
         WebElement element = driver.findElement(ADD_ATTACHMENT_BUTTON); //scrolling
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
-        wait.until(ExpectedConditions.elementToBeClickable(element)); //clickable
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click()", element);
+        jsExecutor.scrollToElement(element);
+        jsExecutor.clickOnElement(element);
         File file = new File(filePath);
         WebElement input_field = driver.findElement(DROP_FILES_AREA);
         input_field.sendKeys(file.getAbsolutePath());

@@ -8,7 +8,7 @@ import static org.testng.Assert.assertTrue;
 
 public class DefectTest extends BaseTest {
 
-    String defectTitle = "Test Bug title Jan 30 2022 №161";
+    String defectTitle = "Test Bug title Feb 04 2022 №170";
     String actualResult = "Bug №161 is exist - this is an actual result";
     String assigneeValueToClick = "Dmitry Vyacheslavov";
     String severityToCheck = "Critical";
