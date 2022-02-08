@@ -1,6 +1,9 @@
 package pages;
 
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.JSExecutor;
 
@@ -22,7 +25,9 @@ public abstract class BasePage {
     public BasePage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, 20);
+        jsExecutor = new JSExecutor(driver);
     }
+
 
     public void projectOpen() {
         driver.get(PROJECT_URL);

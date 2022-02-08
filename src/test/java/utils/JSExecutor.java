@@ -3,7 +3,6 @@ package utils;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -14,7 +13,6 @@ public class JSExecutor {
     public JSExecutor(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, 20);
-        JSExecutor jsExecutor = new JSExecutor(driver);
     }
 
     public void scrollToElement(WebElement element) {
@@ -24,7 +22,7 @@ public class JSExecutor {
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
-    public void clickOnElement (WebElement element) {
+    public void clickOnElement(WebElement element) {
         ((JavascriptExecutor) driver).executeScript("arguments[0].click()", element);
     }
 }
