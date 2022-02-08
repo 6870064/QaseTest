@@ -11,6 +11,8 @@ public class DefectPage extends BasePage {
     public static final By DEFECTS_SUBMENU = By.id("menu-link-test-defects");
     public static final By CREATE_NEW_DEFECT_BUTTON = By.xpath("//*[text()='Create new defect']");
     public static final By CREATE_DEFECT_BUTTON = By.xpath("//button[@class='btn btn-primary me-3 save-button']");
+
+    //TODO make TITLE_OF_DEFECT_CREATED locator more generic
     String TITLE_OF_DEFECT_CREATED = "//*[contains(text(),'%s')]";
     String TITLE_OF_DEFECT_ON_PAGE = "//div[@class='col-lg-12']/h1";
     String DESCRIPTION_OF_DEFECT_CREATED = "//p[@class='defect-result-header' and contains (text(), 'Description')]/../div/div";

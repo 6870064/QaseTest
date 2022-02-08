@@ -8,8 +8,8 @@ import static org.testng.Assert.assertTrue;
 
 public class TestCaseTest extends BaseTest {
 
-    String testCaseTitleWithoutConditions = "The test case without picture and Conditions Jan 25 2022";
-    String testCaseTitleWithConditions = "The test case without picture with Conditions Jan 25 2022";
+    String testCaseTitleWithoutConditions = "The test case without picture and Conditions 555 Feb 08 2022";
+    String testCaseTitleWithConditions = "The test case without picture with Conditions Feb 08 2022";
     String testCaseDescription = "Description of the new test case title";
     String testCaseStatus = "Draft";
     String testCaseSeverity = "Blocker";

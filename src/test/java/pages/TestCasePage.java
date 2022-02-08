@@ -22,6 +22,7 @@ public class TestCasePage extends BasePage {
     public static final By DELETE_CASES_CONFIRM_BUTTON = By.xpath("//button[text()='Delete']");
 
     public TestCasePage(WebDriver driver) {
+
         super(driver);
     }
 
@@ -148,11 +149,10 @@ public class TestCasePage extends BasePage {
 
         WebDriverWait wait = new WebDriverWait(driver, 3); //Element is not clickable at point - решение проблемы
         // кнопка addStep не видна/скрыта другими элементами
-        //JavascriptExecutor js = ((JavascriptExecutor) driver);
+
         WebElement element = driver.findElement(ADD_STEP_BUTTON); //scrolling
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
-        wait.until(ExpectedConditions.elementToBeClickable(element)); //clickable
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click()", element);
+        jsExecutor.scrollToElement(element);
+        jsExecutor.clickOnElement(element);
 
         int a = i + 1;
         new CustomInput(driver, "action", Integer.toString(i)).write(action + a);
