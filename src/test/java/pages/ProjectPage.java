@@ -4,8 +4,6 @@ import elements.Input;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import static tests.ProjectTest.*;
-
 public class ProjectPage extends BasePage {
 
     public static final By CREATE_NEW_PROJECT_BUTTON = By.id("createButton");
@@ -35,15 +33,23 @@ public class ProjectPage extends BasePage {
         driver.findElement(CREATE_NEW_PROJECT_BUTTON).click();
     }
 
-    public void createNewProject(String projectName, String projectDescription) {
+    public void EnterProjectName(String projectName) {
         new Input(driver, "Project name").write(projectName);
-        //driver.findElement(PROJECT_CODE_FILED).sendKeys(projectCode);
+    }
+
+    public void EnterProjectDescriptionField(String projectDescription) {
         driver.findElement(PROJECT_DESCRIPTION_FIELD).sendKeys(projectDescription);
+    }
+
+    public void ProjectPublicAccessRadioButtonClick() {
         driver.findElement(PROJECT_PUBLIC_ACCESS_RADIOBUTTON).click();
+    }
+
+    public void CreateProjectButton() {
         driver.findElement(CREATE_PROJECT_BUTTON).click();
     }
 
-    public void projectOpen(){
+    public void projectOpen() {
         driver.get(PROJECT_URL);
     }
 

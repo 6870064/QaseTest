@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 
 public class TestRunPage extends BasePage {
 
-    public static final By TEST_RUNS_BUTTON = By.xpath("//*[text()='Test Runs']");
+    public static final By TEST_RUNS_SUBMENU = By.xpath("//*[text()='Test Runs']");
     public static final By START_NEW_TEST_RUN_BUTTON = By.xpath("//*[text()='Start new test run']");
     public static final By ADD_CASES_BUTTON = By.id("edit-run-add-cases-button");
     public static final By CHECKBOX = By.id("suite-0-checkbox");
@@ -29,20 +29,48 @@ public class TestRunPage extends BasePage {
         return false;
     }
 
-    public boolean createTestRunButtonIsDisplayed(){
-        return isElementExist(TEST_RUNS_BUTTON);
+    public boolean startNewTestRunButtonIsDisplayed() {
+        return isElementExist(START_NEW_TEST_RUN_BUTTON);
     }
 
-    public void createTestRun(String testRunDescription, String planValue, String milestoneValue, String assigneeValueToClick) {
-    driver.findElement(TEST_RUNS_BUTTON).click();
-    driver.findElement(START_NEW_TEST_RUN_BUTTON).click();
-    new Input(driver, "Description").write(testRunDescription);
-    new Dropdown(driver, "Plan", "Select...", planValue).dropDownClick();
-    new Dropdown(driver, "Milestone", "Not set", milestoneValue).dropDownClick();
-    new CustomDropdown(driver, "Default assignee", "Select...", assigneeValueToClick).dropDownClick();
-    driver.findElement(ADD_CASES_BUTTON).click();
-    driver.findElement(CHECKBOX).click();
-    driver.findElement(DONE_BUTTON).click();
-    driver.findElement(START_RUN_BUTTON).click();
+    public void testRunsSubmenuClick() {
+        driver.findElement(TEST_RUNS_SUBMENU).click();
     }
+
+    public void setStartNewTestRunButtonClick() {
+        driver.findElement(START_NEW_TEST_RUN_BUTTON).click();
+    }
+
+    public void enterRunTitle(String testRunTitle) {
+        new Input(driver, "Run title").write(testRunTitle);
+    }
+
+    public void enterTestRunDescription(String testRunDescription) {
+        new Input(driver, "Description").write(testRunDescription);
+    }
+
+    public void planValueSelect(String planValue) {
+        new Dropdown(driver, "Plan", "Select...", planValue).dropDownClick();
+    }
+
+    public void assigneeSelect(String assigneeValueToClick) {
+        new CustomDropdown(driver, "Default assignee", "Select...", assigneeValueToClick).dropDownClick();
+    }
+
+    public void setAddCasesButtonClick() {
+        driver.findElement(ADD_CASES_BUTTON).click();
+    }
+
+    public void checkboxClick() {
+        driver.findElement(CHECKBOX).click();
+    }
+
+    public void doneButtonClick() {
+        driver.findElement(DONE_BUTTON).click();
+    }
+
+    public void startRunButtonClick() {
+        driver.findElement(START_RUN_BUTTON).click();
+    }
+
 }

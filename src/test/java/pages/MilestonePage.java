@@ -8,7 +8,7 @@ import static pages.ProjectPage.PROJECT_URL;
 
 public class MilestonePage extends BasePage {
 
-    public static final By MILESTONES_DEFECTS = By.xpath("//*[text()='Milestones']");
+    public static final By MILESTONES_SUBMENU = By.xpath("//*[text()='Milestones']");
     public static final By CREATE_MILESTONE_BUTTON = By.id("createButton");
     public static final By CREATE_NEW_MILESTONE_BUTTON = By.xpath("//button[@class='btn btn-primary me-3 save-button']");
 
@@ -16,7 +16,7 @@ public class MilestonePage extends BasePage {
         super(driver);
     }
 
-    public void projectOpen(){
+    public void projectOpen() {
         driver.get(PROJECT_URL);
     }
 
@@ -30,11 +30,34 @@ public class MilestonePage extends BasePage {
         return false;
     }
 
-    public void newMilestoneCreated(String releaseTitle, String releaseDescription){
-    driver.findElement(MILESTONES_DEFECTS).click();
-    driver.findElement(CREATE_MILESTONE_BUTTON).click();
-    new Input(driver, "Milestone name").write(releaseTitle);
-    new Input(driver, "Description").write(releaseDescription);
-    driver.findElement(CREATE_NEW_MILESTONE_BUTTON).click();
+
+    public void clickMilestoneSubmenu() {
+        driver.findElement(MILESTONES_SUBMENU).click();
     }
+
+    public void clickCreateMilestoneButton() {
+        driver.findElement(CREATE_MILESTONE_BUTTON).click();
+    }
+
+    public void enterMilestoneName(String releaseTitle) {
+        new Input(driver, "Milestone name").write(releaseTitle);
+    }
+
+    public void enterMilestoneDescription(String releaseDescription) {
+        new Input(driver, "Description").write(releaseDescription);
+    }
+
+    public void createNewMilestoneButtonClick() {
+        driver.findElement(CREATE_NEW_MILESTONE_BUTTON).click();
+    }
+
+    public void createBaseMilestone(String milestoneForTestRunName, String milestoneDescription) {
+        clickMilestoneSubmenu();
+        clickCreateMilestoneButton();
+        enterMilestoneName(milestoneForTestRunName);
+        enterMilestoneDescription(milestoneDescription);
+        createNewMilestoneButtonClick();
+        isPageOpened();
+    }
+
 }

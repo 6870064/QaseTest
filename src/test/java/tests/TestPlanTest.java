@@ -7,19 +7,44 @@ import static org.testng.Assert.assertTrue;
 
 public class TestPlanTest extends BaseTest {
 
+    String testCaseTitleWithoutConditions = "The test case without picture and Conditions Jan 25 2022";
+    String testCaseTitle = "Base test case";
+    String testCaseDescription = "Description of the new test case title";
+    String testCaseStatus = "Draft";
+    String testCaseSeverity = "Blocker";
+    String testCasePriority = "High";
+    String testCaseLayer = "E2E";
+    String testCaseType = "Functional";
+    String testCaseIsFlaky = "Yes";
+    String testCaseBehavior = "Positive";
+    String testCaseAutoStatus = "To be automated";
     String testPlanTitle = "Test plan for regression testing #1";
     String testPlanDescription = "Description for regression testing Test plan for #1";
 
-    @Test
+    @Test(description = "Creation test plan")
     public void createTestPlan() {
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
         loginPage.login(USER_LOGIN, USER_PASSWORD);
         assertTrue(homePage.isPageOpened(), "Home Page is not opened");
         testPlanPage.projectOpen();
-        assertTrue(testPlanPage.createPlaneButtonIsDisplayed(), "Test plans page is not opened");
-        testPlanPage.createTestPlanClick();
-        testPlanPage.createTestPlan(testPlanTitle, testPlanDescription);
-        assertTrue(testPlanPage.createPlaneButtonIsDisplayed(), "Test plans page is not opened");
+
+        assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
+
+        testCasePage.createBaseTestCase(testCaseTitle, testCaseDescription, testCaseStatus, testCaseSeverity, testCasePriority,
+                testCaseType, testCaseLayer, testCaseIsFlaky, testCaseBehavior, testCaseAutoStatus);
+
+        assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
+
+        testPlanPage.testPlansButtonClick();
+        assertTrue(testPlanPage.createPlanButtonIsDisplayed(), "Test plans page is not opened");
+        testPlanPage.createPlanButtonClick();
+        testPlanPage.enterTestPlanTitle(testPlanTitle);
+        testPlanPage.enterTestPlanDescription(testPlanDescription);
+        testPlanPage.addCasesButtonClick();
+        testPlanPage.checkboxSelect();
+        testPlanPage.addCasesDoneButton();
+        testPlanPage.savePlanButtonClick();
+        assertTrue(testPlanPage.createPlanButtonIsDisplayed(), "Test plans page is not opened");
     }
 }

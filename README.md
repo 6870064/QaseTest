@@ -19,11 +19,13 @@ Qase.io project
 //feature/ITA-1-page-object
 //bugfix/ITA-2-npe-fix - фиксим баг или добавляем фичу. Номер тикета. Краткое описание маленькими буквами через тире
 
+feature/ITA-12-testng
+commit example: [ITA-12] removed sout
+
+
 //TODO
 // Что должно быть во фреймворке:
 //- Минимум 10 тестов
-//        - Page Object
-//        - TestNG - запуск в параллели, ретрай, TestListener
 //        - Allure - скриншотинг и steps pattern
 //        - CircleCI интеграция
 //        - API тесты
