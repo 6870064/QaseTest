@@ -6,6 +6,7 @@ import static org.testng.Assert.assertTrue;
 
 public class LoginTest extends BaseTest {
 
+
     @Test(description = "Username should be required")
     public void validUserLogin() {
         loginPage.pageOpen();

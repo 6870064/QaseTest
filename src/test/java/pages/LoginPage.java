@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -29,6 +30,7 @@ public class LoginPage extends BasePage {
         return false;
     }
 
+    @Step("Login by user: {userLogin}, {userPassword}")
     public void login(String userLogin, String userPassword) {
         driver.findElement(LOGIN_INPUT).sendKeys(userLogin);
         driver.findElement(PASSWORD_INPUT).sendKeys(userPassword);

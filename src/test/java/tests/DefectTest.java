@@ -1,10 +1,9 @@
 package tests;
-
+import io.qameta.allure.Issue;
+import io.qameta.allure.TmsLink;
 import org.testng.annotations.Test;
-
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
-
 
 public class DefectTest extends BaseTest {
 
@@ -17,6 +16,8 @@ public class DefectTest extends BaseTest {
     String caseParamReporter = "Reporter";
     String caseParamAssignee = "Assignee";
 
+    @Issue("170")
+    @TmsLink("96")
     @Test(description = "Creation of new defect without attaching the file and milestone")
     public void createNewDefectWithoutAttachment() {
         loginPage.pageOpen();
@@ -76,4 +77,3 @@ public class DefectTest extends BaseTest {
         assertEquals(defectPage.caseParameterValueCheck(caseParamAssignee), assigneeValueToClick, "The assignee is not equal");
     }
 }
-

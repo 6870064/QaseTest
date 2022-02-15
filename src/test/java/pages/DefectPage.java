@@ -3,8 +3,10 @@ package pages;
 import elements.CustomDropdown;
 import elements.Dropdown;
 import elements.Input;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utils.AllureUtils;
 
 public class DefectPage extends BasePage {
 
@@ -42,10 +44,12 @@ public class DefectPage extends BasePage {
      */
     public void createNewDefectButton() {
         driver.findElement(CREATE_NEW_DEFECT_BUTTON).click();
+        AllureUtils.takeScreenshot(driver);
     }
 
     public void enterDefectTitle(String defectTitle) {
         new Input(driver, "Defect title").write(defectTitle);
+        AllureUtils.takeScreenshot(driver);
     }
 
     public void enterActualResult(String actualResult) {
@@ -54,21 +58,28 @@ public class DefectPage extends BasePage {
 
     public void selectMilestoneValue(String mileStoneValue) {
         new Dropdown(driver, "Milestone", "Not set", mileStoneValue).dropDownClick();
+        AllureUtils.takeScreenshot(driver);
     }
 
+    @Step("Choose Severity of the Defect created")
     public void selectSeverity(String severityValue) {
         new Dropdown(driver, "Severity", "Normal", severityValue).dropDownClick();
+        AllureUtils.takeScreenshot(driver);
     }
 
+    @Step("Choose Assignee for the Defect created")
     public void selectAssigneeValue(String assigneeValueToClick) {
         new CustomDropdown(driver, "Assignee", "Unassigned", assigneeValueToClick).dropDownClick();
+        AllureUtils.takeScreenshot(driver);
     }
 
     /**
      * Allows saving defect
      */
+    @Step("Click on 'Create Defect' button")
     public void createDefectButtonClick() {
         driver.findElement(CREATE_DEFECT_BUTTON).click();
+        AllureUtils.takeScreenshot(driver);
     }
 
     /**
@@ -77,6 +88,7 @@ public class DefectPage extends BasePage {
 
     public void createdDefectOpen(String titleOfDefect) {
         driver.findElement(By.xpath(String.format(TITLE_OF_DEFECT_CREATED, titleOfDefect))).click();
+        AllureUtils.takeScreenshot(driver);
     }
 
     /**

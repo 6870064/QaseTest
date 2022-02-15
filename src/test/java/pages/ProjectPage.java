@@ -1,6 +1,7 @@
 package pages;
 
 import elements.Input;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -29,26 +30,32 @@ public class ProjectPage extends BasePage {
         return false;
     }
 
+    @Step("Click on the button to create new project")
     public void createNewProjectButtonClick() {
         driver.findElement(CREATE_NEW_PROJECT_BUTTON).click();
     }
 
+    @Step("Enter project title")
     public void EnterProjectName(String projectName) {
         new Input(driver, "Project name").write(projectName);
     }
 
+    @Step("Enter project description")
     public void EnterProjectDescriptionField(String projectDescription) {
         driver.findElement(PROJECT_DESCRIPTION_FIELD).sendKeys(projectDescription);
     }
 
+    @Step("Click on the radiobutton 'Public access project'")
     public void ProjectPublicAccessRadioButtonClick() {
         driver.findElement(PROJECT_PUBLIC_ACCESS_RADIOBUTTON).click();
     }
 
+    @Step("Click on the radiobutton 'Public access project'")
     public void CreateProjectButton() {
         driver.findElement(CREATE_PROJECT_BUTTON).click();
     }
 
+    @Step("Open the project'")
     public void projectOpen() {
         driver.get(PROJECT_URL);
     }

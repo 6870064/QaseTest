@@ -3,6 +3,7 @@ package pages;
 import elements.CustomDropdown;
 import elements.Dropdown;
 import elements.Input;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -33,18 +34,22 @@ public class TestRunPage extends BasePage {
         return isElementExist(START_NEW_TEST_RUN_BUTTON);
     }
 
+    @Step("Click on test run submenu")
     public void testRunsSubmenuClick() {
         driver.findElement(TEST_RUNS_SUBMENU).click();
     }
 
+    @Step("Click on the button to start of the test run")
     public void setStartNewTestRunButtonClick() {
         driver.findElement(START_NEW_TEST_RUN_BUTTON).click();
     }
 
+    @Step("Enter title of the test run")
     public void enterRunTitle(String testRunTitle) {
         new Input(driver, "Run title").write(testRunTitle);
     }
 
+    @Step("Enter description of the test run")
     public void enterTestRunDescription(String testRunDescription) {
         new Input(driver, "Description").write(testRunDescription);
     }
@@ -53,24 +58,28 @@ public class TestRunPage extends BasePage {
         new Dropdown(driver, "Plan", "Select...", planValue).dropDownClick();
     }
 
+    @Step("Select assignee of the test run")
     public void assigneeSelect(String assigneeValueToClick) {
         new CustomDropdown(driver, "Default assignee", "Select...", assigneeValueToClick).dropDownClick();
     }
 
+    @Step("Click on 'Add cases' button")
     public void setAddCasesButtonClick() {
         driver.findElement(ADD_CASES_BUTTON).click();
     }
 
+    @Step("Click on checkbox")
     public void checkboxClick() {
         driver.findElement(CHECKBOX).click();
     }
 
+    @Step("Click on 'Done' button")
     public void doneButtonClick() {
         driver.findElement(DONE_BUTTON).click();
     }
 
+    @Step("Click on 'Start test run' button")
     public void startRunButtonClick() {
         driver.findElement(START_RUN_BUTTON).click();
     }
-
 }

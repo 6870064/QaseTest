@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -47,6 +48,7 @@ public abstract class BasePage {
         }
     }
 
+    @Step("Upload File as attachment")
     public void fileUpload(String filePath) {
         WebElement element = driver.findElement(ADD_ATTACHMENT_BUTTON); //scrolling
         jsExecutor.scrollToElement(element);
