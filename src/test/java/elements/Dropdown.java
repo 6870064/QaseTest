@@ -1,8 +1,10 @@
 package elements;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+@Log4j2
 public class Dropdown {
 
     WebDriver driver;
@@ -21,7 +23,8 @@ public class Dropdown {
     }
 
     public void dropDownClick() {
-        System.out.println(String.format("Clicking Dropdown titled '%s' with default value '%s' and choose value '%s'", label, defaultValue, valueToClick));
+
+        log.debug("debug");
 
         driver.findElement(By.xpath(String.format(DROPDOWN_LOCATOR, label, defaultValue))).click();
         driver.findElement(By.xpath(String.format(DROPDOWN_VALUE, valueToClick))).click();

@@ -19,7 +19,12 @@
         <aspectjweaver.version>1.9.6</aspectjweaver.version>
         <allure-maven.version>2.10.0</allure-maven.version>
         <allure-testng.version>2.13.9</allure-testng.version>
+        <lombook.version>1.18.8</lombook.version>
+        <javafaker.version>1.0.2</javafaker.version>
         <suiteXmlFile>src/test/resources/smoke.xml</suiteXmlFile>
+        <log4j-core.version>2.14.1</log4j-core.version>
+        <jackson-dataformat-yaml.version>2.12.3</jackson-dataformat-yaml.version>
+
         <scope>test</scope>
     </properties>
 
@@ -64,6 +69,13 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombook.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -88,6 +100,27 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-nop</artifactId>
             <version>${slf4j-nop.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>${javafaker.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j-core.version}</version>
+        </dependency>
+
+        <!--Для считывания yaml-файлов -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-yaml</artifactId>
+            <version>${jackson-dataformat-yaml.version}</version>
         </dependency>
 
     </dependencies>

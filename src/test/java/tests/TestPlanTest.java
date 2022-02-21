@@ -1,10 +1,11 @@
 package tests;
 
+import lombok.extern.log4j.Log4j2;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertTrue;
 
-
+@Log4j2
 public class TestPlanTest extends BaseTest {
 
     String testCaseTitleWithoutConditions = "The test case without picture and Conditions Jan 25 2022";
@@ -23,6 +24,10 @@ public class TestPlanTest extends BaseTest {
 
     @Test(description = "Creation test plan")
     public void createTestPlan() {
+
+        log.warn("warn");
+        log.error("error");
+
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
         loginPage.login(USER_LOGIN, USER_PASSWORD);

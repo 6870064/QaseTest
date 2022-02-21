@@ -12,6 +12,7 @@ import tests.base.TestListener;
 import java.util.concurrent.TimeUnit;
 
 @Listeners(TestListener.class)
+
 public abstract class BaseTest {
 
     public static final String USER_LOGIN = "6870064@gmail.com";

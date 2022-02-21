@@ -1,10 +1,11 @@
 package tests;
 
+import lombok.extern.log4j.Log4j2;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertTrue;
 
-
+@Log4j2
 public class MilestoneTest extends BaseTest {
 
     public static final String milestoneName = "Release 5.0";
@@ -12,6 +13,10 @@ public class MilestoneTest extends BaseTest {
 
     @Test(description = "Creation of new milestone")
     public void createNewMilestone() {
+
+        log.warn("warn");
+        log.error("error");
+
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
         loginPage.login(USER_LOGIN, USER_PASSWORD);

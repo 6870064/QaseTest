@@ -2,9 +2,11 @@ package pages;
 
 import elements.Input;
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+@Log4j2
 public class TestPlanPage extends BasePage {
     public static final By TEST_PLANS_SUBMENU = By.xpath("//*[text()='Test Plans']");
     public static final By CREATE_PLAN_BUTTON = By.id("createButton");
@@ -77,6 +79,10 @@ public class TestPlanPage extends BasePage {
      */
     @Step("Create base the test plan")
     public void createBaseTestPlan(String testPlanTitleForRun, String testPlanDescriptionForRun) {
+
+        log.warn("warn");
+        log.error("error");
+
         createPlanButtonClick();
         enterTestPlanTitle(testPlanTitleForRun);
         enterTestPlanDescription(testPlanDescriptionForRun);

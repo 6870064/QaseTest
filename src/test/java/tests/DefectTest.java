@@ -1,13 +1,20 @@
 package tests;
+
+import com.github.javafaker.Faker;
 import io.qameta.allure.Issue;
 import io.qameta.allure.TmsLink;
+import lombok.extern.log4j.Log4j2;
 import org.testng.annotations.Test;
+
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+@Log4j2
 public class DefectTest extends BaseTest {
 
-    String defectTitle = "Test Bug title Feb 04 2022 №170";
+    Faker faker = new Faker();
+
+    String defectTitle = "Test Bug title" + " " + faker.date().toString();
     String actualResult = "Bug №161 is exist - this is an actual result";
     String assigneeValueToClick = "Dmitry Vyacheslavov";
     String severityToCheck = "Critical";
@@ -20,6 +27,10 @@ public class DefectTest extends BaseTest {
     @TmsLink("96")
     @Test(description = "Creation of new defect without attaching the file and milestone")
     public void createNewDefectWithoutAttachment() {
+
+        log.warn("warn");
+        log.error("error");
+
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
         loginPage.login(USER_LOGIN, USER_PASSWORD);
@@ -37,6 +48,10 @@ public class DefectTest extends BaseTest {
 
     @Test(description = "Creation of new defect without attaching the file, milestone and Assignee")
     public void createNewDefectWithoutAssigneeAndAttachment() {
+
+        log.warn("warn");
+        log.error("error");
+
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
         loginPage.login(USER_LOGIN, USER_PASSWORD);
@@ -53,6 +68,10 @@ public class DefectTest extends BaseTest {
 
     @Test(description = "Creation of new defect with attaching the file and without milestone")
     public void createNewDefectWithAttachment() {
+
+        log.warn("warn");
+        log.error("error");
+
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
         loginPage.login(USER_LOGIN, USER_PASSWORD);

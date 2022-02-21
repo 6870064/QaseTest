@@ -4,10 +4,12 @@ import elements.CustomInput;
 import elements.Dropdown;
 import elements.Input;
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+@Log4j2
 public class TestCasePage extends BasePage {
 
     public static final By CREATE_FIRST_CASE_BUTTON = By.xpath("//*[text()='Create new case']");
@@ -57,26 +59,41 @@ public class TestCasePage extends BasePage {
 
     @Step("Enter title of the test case")
     public void enterTestCaseTitle(String testCaseTitle) {
+
+        log.info("info");
+
         new Input(driver, "Title").write(testCaseTitle);
     }
 
     @Step("Select status of test case'")
     public void selectStatus(String testCaseStatus) {
+
+        log.info("info");
+
         new Dropdown(driver, "Status", "Actual", testCaseStatus).dropDownClick();
     }
 
     @Step("Enter of the test case description")
     public void enterDescription(String testCaseDescription) {
+
+        log.info("info");
+
         new Input(driver, "Description").write(testCaseDescription);
     }
 
     @Step("Select severity of the test case")
     public void selectSeverity(String testCaseSeverity) {
+
+        log.info("info");
+
         new Dropdown(driver, "Severity", "Normal", testCaseSeverity).dropDownClick();
     }
 
     @Step("Select priority of the test case")
     public void selectPriority(String testCasePriority) {
+
+        log.info("info");
+
         new Dropdown(driver, "Priority", "Not set", testCasePriority).dropDownClick();
     }
 
@@ -149,6 +166,9 @@ public class TestCasePage extends BasePage {
     public void createBaseTestCase(String testCaseTitle, String testCaseDescription, String testCaseStatus, String testCaseSeverity,
                                    String testCasePriority, String testCaseType, String testCaseLayer, String testCaseIsFlaky,
                                    String testCaseBehavior, String testCaseAutoStatus) {
+
+        log.info("info");
+
         createTestCaseButtonClick();
         enterTestCaseTitle(testCaseTitle);
         enterDescription(testCaseDescription);
@@ -165,6 +185,9 @@ public class TestCasePage extends BasePage {
 
     @Step("Adding the step of test case")
     public void addStep(int i, String action, String inputData, String expectedResult) {  //Метод по добавлению шагов в тест-кейс испольуя CustomInput
+
+        log.warn("warn");
+        log.error("error");
 
         WebElement element = driver.findElement(ADD_STEP_BUTTON); //scrolling
         jsExecutor.scrollToElement(element);

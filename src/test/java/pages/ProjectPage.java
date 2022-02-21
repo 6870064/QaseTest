@@ -2,9 +2,11 @@ package pages;
 
 import elements.Input;
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+@Log4j2
 public class ProjectPage extends BasePage {
 
     public static final By CREATE_NEW_PROJECT_BUTTON = By.id("createButton");
@@ -32,35 +34,56 @@ public class ProjectPage extends BasePage {
 
     @Step("Click on the button to create new project")
     public void createNewProjectButtonClick() {
+
+        log.info("info");
+
         driver.findElement(CREATE_NEW_PROJECT_BUTTON).click();
     }
 
     @Step("Enter project title")
     public void EnterProjectName(String projectName) {
+
+        log.info("info");
+
         new Input(driver, "Project name").write(projectName);
     }
 
     @Step("Enter project description")
     public void EnterProjectDescriptionField(String projectDescription) {
+
+        log.info("info");
+
         driver.findElement(PROJECT_DESCRIPTION_FIELD).sendKeys(projectDescription);
     }
 
     @Step("Click on the radiobutton 'Public access project'")
     public void ProjectPublicAccessRadioButtonClick() {
+
+        log.info("info");
+
         driver.findElement(PROJECT_PUBLIC_ACCESS_RADIOBUTTON).click();
     }
 
     @Step("Click on the radiobutton 'Public access project'")
     public void CreateProjectButton() {
+
+        log.info("info");
+
         driver.findElement(CREATE_PROJECT_BUTTON).click();
     }
 
     @Step("Open the project'")
     public void projectOpen() {
+
+        log.info("info");
+
         driver.get(PROJECT_URL);
     }
 
     public boolean isProjectCreated() {
+
+        log.info("info");
+
         return isElementExist(CREATE_NEW_SUITE);
     }
 }

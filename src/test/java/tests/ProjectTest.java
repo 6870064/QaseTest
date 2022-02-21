@@ -1,19 +1,27 @@
 package tests;
 
+import com.github.javafaker.Faker;
+import lombok.extern.log4j.Log4j2;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertTrue;
 
-
+@Log4j2
 public class ProjectTest extends BaseTest {
 
-    String publicProjectName = "New Test public project №999";
-    String privateProjectName = "New 1 Private Test project №111";
-    String publicProjectDescription = "Test description of the Test public project with the title №999";
-    String privateProjectDescription = "Test description of the Test private project with the title №111";
+    Faker faker = new Faker();
+
+    String publicProjectName = "New Test public project" + " " + faker.date().toString();
+    String privateProjectName = "New 1 Private Test project" + " " + faker.date().toString();
+    String publicProjectDescription = faker.name().firstName();
+    String privateProjectDescription = faker.name().firstName() + " " + faker.name().lastName();
 
     @Test(description = "Creation of the new public project")
     public void createNewPublicProject() {
+
+        log.warn("warn");
+        log.error("error");
+
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
         loginPage.login(USER_LOGIN, USER_PASSWORD);
@@ -30,6 +38,10 @@ public class ProjectTest extends BaseTest {
 
     @Test(description = "Creation of the new private project")
     public void createNewPrivateProject() {
+
+        log.warn("warn");
+        log.error("error");
+
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
         loginPage.login(USER_LOGIN, USER_PASSWORD);

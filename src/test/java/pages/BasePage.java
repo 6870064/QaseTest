@@ -1,6 +1,7 @@
 package pages;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -13,6 +14,7 @@ import java.io.File;
 import static org.testng.Assert.assertEquals;
 import static pages.ProjectPage.PROJECT_URL;
 
+@Log4j2
 public abstract class BasePage {
     public static final String BASE_URL = "https://app.qase.io/login";
     public static final By ADD_ATTACHMENT_BUTTON = By.xpath("//button[text()=' Add attachment']");
@@ -50,6 +52,10 @@ public abstract class BasePage {
 
     @Step("Upload File as attachment")
     public void fileUpload(String filePath) {
+
+        log.warn("warn");
+        log.error("error");
+
         WebElement element = driver.findElement(ADD_ATTACHMENT_BUTTON); //scrolling
         jsExecutor.scrollToElement(element);
         jsExecutor.clickOnElement(element);
@@ -60,6 +66,10 @@ public abstract class BasePage {
     }
 
     public void checkTitleOfFileUploaded(String fileName) {
+
+        log.warn("warn");
+        log.error("error");
+
         String titleOfFile = driver.findElement(UPLOADED_FILE).getAttribute("innerText");
         assertEquals(titleOfFile, fileName, "Title of the uploaded file is not equal"); //Проверить, что имя файла
         // на странице совпадает с именем загруженного файла
