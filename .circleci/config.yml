@@ -21,8 +21,8 @@ jobs:
 
 #run tests!
       - run:
-      name: Get Chrome version
-      command: google-chrome --version
+          name: Get Chrome version
+          command: google-chrome --version
       - run:
           name: Running tests
           command: mvn clean test
