@@ -39,6 +39,10 @@ public abstract class BaseTest {
             driver = new ChromeDriver(chromeOptions);
             driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);//Неявные ожидания
             driver.manage().window().maximize();
+            /**
+             * --headless - запуск тестов в браузере без UI
+             */
+            chromeOptions.addArguments("--headless");
         } else if (browser.equals("firefox")) {
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
