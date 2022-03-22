@@ -20,7 +20,7 @@ public class CustomInput {
 
     public void write(String text) {
 
-        log.debug("debug");
+        log.debug(String.format("Writing text '%s' into input with label %s", text, locator, value));
 
         driver.findElement(By.xpath(String.format(CUSTOM_LOCATOR, locator, value))).sendKeys(text);
     }
