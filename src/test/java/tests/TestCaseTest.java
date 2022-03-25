@@ -1,11 +1,12 @@
 package tests;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertTrue;
 
-
+@Log4j2
 public class TestCaseTest extends BaseTest {
 
     String testCaseTitleWithoutConditions = "The test case without picture and Conditions 555 Feb 08 2022";
@@ -30,7 +31,11 @@ public class TestCaseTest extends BaseTest {
     String confirmText = "CONFIRM";
 
     @Test(description = "Creation of the test case without adding conditions and the steps")
-    public void createTestCaseWithoutConditionsAndSteps() { //Pass
+    public void createTestCaseWithoutConditionsAndSteps() {
+
+        log.warn("warn");
+        log.error("error");
+
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
         loginPage.login(USER_LOGIN, USER_PASSWORD);
@@ -53,7 +58,11 @@ public class TestCaseTest extends BaseTest {
     }
 
     @Test(description = "Creation of the test case with adding Pre-Conditions and 1 step")
-    public void createTestCaseWithOneStep() { //Pass
+    public void createTestCaseWithOneStep() {
+
+        log.warn("warn");
+        log.error("error");
+
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
         loginPage.login(USER_LOGIN, USER_PASSWORD);
@@ -82,7 +91,11 @@ public class TestCaseTest extends BaseTest {
     }
 
     @Test(description = "Creation of the test case with adding Pre-Conditions, Post-Conditions and 1 step")
-    public void createTestCaseWithConditionsOneStep() {  //Pass
+    public void createTestCaseWithConditionsOneStep() {
+
+        log.warn("warn");
+        log.error("error");
+
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
         loginPage.login(USER_LOGIN, USER_PASSWORD);
@@ -108,7 +121,11 @@ public class TestCaseTest extends BaseTest {
     }
 
     @Test(description = "Creation of the test case with adding Pre-Conditions, Post-Conditions and 10 steps without attachment")
-    public void createTestCaseWithTenSteps() { //Pass
+    public void createTestCaseWithTenSteps() {
+
+        log.warn("warn");
+        log.error("error");
+
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
         loginPage.login(USER_LOGIN, USER_PASSWORD);
@@ -138,6 +155,10 @@ public class TestCaseTest extends BaseTest {
 
     @Test(description = "Creation of the test case with adding 1 step and attachment")
     public void createTestCaseWithFileAndOneStep() {
+
+        log.warn("warn");
+        log.error("error");
+
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
         loginPage.login(USER_LOGIN, USER_PASSWORD);
@@ -164,6 +185,10 @@ public class TestCaseTest extends BaseTest {
 
     @Test(description = "Creation of the test case with adding 10 step and attachment")
     public void createTestCaseWithFileAndTenSteps() {
+
+        log.warn("warn");
+        log.error("error");
+
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
         loginPage.login(USER_LOGIN, USER_PASSWORD);
@@ -192,6 +217,10 @@ public class TestCaseTest extends BaseTest {
 
     @Test(description = "Delete all cases on the project")
     public void deleteAllTestCases() {
+
+        log.warn("warn");
+        log.error("error");
+
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
         loginPage.login(USER_LOGIN, USER_PASSWORD);

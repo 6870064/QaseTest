@@ -1,9 +1,12 @@
 package pages;
 
 import elements.Input;
+import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+@Log4j2
 public class TestPlanPage extends BasePage {
     public static final By TEST_PLANS_SUBMENU = By.xpath("//*[text()='Test Plans']");
     public static final By CREATE_PLAN_BUTTON = By.id("createButton");
@@ -31,34 +34,42 @@ public class TestPlanPage extends BasePage {
         return isElementExist(CREATE_PLAN_BUTTON);
     }
 
+    @Step("Click on 'Test plan' submenu")
     public void testPlansButtonClick() {
         driver.findElement(TEST_PLANS_SUBMENU).click();
     }
 
+    @Step("Click on 'Create test plan' button")
     public void createPlanButtonClick() {
         driver.findElement(CREATE_PLAN_BUTTON).click();
     }
 
+    @Step("Enter title of the test plan")
     public void enterTestPlanTitle(String testPlanTitle) {
         new Input(driver, "Title").write(testPlanTitle);
     }
 
+    @Step("Enter description of the test plan")
     public void enterTestPlanDescription(String testPlanDescription) {
         new Input(driver, "Description").write(testPlanDescription);
     }
 
+    @Step("Click on 'Add cases' button")
     public void addCasesButtonClick() {
         driver.findElement(ADD_CASES_BUTTON).click();
     }
 
+    @Step("Click on checkbox")
     public void checkboxSelect() {
         driver.findElement(CHECKBOX).click();
     }
 
+    @Step("Click on the button to add cases")
     public void addCasesDoneButton() {
         driver.findElement(ADD_CASES_DONE_BUTTON).click();
     }
 
+    @Step("Click on 'Save test plan button' ")
     public void savePlanButtonClick() {
         driver.findElement(SAVE_PLAN_BUTTON).click();
     }
@@ -66,7 +77,12 @@ public class TestPlanPage extends BasePage {
     /**
      * Создание базового Тест плана
      */
+    @Step("Create base the test plan")
     public void createBaseTestPlan(String testPlanTitleForRun, String testPlanDescriptionForRun) {
+
+        log.warn("warn");
+        log.error("error");
+
         createPlanButtonClick();
         enterTestPlanTitle(testPlanTitleForRun);
         enterTestPlanDescription(testPlanDescriptionForRun);

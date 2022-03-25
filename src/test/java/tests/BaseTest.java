@@ -1,7 +1,6 @@
 package tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -9,11 +8,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.*;
 import pages.*;
 import tests.base.TestListener;
-import utils.JSExecutor;
 
 import java.util.concurrent.TimeUnit;
 
 @Listeners(TestListener.class)
+
 public abstract class BaseTest {
 
     public static final String USER_LOGIN = "6870064@gmail.com";
@@ -30,7 +29,7 @@ public abstract class BaseTest {
     TestRunPage testRunPage;
 
     @Parameters({"browser"})
-    @BeforeMethod
+    @BeforeMethod(description = "Open browser")
     public void setUp(@Optional("chrome") String browser) {
 
         if (browser.equals("chrome")) {
@@ -58,7 +57,7 @@ public abstract class BaseTest {
         testRunPage = new TestRunPage(driver);
     }
 
-    @AfterMethod(alwaysRun = true)
+    @AfterMethod(alwaysRun = true, description = "Close browser")
     public void tearDown() {
         driver.quit();
     }

@@ -1,8 +1,11 @@
 package pages;
 
+import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+@Log4j2
 public class LoginPage extends BasePage {
 
     public static final By LOGIN_INPUT = By.id("inputEmail");
@@ -29,7 +32,11 @@ public class LoginPage extends BasePage {
         return false;
     }
 
+    @Step("Login by user: {userLogin}, {userPassword}")
     public void login(String userLogin, String userPassword) {
+
+        log.info("info");
+
         driver.findElement(LOGIN_INPUT).sendKeys(userLogin);
         driver.findElement(PASSWORD_INPUT).sendKeys(userPassword);
         driver.findElement(CHECKBOX_INPUT).click();
