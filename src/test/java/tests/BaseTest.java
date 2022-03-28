@@ -41,7 +41,7 @@ public abstract class BaseTest {
             /**
              * --headless - запуск тестов в браузере без UI
              */
-            chromeOptions.addArguments("--headless");
+        //    chromeOptions.addArguments("--headless");
         } else if (browser.equals("firefox")) {
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
