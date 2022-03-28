@@ -1,32 +1,41 @@
 package tests;
 
+import adapters.ProjectAdapter;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
+import static org.testng.Assert.assertEquals;
 
 public class ApiTest {
 
-    String statusCode = "rerrerqw";
-
     @Test
     public void projectTest(){
-
+        String response = new ProjectAdapter().post("{}",400);
+        assertEquals(response,"{\n" +
+                "    \"status\": false,\n" +
+                "    \"errorMessage\": \"Data is invalid.\",\n" +
+                "    \"errorFields\": [\n" +
+                "        {\n" +
+                "            \"field\": \"title\",\n" +
+                "            \"error\": \"Title is required.\"\n" +
+                "        },\n" +
+                "        {\n" +
+                "            \"field\": \"code\",\n" +
+                "            \"error\": \"Project code is required.\"\n" +
+                "        }\n" +
+                "    ]\n" +
+                "}");
     }
 
     @Test
     public void projectTest2(){
-        given().
-                header("Token", "427c4e87166cb838a6498704ba965e71c8a6cdd1").
-                header("Content-Type","application/json").
-                header("Accept", "application/json").
-                body("{\"title\": \"TEeST6\", \"code\": \"TREREDFR\", \"description\": \"Test description\", \"access\": \"all\"}").
-                when().
-                post("https://api.qase.io/v1/project").
-                then().
-                log().all().
-                statusCode(200).
-                body("status", equalTo(true),
-                        "result.code", equalTo("TREREDFR"));
+        String response = new ProjectAdapter().post("{\"title\": \"TEeST56\", \"code\": \"TSRRFS\"}", 200);
+        assertEquals(response, "{\n" +
+                "    \"status\": true,\n" +
+                "    \"result\": {\n" +
+                "        \"code\": \"TSRRFS\"\n" +
+                "    }\n" +
+                "}");
     }
 }
