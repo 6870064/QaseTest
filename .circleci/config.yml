@@ -2,13 +2,16 @@
 #
 # Check https://circleci.com/docs/2.0/language-java/ for more details
 # https://circleci.com/docs/2.0/browser-testing/#selenium
-version: 2
+version: 2.1
+orbs:
+  browser-tools: circleci/browser-tools@1.2.4
 jobs:
   ui-tests:
     docker:
-      - image: cimg/openjdk:11.0.13-browsers
+      - image: cimg/openjdk:11.0-browsers
     steps:
       - checkout
+      - browser-tools/install-browser-tools
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "pom.xml" }}
@@ -18,7 +21,9 @@ jobs:
           paths:
             - ~/.m2
           key: v1-dependencies-{{ checksum "pom.xml" }}
-
+      - run:
+          name: Check browser version
+          command: google-chrome --version
 #run tests!
       - run:
           name: Running tests
