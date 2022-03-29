@@ -11,8 +11,8 @@ public class ProjectTest extends BaseTest {
 
     Faker faker = new Faker();
 
-    String publicProjectName = "New Test public project" + " " + faker.date().toString();
-    String privateProjectName = "New 1 Private Test project" + " " + faker.date().toString();
+    String publicProjectName = faker.date().toString() + " project" + " " + faker.date().toString();
+    String privateProjectName = faker.date().toString() + " project" + " " + faker.date().toString();
     String publicProjectDescription = faker.name().firstName();
     String privateProjectDescription = faker.name().firstName() + " " + faker.name().lastName();
 

@@ -48,6 +48,12 @@ public class ProjectPage extends BasePage {
         new Input(driver, "Project name").write(projectName);
     }
 
+    @Step("Enter project code")
+    public void EnterProjectCode(String projectCode) {
+
+        new Input(driver, "Project Code").write(projectCode);
+    }
+
     @Step("Enter project description")
     public void EnterProjectDescriptionField(String projectDescription) {
 
