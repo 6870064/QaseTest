@@ -16,7 +16,7 @@ public class TestCasePage extends BasePage {
     public static final By CREATE_CASE_BUTTON = By.id("create-case-button");
     public static final By ADD_STEP_BUTTON = By.id("add-step");
     public static final By SAVE_BUTTON = By.id("save-case");
-    public static final By ALL_CASES_WITHOUT_SUITE_CHECKBOX = By.xpath("//h3[@class='style_title-3jKh2']/label");
+    public static final By ALL_CASES_WITHOUT_SUITE_CHECKBOX = By.xpath("//label[@class='style_checkbox-1sXFN style_checkbox-37xEi style_inHeader-1Loef']/input");
     public static final By DELETE_CASES_BUTTON = By.xpath("//button[contains(text(),'Delete')]");
     public static final By CONFIRM_DELETE_FIELD = By.xpath("//input[@class='form-control'][@name='confirm']");
     public static final By DELETE_CASES_CONFIRM_BUTTON = By.xpath("//button[text()='Delete']");
