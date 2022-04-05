@@ -14,8 +14,8 @@ public class MilestoneTest extends BaseTest {
     @Test(description = "Creation of new milestone")
     public void createNewMilestone() {
 
-        log.warn("warn");
-        log.error("error");
+        log.warn(String.format("Creation of new milestone with the name '%s' and description '%s'", milestoneName, milestoneDescription));
+        log.error(String.format("Error in creation of new milestone with the name '%s' and description '%s'", milestoneName, milestoneDescription));
 
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");

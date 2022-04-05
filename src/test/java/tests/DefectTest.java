@@ -28,8 +28,10 @@ public class DefectTest extends BaseTest {
     @Test(description = "Creation of new defect without attaching the file and milestone")
     public void createNewDefectWithoutAttachment() {
 
-        log.warn("warn");
-        log.error("error");
+        log.warn(String.format("Creation new Defect with the title '%s', actual result '%s', severity to check '%s', " +
+                "assignee is '%s'", defectTitle, actualResult, severityToCheck, assigneeValueToClick));
+        log.error(String.format("Creation new Defect with the title '%s', actual result '%s', severity to check '%s', " +
+                "assignee is '%s'", defectTitle, actualResult, severityToCheck, assigneeValueToClick));
 
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
@@ -49,8 +51,9 @@ public class DefectTest extends BaseTest {
     @Test(description = "Creation of new defect without attaching the file, milestone and Assignee")
     public void createNewDefectWithoutAssigneeAndAttachment() {
 
-        log.warn("warn");
-        log.error("error");
+
+        log.warn(String.format("Creation new Defect with the title '%s', actual result '%s', severity to check '%s'", defectTitle, actualResult, severityToCheck));
+        log.error(String.format("Creation new Defect with the title '%s', actual result '%s', severity to check '%s'", defectTitle, actualResult, severityToCheck));
 
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
@@ -69,8 +72,10 @@ public class DefectTest extends BaseTest {
     @Test(description = "Creation of new defect with attaching the file and without milestone")
     public void createNewDefectWithAttachment() {
 
-        log.warn("warn");
-        log.error("error");
+        log.warn(String.format("Creation new Defect with the title '%s', actual result '%s', title of the file uploaded '%s'",
+                defectTitle, actualResult, fileName));
+        log.error(String.format("Creation test case with the title '%s', actual result '%s', title of the file uploaded '%s'",
+                defectTitle, actualResult, fileName));
 
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
