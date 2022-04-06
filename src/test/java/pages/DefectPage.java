@@ -42,6 +42,7 @@ public class DefectPage extends BasePage {
         log.info("info");
 
         driver.findElement(DEFECTS_SUBMENU).click();
+        AllureUtils.takeScreenshot(driver);
     }
 
     /**

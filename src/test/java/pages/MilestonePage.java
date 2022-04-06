@@ -5,6 +5,7 @@ import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utils.AllureUtils;
 
 import static pages.ProjectPage.PROJECT_URL;
 
@@ -39,6 +40,7 @@ public class MilestonePage extends BasePage {
         log.info("info");
 
         driver.findElement(MILESTONES_SUBMENU).click();
+        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Click on the button to create new milestone")
@@ -47,6 +49,7 @@ public class MilestonePage extends BasePage {
         log.info("info");
 
         driver.findElement(CREATE_MILESTONE_BUTTON).click();
+        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Enter the title for the milestone")
@@ -55,6 +58,7 @@ public class MilestonePage extends BasePage {
         log.info("info");
 
         new Input(driver, "Milestone name").write(releaseTitle);
+        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Enter the description for the milestone")
@@ -63,6 +67,7 @@ public class MilestonePage extends BasePage {
         log.info("info");
 
         new Input(driver, "Description").write(releaseDescription);
+        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Click on 'Create milestone' button")
@@ -71,6 +76,7 @@ public class MilestonePage extends BasePage {
         log.info("info");
 
         driver.findElement(CREATE_NEW_MILESTONE_BUTTON).click();
+        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Create base milestone")
@@ -79,11 +85,15 @@ public class MilestonePage extends BasePage {
         log.info("info");
 
         clickMilestoneSubmenu();
+        AllureUtils.takeScreenshot(driver);
         clickCreateMilestoneButton();
+        AllureUtils.takeScreenshot(driver);
         enterMilestoneName(milestoneForTestRunName);
+        AllureUtils.takeScreenshot(driver);
         enterMilestoneDescription(milestoneDescription);
+        AllureUtils.takeScreenshot(driver);
         createNewMilestoneButtonClick();
+        AllureUtils.takeScreenshot(driver);
         isPageOpened();
     }
-
 }

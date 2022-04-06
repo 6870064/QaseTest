@@ -4,6 +4,7 @@ import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utils.AllureUtils;
 
 @Log4j2
 public class LoginPage extends BasePage {
@@ -41,6 +42,27 @@ public class LoginPage extends BasePage {
         driver.findElement(PASSWORD_INPUT).sendKeys(userPassword);
         driver.findElement(CHECKBOX_INPUT).click();
         driver.findElement(LOGIN_BUTTON).click();
+        AllureUtils.takeScreenshot(driver);
+    }
+
+    public void enterUserLogin(String userLogin) {
+        driver.findElement(LOGIN_INPUT).sendKeys(userLogin);
+        AllureUtils.takeScreenshot(driver);
+    }
+
+    public void enterUserPassword(String userPassword) {
+        driver.findElement(PASSWORD_INPUT).sendKeys(userPassword);
+        AllureUtils.takeScreenshot(driver);
+    }
+
+    public void clickCheckBoxInput(){
+        driver.findElement(CHECKBOX_INPUT).click();
+        AllureUtils.takeScreenshot(driver);
+    }
+
+    public void clickLoginButton(){
+        driver.findElement(LOGIN_BUTTON).click();
+        AllureUtils.takeScreenshot(driver);
     }
 
     public void signedUpButtonClick() {

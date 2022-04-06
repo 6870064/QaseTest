@@ -5,6 +5,7 @@ import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utils.AllureUtils;
 
 @Log4j2
 public class ProjectPage extends BasePage {
@@ -38,6 +39,7 @@ public class ProjectPage extends BasePage {
         log.info("info");
 
         driver.findElement(CREATE_NEW_PROJECT_BUTTON).click();
+        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Enter project title")
@@ -46,12 +48,14 @@ public class ProjectPage extends BasePage {
         log.info("info");
 
         new Input(driver, "Project name").write(projectName);
+        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Enter project code")
     public void EnterProjectCode(String projectCode) {
 
         new Input(driver, "Project Code").write(projectCode);
+        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Enter project description")
@@ -60,6 +64,7 @@ public class ProjectPage extends BasePage {
         log.info("info");
 
         driver.findElement(PROJECT_DESCRIPTION_FIELD).sendKeys(projectDescription);
+        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Click on the radiobutton 'Public access project'")
@@ -68,6 +73,7 @@ public class ProjectPage extends BasePage {
         log.info("info");
 
         driver.findElement(PROJECT_PUBLIC_ACCESS_RADIOBUTTON).click();
+        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Click on the radiobutton 'Public access project'")
@@ -76,6 +82,7 @@ public class ProjectPage extends BasePage {
         log.info("info");
 
         driver.findElement(CREATE_PROJECT_BUTTON).click();
+        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Open the project'")
@@ -84,6 +91,7 @@ public class ProjectPage extends BasePage {
         log.info("info");
 
         driver.get(PROJECT_URL);
+        AllureUtils.takeScreenshot(driver);
     }
 
     public boolean isProjectCreated() {
