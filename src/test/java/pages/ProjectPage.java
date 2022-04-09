@@ -39,50 +39,38 @@ public class ProjectPage extends BasePage {
         log.info("info");
 
         driver.findElement(CREATE_NEW_PROJECT_BUTTON).click();
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Enter project title")
-    public void EnterProjectName(String projectName) {
+    public void enterProjectName(String projectName) {
 
         log.info("info");
 
         new Input(driver, "Project name").write(projectName);
-        AllureUtils.takeScreenshot(driver);
-    }
-
-    @Step("Enter project code")
-    public void EnterProjectCode(String projectCode) {
-
-        new Input(driver, "Project Code").write(projectCode);
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Enter project description")
-    public void EnterProjectDescriptionField(String projectDescription) {
+    public void enterProjectDescriptionField(String projectDescription) {
 
         log.info("info");
 
         driver.findElement(PROJECT_DESCRIPTION_FIELD).sendKeys(projectDescription);
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Click on the radiobutton 'Public access project'")
-    public void ProjectPublicAccessRadioButtonClick() {
+    public void projectPublicAccessRadioButtonClick() {
 
         log.info("info");
 
         driver.findElement(PROJECT_PUBLIC_ACCESS_RADIOBUTTON).click();
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Click on the radiobutton 'Public access project'")
-    public void CreateProjectButton() {
+    public void createProjectButton() {
 
         log.info("info");
 
         driver.findElement(CREATE_PROJECT_BUTTON).click();
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Open the project'")
@@ -91,7 +79,6 @@ public class ProjectPage extends BasePage {
         log.info("info");
 
         driver.get(PROJECT_URL);
-        AllureUtils.takeScreenshot(driver);
     }
 
     public boolean isProjectCreated() {

@@ -16,7 +16,6 @@ public class TestPlanPage extends BasePage {
     public static final By ADD_CASES_DONE_BUTTON = By.id("select-cases-done-button");
     public static final By SAVE_PLAN_BUTTON = By.id("save-plan");
 
-
     public TestPlanPage(WebDriver driver) {
         super(driver);
     }
@@ -38,49 +37,41 @@ public class TestPlanPage extends BasePage {
     @Step("Click on 'Test plan' submenu")
     public void testPlansButtonClick() {
         driver.findElement(TEST_PLANS_SUBMENU).click();
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Click on 'Create test plan' button")
     public void createPlanButtonClick() {
         driver.findElement(CREATE_PLAN_BUTTON).click();
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Enter title of the test plan")
     public void enterTestPlanTitle(String testPlanTitle) {
         new Input(driver, "Title").write(testPlanTitle);
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Enter description of the test plan")
     public void enterTestPlanDescription(String testPlanDescription) {
         new Input(driver, "Description").write(testPlanDescription);
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Click on 'Add cases' button")
     public void addCasesButtonClick() {
         driver.findElement(ADD_CASES_BUTTON).click();
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Click on checkbox")
     public void checkboxSelect() {
         driver.findElement(CHECKBOX).click();
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Click on the button to add cases")
     public void addCasesDoneButton() {
         driver.findElement(ADD_CASES_DONE_BUTTON).click();
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Click on 'Save test plan button' ")
     public void savePlanButtonClick() {
         driver.findElement(SAVE_PLAN_BUTTON).click();
-        AllureUtils.takeScreenshot(driver);
     }
 
     /**
@@ -105,7 +96,6 @@ public class TestPlanPage extends BasePage {
         addCasesDoneButton();
         AllureUtils.takeScreenshot(driver);
         savePlanButtonClick();
-        AllureUtils.takeScreenshot(driver);
     }
 }
 

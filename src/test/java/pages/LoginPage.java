@@ -42,32 +42,21 @@ public class LoginPage extends BasePage {
         driver.findElement(PASSWORD_INPUT).sendKeys(userPassword);
         driver.findElement(CHECKBOX_INPUT).click();
         driver.findElement(LOGIN_BUTTON).click();
-        AllureUtils.takeScreenshot(driver);
     }
 
     public void enterUserLogin(String userLogin) {
         driver.findElement(LOGIN_INPUT).sendKeys(userLogin);
-        AllureUtils.takeScreenshot(driver);
     }
 
     public void enterUserPassword(String userPassword) {
         driver.findElement(PASSWORD_INPUT).sendKeys(userPassword);
-        AllureUtils.takeScreenshot(driver);
     }
 
     public void clickCheckBoxInput(){
         driver.findElement(CHECKBOX_INPUT).click();
-        AllureUtils.takeScreenshot(driver);
     }
 
     public void clickLoginButton(){
         driver.findElement(LOGIN_BUTTON).click();
-        AllureUtils.takeScreenshot(driver);
     }
-
-    public void signedUpButtonClick() {
-        driver.findElement(SIGN_UP_BUTTON).click();
-    }
-
-
 }

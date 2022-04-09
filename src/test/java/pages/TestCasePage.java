@@ -40,10 +40,6 @@ public class TestCasePage extends BasePage {
         return isElementExist(CREATE_CASE_BUTTON);
     }
 
-    public boolean addStepButtonIsDisplayed() {
-        return isElementExist(ADD_STEP_BUTTON);
-    }
-
     @Override
     public boolean isCongratsPageOpened() {
         return false;
@@ -52,7 +48,6 @@ public class TestCasePage extends BasePage {
     @Step("Click on the button 'Create test case'")
     public void createTestCaseButtonClick() {
         driver.findElement(CREATE_CASE_BUTTON).click();
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Enter title of the test case")
@@ -61,7 +56,6 @@ public class TestCasePage extends BasePage {
         log.info("info");
 
         new Input(driver, "Title").write(testCaseTitle);
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Select status of test case'")
@@ -70,7 +64,6 @@ public class TestCasePage extends BasePage {
         log.info("info");
 
         new Dropdown(driver, "Status", "Actual", testCaseStatus).dropDownClick();
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Enter of the test case description")
@@ -79,7 +72,6 @@ public class TestCasePage extends BasePage {
         log.info("info");
 
         new Input(driver, "Description").write(testCaseDescription);
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Select severity of the test case")
@@ -88,7 +80,6 @@ public class TestCasePage extends BasePage {
         log.info("info");
 
         new Dropdown(driver, "Severity", "Normal", testCaseSeverity).dropDownClick();
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Select priority of the test case")
@@ -97,19 +88,16 @@ public class TestCasePage extends BasePage {
         log.info("info");
 
         new Dropdown(driver, "Priority", "Not set", testCasePriority).dropDownClick();
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Select type of the test case")
     public void selectType(String testCaseType) {
         new Dropdown(driver, "Type", "Other", testCaseType).dropDownClick();
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Select layer of the test case")
     public void selectLayer(String testCaseLayer) {
         new Dropdown(driver, "Layer", "Unknown", testCaseLayer).dropDownClick();
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Select staus of test case 'isFlaky'")
@@ -120,55 +108,46 @@ public class TestCasePage extends BasePage {
     @Step("Select behavior of the test case")
     public void selectBehavior(String testCaseBehavior) {
         new Dropdown(driver, "Behavior", "Not set", testCaseBehavior).dropDownClick();
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Select automation status of the test case")
     public void selectAutomationStatus(String testCaseAutoStatus) {
         new Dropdown(driver, "Automation status", "Not automated", testCaseAutoStatus).dropDownClick();
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Enter pre-conditions of the test case")
     public void enterPreConditions(String preConditions) {
         new Input(driver, "Pre-conditions").write(preConditions);
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Enter post-conditions of the test case")
     public void enterPostConditions(String postConditions) {
         new Input(driver, "Post-conditions").write(postConditions);
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Enter preconditions of the test case")
     public void saveButtonClick() {
         driver.findElement(SAVE_BUTTON).click();
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Click on the checkbox to select all test cases")
     public void allCasesCheckBoxClick() {
         driver.findElement(ALL_CASES_WITHOUT_SUITE_CHECKBOX).click();
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Click on the button to delete all test cases")
     public void deleteCasesButtonClick() {
         driver.findElement(DELETE_CASES_BUTTON).click();
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Enter the text to confirm removal of all test cases")
     public void enterTextConfirmDeleteField(String text) {
         driver.findElement(CONFIRM_DELETE_FIELD).sendKeys(text);
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Click on the button to confirm deletion of all test cases")
     public void deleteCasesConfirmButtonClick() {
         driver.findElement(DELETE_CASES_CONFIRM_BUTTON).click();
-        AllureUtils.takeScreenshot(driver);
     }
 
 
@@ -206,7 +185,6 @@ public class TestCasePage extends BasePage {
         selectAutomationStatus(testCaseAutoStatus);
         AllureUtils.takeScreenshot(driver);
         saveButtonClick();
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Adding the step of test case")
@@ -223,8 +201,6 @@ public class TestCasePage extends BasePage {
         new CustomInput(driver, "action", Integer.toString(i)).write(action + a);
         AllureUtils.takeScreenshot(driver);
         new CustomInput(driver, "data", Integer.toString(i)).write(inputData + a);
-        AllureUtils.takeScreenshot(driver);
         new CustomInput(driver, "expected_result", Integer.toString(i)).write(expectedResult + a);
-        AllureUtils.takeScreenshot(driver);
     }
 }

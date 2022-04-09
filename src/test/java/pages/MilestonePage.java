@@ -40,7 +40,6 @@ public class MilestonePage extends BasePage {
         log.info("info");
 
         driver.findElement(MILESTONES_SUBMENU).click();
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Click on the button to create new milestone")
@@ -49,7 +48,6 @@ public class MilestonePage extends BasePage {
         log.info("info");
 
         driver.findElement(CREATE_MILESTONE_BUTTON).click();
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Enter the title for the milestone")
@@ -58,7 +56,6 @@ public class MilestonePage extends BasePage {
         log.info("info");
 
         new Input(driver, "Milestone name").write(releaseTitle);
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Enter the description for the milestone")
@@ -67,7 +64,6 @@ public class MilestonePage extends BasePage {
         log.info("info");
 
         new Input(driver, "Description").write(releaseDescription);
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Click on 'Create milestone' button")
@@ -76,7 +72,6 @@ public class MilestonePage extends BasePage {
         log.info("info");
 
         driver.findElement(CREATE_NEW_MILESTONE_BUTTON).click();
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Create base milestone")

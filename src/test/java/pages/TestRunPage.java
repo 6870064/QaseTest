@@ -43,7 +43,6 @@ public class TestRunPage extends BasePage {
         log.info("info");
 
         driver.findElement(TEST_RUNS_SUBMENU).click();
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Click on the button to start of the test run")
@@ -52,7 +51,6 @@ public class TestRunPage extends BasePage {
         log.info("info");
 
         driver.findElement(START_NEW_TEST_RUN_BUTTON).click();
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Enter title of the test run")
@@ -61,7 +59,6 @@ public class TestRunPage extends BasePage {
         log.info("info");
 
         new Input(driver, "Run title").write(testRunTitle);
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Enter description of the test run")
@@ -70,7 +67,6 @@ public class TestRunPage extends BasePage {
         log.info("info");
 
         new Input(driver, "Description").write(testRunDescription);
-        AllureUtils.takeScreenshot(driver);
     }
 
     public void planValueSelect(String planValue) {
@@ -78,7 +74,6 @@ public class TestRunPage extends BasePage {
         log.info("info");
 
         new Dropdown(driver, "Plan", "Select...", planValue).dropDownClick();
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Select assignee of the test run")
@@ -87,7 +82,6 @@ public class TestRunPage extends BasePage {
         log.info("info");
 
         new CustomDropdown(driver, "Default assignee", "Select...", assigneeValueToClick).dropDownClick();
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Click on 'Add cases' button")
@@ -96,7 +90,6 @@ public class TestRunPage extends BasePage {
         log.info("info");
 
         driver.findElement(ADD_CASES_BUTTON).click();
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Click on checkbox")
@@ -105,7 +98,6 @@ public class TestRunPage extends BasePage {
         log.info("info");
 
         driver.findElement(CHECKBOX).click();
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Click on 'Done' button")
@@ -114,7 +106,6 @@ public class TestRunPage extends BasePage {
         log.info("info");
 
         driver.findElement(DONE_BUTTON).click();
-        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Click on 'Start test run' button")
@@ -123,6 +114,5 @@ public class TestRunPage extends BasePage {
         log.info("info");
 
         driver.findElement(START_RUN_BUTTON).click();
-        AllureUtils.takeScreenshot(driver);
     }
 }
