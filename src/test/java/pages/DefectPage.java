@@ -39,9 +39,9 @@ public class DefectPage extends BasePage {
 
     public void clickDefectsButton() {
 
-        log.info("info");
-
         driver.findElement(DEFECTS_SUBMENU).click();
+        log.warn("Click on the Defect button");
+        log.error("Click on the Defect button");
     }
 
     /**
@@ -49,15 +49,13 @@ public class DefectPage extends BasePage {
      */
     public void createNewDefectButton() {
 
-        log.info("info");
-
         driver.findElement(CREATE_NEW_DEFECT_BUTTON).click();
         AllureUtils.takeScreenshot(driver);
+        log.warn("Click on the button for creation new defect");
+        log.error("Click on the button for creation new defect");
     }
 
     public void enterDefectTitle(String defectTitle) {
-
-        log.info("info");
 
         new Input(driver, "Defect title").write(defectTitle);
         AllureUtils.takeScreenshot(driver);
@@ -67,18 +65,8 @@ public class DefectPage extends BasePage {
         new Input(driver, "Actual result").write(actualResult);
     }
 
-    public void selectMilestoneValue(String mileStoneValue) {
-
-        log.info("info");
-
-        new Dropdown(driver, "Milestone", "Not set", mileStoneValue).dropDownClick();
-        AllureUtils.takeScreenshot(driver);
-    }
-
     @Step("Choose Severity of the Defect created")
     public void selectSeverity(String severityValue) {
-
-        log.info("info");
 
         new Dropdown(driver, "Severity", "Normal", severityValue).dropDownClick();
         AllureUtils.takeScreenshot(driver);
@@ -96,10 +84,10 @@ public class DefectPage extends BasePage {
     @Step("Click on 'Create Defect' button")
     public void createDefectButtonClick() {
 
-        log.info("info");
-
         driver.findElement(CREATE_DEFECT_BUTTON).click();
         AllureUtils.takeScreenshot(driver);
+        log.warn("Click on 'Create Defect' button");
+        log.error("Click on 'Create Defect' button");
     }
 
     /**
@@ -108,10 +96,10 @@ public class DefectPage extends BasePage {
 
     public void createdDefectOpen(String titleOfDefect) {
 
-        log.info("info");
-
         driver.findElement(By.xpath(String.format(TITLE_OF_DEFECT_CREATED, titleOfDefect))).click();
         AllureUtils.takeScreenshot(driver);
+        log.warn("Open defect created");
+        log.error("Open defect created");
     }
 
     /**
@@ -119,10 +107,7 @@ public class DefectPage extends BasePage {
      */
     public String titleValueCheck() {
 
-        log.info("info");
-
         String titleCreatedValue = driver.findElement(By.xpath(String.format(TITLE_OF_DEFECT_ON_PAGE))).getText();
-
         return titleCreatedValue;
     }
 
@@ -131,10 +116,7 @@ public class DefectPage extends BasePage {
      */
     public String descriptionValueCheck() {
 
-        log.info("info");
-
         String bugCreatedValue = driver.findElement(By.xpath(String.format(DESCRIPTION_OF_DEFECT_CREATED))).getText();
-
         return bugCreatedValue;
     }
 
@@ -143,10 +125,7 @@ public class DefectPage extends BasePage {
      */
     public String caseParameterValueCheck(String reporterValue) {
 
-        log.info("info");
-
         String bugCreatedValue = driver.findElement(By.xpath(String.format(CASE_PARAM_LOCATOR, reporterValue))).getText();
-
         return bugCreatedValue;
     }
 
@@ -155,10 +134,7 @@ public class DefectPage extends BasePage {
      */
     public String caseSeverityValueCheck() {
 
-        log.info("info");
-
         String bugSeverityValue = driver.findElement(By.xpath(SEVERITY_PARAM_LOCATOR)).getText();
-
         return bugSeverityValue;
     }
 }

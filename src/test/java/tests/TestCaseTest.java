@@ -218,9 +218,6 @@ public class TestCaseTest extends BaseTest {
     @Test(description = "Delete all cases on the project")
     public void deleteAllTestCases() {
 
-        log.warn("Delete of all test cases");
-        log.error("Error in deletion of all test cases");
-
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
         loginPage.login(USER_LOGIN, USER_PASSWORD);

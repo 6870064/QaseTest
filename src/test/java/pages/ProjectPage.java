@@ -34,62 +34,49 @@ public class ProjectPage extends BasePage {
 
     @Step("Click on the button to create new project")
     public void createNewProjectButtonClick() {
-
-        log.info("info");
-
         driver.findElement(CREATE_NEW_PROJECT_BUTTON).click();
+
+        log.warn("Click on the button to create new project");
+        log.error("Click on the button to create new project");
     }
 
     @Step("Enter project title")
     public void EnterProjectName(String projectName) {
 
-        log.info("info");
-
         new Input(driver, "Project name").write(projectName);
-    }
-
-    @Step("Enter project code")
-    public void EnterProjectCode(String projectCode) {
-
-        new Input(driver, "Project Code").write(projectCode);
     }
 
     @Step("Enter project description")
     public void EnterProjectDescriptionField(String projectDescription) {
-
-        log.info("info");
-
         driver.findElement(PROJECT_DESCRIPTION_FIELD).sendKeys(projectDescription);
+
+        log.warn("Enter project description");
+        log.error("Enter project description");
     }
 
     @Step("Click on the radiobutton 'Public access project'")
     public void ProjectPublicAccessRadioButtonClick() {
 
-        log.info("info");
-
         driver.findElement(PROJECT_PUBLIC_ACCESS_RADIOBUTTON).click();
+
+        log.warn("Click on the radiobutton 'Public access project'");
+        log.error("Click on the radiobutton 'Public access project'");
     }
 
-    @Step("Click on the radiobutton 'Public access project'")
+    @Step("Click on the 'Create project' button")
     public void CreateProjectButton() {
 
-        log.info("info");
-
         driver.findElement(CREATE_PROJECT_BUTTON).click();
+        log.warn("Click on the 'Create project' button");
+        log.error("Click on the 'Create project' button");
     }
 
     @Step("Open the project'")
     public void projectOpen() {
-
-        log.info("info");
-
         driver.get(PROJECT_URL);
     }
 
     public boolean isProjectCreated() {
-
-        log.info("info");
-
         return isElementExist(CREATE_NEW_SUITE);
     }
 }

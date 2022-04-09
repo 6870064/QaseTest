@@ -36,23 +36,21 @@ public class MilestonePage extends BasePage {
     @Step("Click on milestone submenu")
     public void clickMilestoneSubmenu() {
 
-        log.info("info");
-
         driver.findElement(MILESTONES_SUBMENU).click();
+        log.warn("Click on milestone submenu");
+        log.error("Click on milestone submenu");
     }
 
     @Step("Click on the button to create new milestone")
     public void clickCreateMilestoneButton() {
 
-        log.info("info");
-
         driver.findElement(CREATE_MILESTONE_BUTTON).click();
+        log.warn("Click on the button to create new milestone");
+        log.error("Click on the button to create new milestone");
     }
 
     @Step("Enter the title for the milestone")
     public void enterMilestoneName(String releaseTitle) {
-
-        log.info("info");
 
         new Input(driver, "Milestone name").write(releaseTitle);
     }
@@ -60,23 +58,22 @@ public class MilestonePage extends BasePage {
     @Step("Enter the description for the milestone")
     public void enterMilestoneDescription(String releaseDescription) {
 
-        log.info("info");
-
         new Input(driver, "Description").write(releaseDescription);
     }
 
     @Step("Click on 'Create milestone' button")
     public void createNewMilestoneButtonClick() {
 
-        log.info("info");
-
         driver.findElement(CREATE_NEW_MILESTONE_BUTTON).click();
+        log.warn("Click on 'Create milestone' button");
+        log.error("Click on 'Create milestone' button");
     }
 
     @Step("Create base milestone")
     public void createBaseMilestone(String milestoneForTestRunName, String milestoneDescription) {
 
-        log.info("info");
+        log.warn(String.format("Creation of base base milestone with the title '%s' and description '%s'",milestoneForTestRunName, milestoneDescription));
+        log.error(String.format("Creation of base base milestone with the title '%s' and description '%s'",milestoneForTestRunName, milestoneDescription));
 
         clickMilestoneSubmenu();
         clickCreateMilestoneButton();
@@ -85,5 +82,4 @@ public class MilestonePage extends BasePage {
         createNewMilestoneButtonClick();
         isPageOpened();
     }
-
 }

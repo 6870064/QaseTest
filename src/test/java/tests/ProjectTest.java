@@ -41,11 +41,6 @@ public class ProjectTest extends BaseTest {
     @Test(description = "Creation of the new private project")
     public void createNewPrivateProject() {
 
-        log.warn(String.format("Creation of new private project with the title '%s' and " +
-                "description '%s'",privateProjectDescription, privateProjectDescription));
-        log.error(String.format("Error in creation of new private project with the title '%s' and " +
-                "description '%s'",privateProjectDescription, privateProjectDescription));
-
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
         loginPage.login(USER_LOGIN, USER_PASSWORD);

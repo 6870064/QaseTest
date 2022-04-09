@@ -7,6 +7,7 @@ import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utils.AllureUtils;
 
 @Log4j2
 public class TestRunPage extends BasePage {
@@ -39,79 +40,99 @@ public class TestRunPage extends BasePage {
     @Step("Click on test run submenu")
     public void testRunsSubmenuClick() {
 
-        log.info("info");
+        log.warn("Click on test run submenu");
+        log.error("Click on test run submenu");
 
         driver.findElement(TEST_RUNS_SUBMENU).click();
+        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Click on the button to start of the test run")
     public void setStartNewTestRunButtonClick() {
 
-        log.info("info");
+        log.warn("Click on the button to start of the test run");
+        log.error("Click on the button to start of the test run");
 
         driver.findElement(START_NEW_TEST_RUN_BUTTON).click();
+        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Enter title of the test run")
     public void enterRunTitle(String testRunTitle) {
 
-        log.info("info");
+        log.warn(String.format("Enter title '%s' of the test run", testRunTitle));
+        log.error(String.format("Enter title '%s' of the test run", testRunTitle));
 
         new Input(driver, "Run title").write(testRunTitle);
+        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Enter description of the test run")
     public void enterTestRunDescription(String testRunDescription) {
 
-        log.info("info");
+        log.warn("Enter description of the test run");
+        log.error("Enter description of the test run");
 
         new Input(driver, "Description").write(testRunDescription);
+        AllureUtils.takeScreenshot(driver);
     }
 
     public void planValueSelect(String planValue) {
 
-        log.info("info");
+        log.warn("Select of Plan value");
+        log.error("Select of Plan value");
 
         new Dropdown(driver, "Plan", "Select...", planValue).dropDownClick();
+        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Select assignee of the test run")
     public void assigneeSelect(String assigneeValueToClick) {
 
-        log.info("info");
+        log.warn("Select assignee of the test run");
+        log.error("Select assignee of the test run");
 
         new CustomDropdown(driver, "Default assignee", "Select...", assigneeValueToClick).dropDownClick();
+        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Click on 'Add cases' button")
     public void setAddCasesButtonClick() {
 
-        log.info("info");
+        log.warn("Click on 'Add cases' button");
+        log.error("Click on 'Add cases' button");
 
         driver.findElement(ADD_CASES_BUTTON).click();
+        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Click on checkbox")
     public void checkboxClick() {
 
-        log.info("info");
+        log.warn("Click on checkbox");
+        log.error("Click on checkbox");
 
         driver.findElement(CHECKBOX).click();
+        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Click on 'Done' button")
     public void doneButtonClick() {
 
-        log.info("info");
+        log.warn("Click on 'Done' button");
+        log.error("Click on 'Done' button");
 
         driver.findElement(DONE_BUTTON).click();
+        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Click on 'Start test run' button")
     public void startRunButtonClick() {
 
-        log.info("info");
+        log.warn("Click on 'Start test run' button");
+        log.error("Click on 'Start test run' button");
 
         driver.findElement(START_RUN_BUTTON).click();
+        AllureUtils.takeScreenshot(driver);
     }
 }

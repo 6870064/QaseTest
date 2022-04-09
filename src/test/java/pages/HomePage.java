@@ -16,17 +16,11 @@ public class HomePage extends BasePage {
 
     @Override
     public boolean isPageOpened() {
-
-        log.info("info");
-
         return isElementExist(CREATE_BUTTON);
     }
 
     @Override
     public boolean isCongratsPageOpened() {
-
-        log.info("info");
-
         return isElementExist(RESEND_BUTTON);
     }
 }

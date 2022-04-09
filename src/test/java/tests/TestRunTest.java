@@ -29,9 +29,6 @@ public class TestRunTest extends BaseTest {
     @Test(description = "Creation of the test run")
     public void createTestRun() {
 
-        log.warn(String.format("Creation of test run with the title '%s' and description '%s'", testRunTitle, testRunDescription));
-        log.error(String.format("Error in creation of test run with the title '%s' and description '%s'", testRunTitle, testRunDescription));
-
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
         loginPage.login(USER_LOGIN, USER_PASSWORD);

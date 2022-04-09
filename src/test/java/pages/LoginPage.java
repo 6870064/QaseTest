@@ -35,17 +35,12 @@ public class LoginPage extends BasePage {
     @Step("Login by user: {userLogin}, {userPassword}")
     public void login(String userLogin, String userPassword) {
 
-        log.info("info");
+        log.warn(String.format("Valid login with user login '%s' and valid password '%s'",userLogin, userPassword));
+        log.error(String.format("Valid login with user login '%s' and valid password '%s'",userLogin, userPassword));
 
         driver.findElement(LOGIN_INPUT).sendKeys(userLogin);
         driver.findElement(PASSWORD_INPUT).sendKeys(userPassword);
         driver.findElement(CHECKBOX_INPUT).click();
         driver.findElement(LOGIN_BUTTON).click();
     }
-
-    public void signedUpButtonClick() {
-        driver.findElement(SIGN_UP_BUTTON).click();
-    }
-
-
 }

@@ -28,11 +28,6 @@ public class DefectTest extends BaseTest {
     @Test(description = "Creation of new defect without attaching the file and milestone")
     public void createNewDefectWithoutAttachment() {
 
-        log.warn(String.format("Creation new Defect with the title '%s', actual result '%s', severity to check '%s', " +
-                "assignee is '%s'", defectTitle, actualResult, severityToCheck, assigneeValueToClick));
-        log.error(String.format("Creation new Defect with the title '%s', actual result '%s', severity to check '%s', " +
-                "assignee is '%s'", defectTitle, actualResult, severityToCheck, assigneeValueToClick));
-
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
         loginPage.login(USER_LOGIN, USER_PASSWORD);
