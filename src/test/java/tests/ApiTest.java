@@ -1,6 +1,7 @@
 package tests;
 
 import adapters.ProjectAdapter;
+import models.Project;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
@@ -30,6 +31,7 @@ public class ApiTest {
 
     @Test
     public void projectTest2(){
+        Project project = new Project();
         String response = new ProjectAdapter().post("{\"title\": \"TEeST56\", \"code\": \"TSRRFS\"}", 200);
         assertEquals(response, "{\n" +
                 "    \"status\": true,\n" +

@@ -1,8 +1,11 @@
 package adapters;
 
+import com.google.gson.Gson;
+
 import static io.restassured.RestAssured.given;
 
 public class BaseAdapter {
+    Gson gson = new Gson();
 
     public String post(String body, int status, String url) {
         return
