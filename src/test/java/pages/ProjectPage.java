@@ -5,6 +5,7 @@ import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utils.AllureUtils;
 
 @Log4j2
 public class ProjectPage extends BasePage {
@@ -41,21 +42,15 @@ public class ProjectPage extends BasePage {
     }
 
     @Step("Enter project title")
-    public void EnterProjectName(String projectName) {
+    public void enterProjectName(String projectName) {
 
         log.info("info");
 
         new Input(driver, "Project name").write(projectName);
     }
 
-    @Step("Enter project code")
-    public void EnterProjectCode(String projectCode) {
-
-        new Input(driver, "Project Code").write(projectCode);
-    }
-
     @Step("Enter project description")
-    public void EnterProjectDescriptionField(String projectDescription) {
+    public void enterProjectDescriptionField(String projectDescription) {
 
         log.info("info");
 
@@ -63,7 +58,7 @@ public class ProjectPage extends BasePage {
     }
 
     @Step("Click on the radiobutton 'Public access project'")
-    public void ProjectPublicAccessRadioButtonClick() {
+    public void projectPublicAccessRadioButtonClick() {
 
         log.info("info");
 
@@ -71,7 +66,7 @@ public class ProjectPage extends BasePage {
     }
 
     @Step("Click on the radiobutton 'Public access project'")
-    public void CreateProjectButton() {
+    public void createProjectButton() {
 
         log.info("info");
 

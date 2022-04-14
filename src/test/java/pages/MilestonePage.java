@@ -5,6 +5,7 @@ import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utils.AllureUtils;
 
 import static pages.ProjectPage.PROJECT_URL;
 
@@ -79,11 +80,15 @@ public class MilestonePage extends BasePage {
         log.info("info");
 
         clickMilestoneSubmenu();
+        AllureUtils.takeScreenshot(driver);
         clickCreateMilestoneButton();
+        AllureUtils.takeScreenshot(driver);
         enterMilestoneName(milestoneForTestRunName);
+        AllureUtils.takeScreenshot(driver);
         enterMilestoneDescription(milestoneDescription);
+        AllureUtils.takeScreenshot(driver);
         createNewMilestoneButtonClick();
+        AllureUtils.takeScreenshot(driver);
         isPageOpened();
     }
-
 }
