@@ -7,6 +7,8 @@ import static io.restassured.RestAssured.given;
 public class BaseAdapter {
     Gson gson = new Gson();
 
+    String PROJECT_URL = "https://api.qase.io/v1/";
+
     public String post(String body, int status, String url) {
         return
                 given().
