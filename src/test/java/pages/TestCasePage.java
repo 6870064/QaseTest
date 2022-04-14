@@ -53,8 +53,7 @@ public class TestCasePage extends BasePage {
     public void createTestCaseButtonClick() {
         driver.findElement(CREATE_CASE_BUTTON).click();
 
-        log.warn("Click on the button 'Create test case'");
-        log.error("Click on the button 'Create test case'");
+        log.info("Click on the button 'Create test case'");
     }
 
     @Step("Enter title of the test case")
@@ -126,40 +125,35 @@ public class TestCasePage extends BasePage {
     public void saveButtonClick() {
         driver.findElement(SAVE_BUTTON).click();
 
-        log.warn("Enter preconditions of the test case");
-        log.error("Enter preconditions of the test case");
+        log.info("Enter preconditions of the test case");
     }
 
     @Step("Click on the checkbox to select all test cases")
     public void allCasesCheckBoxClick() {
         driver.findElement(ALL_CASES_WITHOUT_SUITE_CHECKBOX).click();
 
-        log.warn("Click on the checkbox to select all test cases");
-        log.error("Click on the checkbox to select all test cases");
+        log.info("Click on the checkbox to select all test cases");
     }
 
     @Step("Click on the button to delete all test cases")
     public void deleteCasesButtonClick() {
         driver.findElement(DELETE_CASES_BUTTON).click();
 
-        log.warn("Click on the button to delete all test cases");
-        log.error("Click on the button to delete all test cases");
+        log.info("Click on the button to delete all test cases");
     }
 
     @Step("Enter the text to confirm removal of all test cases")
     public void enterTextConfirmDeleteField(String text) {
         driver.findElement(CONFIRM_DELETE_FIELD).sendKeys(text);
 
-        log.warn("Enter the text to confirm removal of all test cases");
-        log.error("Enter the text to confirm removal of all test cases");
+        log.info("Enter the text to confirm removal of all test cases");
     }
 
     @Step("Click on the button to confirm deletion of all test cases")
     public void deleteCasesConfirmButtonClick() {
         driver.findElement(DELETE_CASES_CONFIRM_BUTTON).click();
 
-        log.warn("Click on the button to confirm deletion of all test cases");
-        log.error("Click on the button to confirm deletion of all test cases");
+        log.info("Click on the button to confirm deletion of all test cases");
     }
 
 
@@ -185,8 +179,7 @@ public class TestCasePage extends BasePage {
         selectAutomationStatus(testCaseAutoStatus);
         saveButtonClick();
 
-        log.warn("Creation of the base test case");
-        log.error("Creation of the base test case");
+        log.info("Creation of the base test case");
     }
 
     @Step("Adding the step of test case")
@@ -201,7 +194,6 @@ public class TestCasePage extends BasePage {
         new CustomInput(driver, "data", Integer.toString(i)).write(inputData + a);
         new CustomInput(driver, "expected_result", Integer.toString(i)).write(expectedResult + a);
 
-        log.warn("Adding the step of test case");
-        log.error("Adding the step of test case");
+        log.info("Adding the step of test case");
     }
 }

@@ -39,16 +39,14 @@ public class TestPlanPage extends BasePage {
     public void testPlansButtonClick() {
         driver.findElement(TEST_PLANS_SUBMENU).click();
 
-        log.warn("Click on 'Test plan' submenu");
-        log.error("Click on 'Test plan' submenu");
+        log.info("Click on 'Test plan' submenu");
     }
 
     @Step("Click on 'Create test plan' button")
     public void createPlanButtonClick() {
         driver.findElement(CREATE_PLAN_BUTTON).click();
 
-        log.warn("Click on 'Create test plan' button");
-        log.error("Click on 'Create test plan' button");
+        log.info("Click on 'Create test plan' button");
     }
 
     @Step("Enter title of the test plan")
@@ -65,32 +63,28 @@ public class TestPlanPage extends BasePage {
     public void addCasesButtonClick() {
         driver.findElement(ADD_CASES_BUTTON).click();
 
-        log.warn("Click on 'Add cases' button");
-        log.error("Click on 'Add cases' button");
+        log.info("Click on 'Add cases' button");
     }
 
     @Step("Click on checkbox")
     public void checkboxSelect() {
         driver.findElement(CHECKBOX).click();
 
-        log.warn("Click on checkbox");
-        log.error("Click on checkbox");
+        log.info("Click on checkbox");
     }
 
     @Step("Click on the button to add cases")
     public void addCasesDoneButton() {
         driver.findElement(ADD_CASES_DONE_BUTTON).click();
 
-        log.warn("Click on the button to add cases");
-        log.error("Click on the button to add cases");
+        log.info("Click on the button to add cases");
     }
 
     @Step("Click on 'Save test plan' button")
     public void savePlanButtonClick() {
         driver.findElement(SAVE_PLAN_BUTTON).click();
 
-        log.warn("Click on 'Save test plan' button");
-        log.error("Click on 'Save test plan' button");
+        log.info("Click on 'Save test plan' button");
     }
 
     /**
@@ -107,8 +101,7 @@ public class TestPlanPage extends BasePage {
         addCasesDoneButton();
         savePlanButtonClick();
 
-        log.warn(String.format("Creation of base test plan with title '%s' and description '%s'", testPlanTitleForRun, testPlanDescriptionForRun));
-        log.error(String.format("Creation of base test plan with title '%s' and description '%s'", testPlanTitleForRun, testPlanDescriptionForRun));
+        log.info(String.format("Creation of base test plan with title '%s' and description '%s'", testPlanTitleForRun, testPlanDescriptionForRun));
     }
 }
 

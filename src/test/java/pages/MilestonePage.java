@@ -65,15 +65,13 @@ public class MilestonePage extends BasePage {
     public void createNewMilestoneButtonClick() {
 
         driver.findElement(CREATE_NEW_MILESTONE_BUTTON).click();
-        log.warn("Click on 'Create milestone' button");
-        log.error("Click on 'Create milestone' button");
+        log.info("Click on 'Create milestone' button");
     }
 
     @Step("Create base milestone")
     public void createBaseMilestone(String milestoneForTestRunName, String milestoneDescription) {
 
-        log.warn(String.format("Creation of base base milestone with the title '%s' and description '%s'",milestoneForTestRunName, milestoneDescription));
-        log.error(String.format("Creation of base base milestone with the title '%s' and description '%s'",milestoneForTestRunName, milestoneDescription));
+        log.info(String.format("Creation of base base milestone with the title '%s' and description '%s'",milestoneForTestRunName, milestoneDescription));
 
         clickMilestoneSubmenu();
         clickCreateMilestoneButton();

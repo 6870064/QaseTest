@@ -35,8 +35,7 @@ public class LoginPage extends BasePage {
     @Step("Login by user: {userLogin}, {userPassword}")
     public void login(String userLogin, String userPassword) {
 
-        log.warn(String.format("Valid login with user login '%s' and valid password '%s'",userLogin, userPassword));
-        log.error(String.format("Valid login with user login '%s' and valid password '%s'",userLogin, userPassword));
+        log.info(String.format("Valid login with user login '%s' and valid password '%s'",userLogin, userPassword));
 
         driver.findElement(LOGIN_INPUT).sendKeys(userLogin);
         driver.findElement(PASSWORD_INPUT).sendKeys(userPassword);

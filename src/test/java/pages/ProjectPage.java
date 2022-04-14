@@ -50,8 +50,7 @@ public class ProjectPage extends BasePage {
     public void EnterProjectDescriptionField(String projectDescription) {
         driver.findElement(PROJECT_DESCRIPTION_FIELD).sendKeys(projectDescription);
 
-        log.warn("Enter project description");
-        log.error("Enter project description");
+        log.info("Enter project description");
     }
 
     @Step("Click on the radiobutton 'Public access project'")
@@ -59,16 +58,14 @@ public class ProjectPage extends BasePage {
 
         driver.findElement(PROJECT_PUBLIC_ACCESS_RADIOBUTTON).click();
 
-        log.warn("Click on the radiobutton 'Public access project'");
-        log.error("Click on the radiobutton 'Public access project'");
+        log.info("Click on the radiobutton 'Public access project'");
     }
 
     @Step("Click on the 'Create project' button")
     public void CreateProjectButton() {
 
         driver.findElement(CREATE_PROJECT_BUTTON).click();
-        log.warn("Click on the 'Create project' button");
-        log.error("Click on the 'Create project' button");
+        log.info("Click on the 'Create project' button");
     }
 
     @Step("Open the project'")

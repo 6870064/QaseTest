@@ -40,8 +40,7 @@ public class DefectPage extends BasePage {
     public void clickDefectsButton() {
 
         driver.findElement(DEFECTS_SUBMENU).click();
-        log.warn("Click on the Defect button");
-        log.error("Click on the Defect button");
+        log.info("Click on the Defect button");
     }
 
     /**
@@ -51,8 +50,7 @@ public class DefectPage extends BasePage {
 
         driver.findElement(CREATE_NEW_DEFECT_BUTTON).click();
         AllureUtils.takeScreenshot(driver);
-        log.warn("Click on the button for creation new defect");
-        log.error("Click on the button for creation new defect");
+        log.info("Click on the button for creation new defect");
     }
 
     public void enterDefectTitle(String defectTitle) {
@@ -86,8 +84,7 @@ public class DefectPage extends BasePage {
 
         driver.findElement(CREATE_DEFECT_BUTTON).click();
         AllureUtils.takeScreenshot(driver);
-        log.warn("Click on 'Create Defect' button");
-        log.error("Click on 'Create Defect' button");
+        log.info("Click on 'Create Defect' button");
     }
 
     /**
@@ -98,8 +95,7 @@ public class DefectPage extends BasePage {
 
         driver.findElement(By.xpath(String.format(TITLE_OF_DEFECT_CREATED, titleOfDefect))).click();
         AllureUtils.takeScreenshot(driver);
-        log.warn("Open defect created");
-        log.error("Open defect created");
+        log.info("Open defect created");
     }
 
     /**

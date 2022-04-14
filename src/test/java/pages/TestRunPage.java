@@ -40,8 +40,7 @@ public class TestRunPage extends BasePage {
     @Step("Click on test run submenu")
     public void testRunsSubmenuClick() {
 
-        log.warn("Click on test run submenu");
-        log.error("Click on test run submenu");
+        log.info("Click on test run submenu");
 
         driver.findElement(TEST_RUNS_SUBMENU).click();
         AllureUtils.takeScreenshot(driver);
@@ -50,8 +49,7 @@ public class TestRunPage extends BasePage {
     @Step("Click on the button to start of the test run")
     public void setStartNewTestRunButtonClick() {
 
-        log.warn("Click on the button to start of the test run");
-        log.error("Click on the button to start of the test run");
+        log.info("Click on the button to start of the test run");
 
         driver.findElement(START_NEW_TEST_RUN_BUTTON).click();
         AllureUtils.takeScreenshot(driver);
@@ -60,8 +58,7 @@ public class TestRunPage extends BasePage {
     @Step("Enter title of the test run")
     public void enterRunTitle(String testRunTitle) {
 
-        log.warn(String.format("Enter title '%s' of the test run", testRunTitle));
-        log.error(String.format("Enter title '%s' of the test run", testRunTitle));
+        log.info(String.format("Enter title '%s' of the test run", testRunTitle));
 
         new Input(driver, "Run title").write(testRunTitle);
         AllureUtils.takeScreenshot(driver);
@@ -70,8 +67,7 @@ public class TestRunPage extends BasePage {
     @Step("Enter description of the test run")
     public void enterTestRunDescription(String testRunDescription) {
 
-        log.warn("Enter description of the test run");
-        log.error("Enter description of the test run");
+        log.info("Enter description of the test run");
 
         new Input(driver, "Description").write(testRunDescription);
         AllureUtils.takeScreenshot(driver);
@@ -79,8 +75,7 @@ public class TestRunPage extends BasePage {
 
     public void planValueSelect(String planValue) {
 
-        log.warn("Select of Plan value");
-        log.error("Select of Plan value");
+        log.info("Select of Plan value");
 
         new Dropdown(driver, "Plan", "Select...", planValue).dropDownClick();
         AllureUtils.takeScreenshot(driver);
@@ -89,8 +84,7 @@ public class TestRunPage extends BasePage {
     @Step("Select assignee of the test run")
     public void assigneeSelect(String assigneeValueToClick) {
 
-        log.warn("Select assignee of the test run");
-        log.error("Select assignee of the test run");
+        log.info("Select assignee of the test run");
 
         new CustomDropdown(driver, "Default assignee", "Select...", assigneeValueToClick).dropDownClick();
         AllureUtils.takeScreenshot(driver);
@@ -99,8 +93,7 @@ public class TestRunPage extends BasePage {
     @Step("Click on 'Add cases' button")
     public void setAddCasesButtonClick() {
 
-        log.warn("Click on 'Add cases' button");
-        log.error("Click on 'Add cases' button");
+        log.info("Click on 'Add cases' button");
 
         driver.findElement(ADD_CASES_BUTTON).click();
         AllureUtils.takeScreenshot(driver);
@@ -109,8 +102,7 @@ public class TestRunPage extends BasePage {
     @Step("Click on checkbox")
     public void checkboxClick() {
 
-        log.warn("Click on checkbox");
-        log.error("Click on checkbox");
+        log.info("Click on checkbox");
 
         driver.findElement(CHECKBOX).click();
         AllureUtils.takeScreenshot(driver);
@@ -119,8 +111,7 @@ public class TestRunPage extends BasePage {
     @Step("Click on 'Done' button")
     public void doneButtonClick() {
 
-        log.warn("Click on 'Done' button");
-        log.error("Click on 'Done' button");
+        log.info("Click on 'Done' button");
 
         driver.findElement(DONE_BUTTON).click();
         AllureUtils.takeScreenshot(driver);
@@ -129,8 +120,7 @@ public class TestRunPage extends BasePage {
     @Step("Click on 'Start test run' button")
     public void startRunButtonClick() {
 
-        log.warn("Click on 'Start test run' button");
-        log.error("Click on 'Start test run' button");
+        log.info("Click on 'Start test run' button");
 
         driver.findElement(START_RUN_BUTTON).click();
         AllureUtils.takeScreenshot(driver);
