@@ -34,6 +34,7 @@ public class ProjectTest extends BaseTest {
         projectPage.EnterDescription(publicDescription);
         projectPage.ProjectPublicAccessRadioButtonClick();
         projectPage.CreateProjectButton();
+    
         String errorText = String.format("New project titled %s is not created", publicProjectName);
         assertTrue(projectPage.isProjectCreated(), errorText);
     }
