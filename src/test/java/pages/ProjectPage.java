@@ -35,56 +35,45 @@ public class ProjectPage extends BasePage {
 
     @Step("Click on the button to create new project")
     public void createNewProjectButtonClick() {
-
-        log.info("info");
-
         driver.findElement(CREATE_NEW_PROJECT_BUTTON).click();
+
+        log.warn("Click on the button to create new project");
+        log.error("Click on the button to create new project");
     }
 
     @Step("Enter project title")
     public void enterProjectName(String projectName) {
 
-        log.info("info");
-
         new Input(driver, "Project name").write(projectName);
     }
 
     @Step("Enter project description")
-    public void enterProjectDescriptionField(String projectDescription) {
-
-        log.info("info");
-
+    public void EnterProjectDescriptionField(String projectDescription) {
         driver.findElement(PROJECT_DESCRIPTION_FIELD).sendKeys(projectDescription);
+        log.info("Enter project description");
     }
 
     @Step("Click on the radiobutton 'Public access project'")
     public void projectPublicAccessRadioButtonClick() {
 
-        log.info("info");
-
         driver.findElement(PROJECT_PUBLIC_ACCESS_RADIOBUTTON).click();
-    }
 
-    @Step("Click on the radiobutton 'Public access project'")
+        log.info("Click on the radiobutton 'Public access project'");
+    }
+    
+      @Step("Click on the radiobutton 'Public access project'")
     public void createProjectButton() {
 
-        log.info("info");
-
         driver.findElement(CREATE_PROJECT_BUTTON).click();
+        log.info("Click on the 'Create project' button");
     }
 
     @Step("Open the project'")
     public void projectOpen() {
-
-        log.info("info");
-
         driver.get(PROJECT_URL);
     }
 
     public boolean isProjectCreated() {
-
-        log.info("info");
-
         return isElementExist(CREATE_NEW_SUITE);
     }
 }

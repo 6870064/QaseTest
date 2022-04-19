@@ -25,9 +25,6 @@ public class TestPlanTest extends BaseTest {
     @Test(description = "Creation test plan")
     public void createTestPlan() {
 
-        log.warn("warn");
-        log.error("error");
-
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
         loginPage.login(USER_LOGIN, USER_PASSWORD);

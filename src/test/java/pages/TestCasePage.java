@@ -48,12 +48,11 @@ public class TestCasePage extends BasePage {
     @Step("Click on the button 'Create test case'")
     public void createTestCaseButtonClick() {
         driver.findElement(CREATE_CASE_BUTTON).click();
+        log.info("Click on the button 'Create test case'");
     }
 
     @Step("Enter title of the test case")
     public void enterTestCaseTitle(String testCaseTitle) {
-
-        log.info("info");
 
         new Input(driver, "Title").write(testCaseTitle);
     }
@@ -61,15 +60,11 @@ public class TestCasePage extends BasePage {
     @Step("Select status of test case'")
     public void selectStatus(String testCaseStatus) {
 
-        log.info("info");
-
         new Dropdown(driver, "Status", "Actual", testCaseStatus).dropDownClick();
     }
 
     @Step("Enter of the test case description")
     public void enterDescription(String testCaseDescription) {
-
-        log.info("info");
 
         new Input(driver, "Description").write(testCaseDescription);
     }
@@ -77,15 +72,11 @@ public class TestCasePage extends BasePage {
     @Step("Select severity of the test case")
     public void selectSeverity(String testCaseSeverity) {
 
-        log.info("info");
-
         new Dropdown(driver, "Severity", "Normal", testCaseSeverity).dropDownClick();
     }
 
     @Step("Select priority of the test case")
     public void selectPriority(String testCasePriority) {
-
-        log.info("info");
 
         new Dropdown(driver, "Priority", "Not set", testCasePriority).dropDownClick();
     }
@@ -128,26 +119,36 @@ public class TestCasePage extends BasePage {
     @Step("Enter preconditions of the test case")
     public void saveButtonClick() {
         driver.findElement(SAVE_BUTTON).click();
+
+        log.info("Enter preconditions of the test case");
     }
 
     @Step("Click on the checkbox to select all test cases")
     public void allCasesCheckBoxClick() {
         driver.findElement(ALL_CASES_WITHOUT_SUITE_CHECKBOX).click();
+
+        log.info("Click on the checkbox to select all test cases");
     }
 
     @Step("Click on the button to delete all test cases")
     public void deleteCasesButtonClick() {
         driver.findElement(DELETE_CASES_BUTTON).click();
+
+        log.info("Click on the button to delete all test cases");
     }
 
     @Step("Enter the text to confirm removal of all test cases")
     public void enterTextConfirmDeleteField(String text) {
         driver.findElement(CONFIRM_DELETE_FIELD).sendKeys(text);
+
+        log.info("Enter the text to confirm removal of all test cases");
     }
 
     @Step("Click on the button to confirm deletion of all test cases")
     public void deleteCasesConfirmButtonClick() {
         driver.findElement(DELETE_CASES_CONFIRM_BUTTON).click();
+
+        log.info("Click on the button to confirm deletion of all test cases");
     }
 
 
@@ -159,8 +160,6 @@ public class TestCasePage extends BasePage {
     public void createBaseTestCase(String testCaseTitle, String testCaseDescription, String testCaseStatus, String testCaseSeverity,
                                    String testCasePriority, String testCaseType, String testCaseLayer, String testCaseIsFlaky,
                                    String testCaseBehavior, String testCaseAutoStatus) {
-
-        log.info("info");
 
         createTestCaseButtonClick();
         AllureUtils.takeScreenshot(driver);
@@ -185,13 +184,12 @@ public class TestCasePage extends BasePage {
         selectAutomationStatus(testCaseAutoStatus);
         AllureUtils.takeScreenshot(driver);
         saveButtonClick();
+
+        log.info("Creation of the base test case");
     }
 
     @Step("Adding the step of test case")
     public void addStep(int i, String action, String inputData, String expectedResult) {  //Метод по добавлению шагов в тест-кейс испольуя CustomInput
-
-        log.warn("warn");
-        log.error("error");
 
         WebElement element = driver.findElement(ADD_STEP_BUTTON); //scrolling
         jsExecutor.scrollToElement(element);
@@ -202,5 +200,7 @@ public class TestCasePage extends BasePage {
         AllureUtils.takeScreenshot(driver);
         new CustomInput(driver, "data", Integer.toString(i)).write(inputData + a);
         new CustomInput(driver, "expected_result", Integer.toString(i)).write(expectedResult + a);
+
+        log.info("Adding the step of test case");
     }
 }

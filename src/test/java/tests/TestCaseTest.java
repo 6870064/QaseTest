@@ -33,8 +33,8 @@ public class TestCaseTest extends BaseTest {
     @Test(description = "Creation of the test case without adding conditions and the steps")
     public void createTestCaseWithoutConditionsAndSteps() {
 
-        log.warn("warn");
-        log.error("error");
+        log.warn(String.format("Creation of new test case with the title '%s'", testCaseTitleWithoutConditions));
+        log.error(String.format("Error in creation of new test case with the title '%s'", testCaseTitleWithoutConditions));
 
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
@@ -60,8 +60,8 @@ public class TestCaseTest extends BaseTest {
     @Test(description = "Creation of the test case with adding Pre-Conditions and 1 step")
     public void createTestCaseWithOneStep() {
 
-        log.warn("warn");
-        log.error("error");
+        log.warn(String.format("Creation of new test case with the title '%s'", testCaseTitleWithConditions));
+        log.error(String.format("Error in creation of new test case with the title '%s'", testCaseTitleWithConditions));
 
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
@@ -93,8 +93,8 @@ public class TestCaseTest extends BaseTest {
     @Test(description = "Creation of the test case with adding Pre-Conditions, Post-Conditions and 1 step")
     public void createTestCaseWithConditionsOneStep() {
 
-        log.warn("warn");
-        log.error("error");
+        log.warn(String.format("Creation of new test case with the title '%s' and 1 step", testCaseTitleWithConditions));
+        log.error(String.format("Error in creation of new test case with the title '%s' and 1 step", testCaseTitleWithConditions));
 
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
@@ -123,8 +123,8 @@ public class TestCaseTest extends BaseTest {
     @Test(description = "Creation of the test case with adding Pre-Conditions, Post-Conditions and 10 steps without attachment")
     public void createTestCaseWithTenSteps() {
 
-        log.warn("warn");
-        log.error("error");
+        log.warn(String.format("Creation of new test case with the title '%s' and 10 steps", testCaseTitleWithConditions));
+        log.error(String.format("Error in creation of new test case with the title '%s' and 10 steps", testCaseTitleWithConditions));
 
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
@@ -156,8 +156,8 @@ public class TestCaseTest extends BaseTest {
     @Test(description = "Creation of the test case with adding 1 step and attachment")
     public void createTestCaseWithFileAndOneStep() {
 
-        log.warn("warn");
-        log.error("error");
+        log.warn(String.format("Creation of new test case with the title '%s', file of attachment is '%s' and 1 step", testCaseTitleWithoutConditions, fileName));
+        log.error(String.format("Error in creation of new test case with the title '%s', file of attachment is '%s' and 1 step", testCaseTitleWithoutConditions, fileName));
 
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
@@ -186,8 +186,8 @@ public class TestCaseTest extends BaseTest {
     @Test(description = "Creation of the test case with adding 10 step and attachment")
     public void createTestCaseWithFileAndTenSteps() {
 
-        log.warn("warn");
-        log.error("error");
+        log.warn(String.format("Creation of new test case with the title '%s', file of attachment is '%s' and 10 steps", testCaseTitleWithoutConditions, fileName));
+        log.error(String.format("Error in creation of new test case with the title '%s', file of attachment is '%s' and 10 steps", testCaseTitleWithoutConditions, fileName));
 
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
@@ -217,9 +217,6 @@ public class TestCaseTest extends BaseTest {
 
     @Test(description = "Delete all cases on the project")
     public void deleteAllTestCases() {
-
-        log.warn("warn");
-        log.error("error");
 
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");

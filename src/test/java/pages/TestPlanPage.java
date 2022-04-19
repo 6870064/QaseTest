@@ -32,16 +32,21 @@ public class TestPlanPage extends BasePage {
 
     public boolean createPlanButtonIsDisplayed() {
         return isElementExist(CREATE_PLAN_BUTTON);
+
     }
 
     @Step("Click on 'Test plan' submenu")
     public void testPlansButtonClick() {
         driver.findElement(TEST_PLANS_SUBMENU).click();
+
+        log.info("Click on 'Test plan' submenu");
     }
 
     @Step("Click on 'Create test plan' button")
     public void createPlanButtonClick() {
         driver.findElement(CREATE_PLAN_BUTTON).click();
+
+        log.info("Click on 'Create test plan' button");
     }
 
     @Step("Enter title of the test plan")
@@ -57,21 +62,29 @@ public class TestPlanPage extends BasePage {
     @Step("Click on 'Add cases' button")
     public void addCasesButtonClick() {
         driver.findElement(ADD_CASES_BUTTON).click();
+
+        log.info("Click on 'Add cases' button");
     }
 
     @Step("Click on checkbox")
     public void checkboxSelect() {
         driver.findElement(CHECKBOX).click();
+
+        log.info("Click on checkbox");
     }
 
     @Step("Click on the button to add cases")
     public void addCasesDoneButton() {
         driver.findElement(ADD_CASES_DONE_BUTTON).click();
+
+        log.info("Click on the button to add cases");
     }
 
-    @Step("Click on 'Save test plan button' ")
+    @Step("Click on 'Save test plan' button")
     public void savePlanButtonClick() {
         driver.findElement(SAVE_PLAN_BUTTON).click();
+
+        log.info("Click on 'Save test plan' button");
     }
 
     /**
@@ -79,9 +92,6 @@ public class TestPlanPage extends BasePage {
      */
     @Step("Create base the test plan")
     public void createBaseTestPlan(String testPlanTitleForRun, String testPlanDescriptionForRun) {
-
-        log.warn("warn");
-        log.error("error");
 
         createPlanButtonClick();
         AllureUtils.takeScreenshot(driver);
@@ -96,6 +106,8 @@ public class TestPlanPage extends BasePage {
         addCasesDoneButton();
         AllureUtils.takeScreenshot(driver);
         savePlanButtonClick();
+
+        log.info(String.format("Creation of base test plan with title '%s' and description '%s'", testPlanTitleForRun, testPlanDescriptionForRun));
     }
 }
 

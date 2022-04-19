@@ -53,8 +53,7 @@ public abstract class BasePage {
     @Step("Upload File as attachment")
     public void fileUpload(String filePath) {
 
-        log.warn("warn");
-        log.error("error");
+        log.info("Upload File with the path "+ filePath +" as attachment");
 
         WebElement element = driver.findElement(ADD_ATTACHMENT_BUTTON); //scrolling
         jsExecutor.scrollToElement(element);
@@ -67,8 +66,7 @@ public abstract class BasePage {
 
     public void checkTitleOfFileUploaded(String fileName) {
 
-        log.warn("warn");
-        log.error("error");
+        log.info("check upload of the file titled " +fileName);
 
         String titleOfFile = driver.findElement(UPLOADED_FILE).getAttribute("innerText");
         assertEquals(titleOfFile, fileName, "Title of the uploaded file is not equal"); //Проверить, что имя файла

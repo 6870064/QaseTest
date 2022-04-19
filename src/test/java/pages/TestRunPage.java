@@ -40,79 +40,89 @@ public class TestRunPage extends BasePage {
     @Step("Click on test run submenu")
     public void testRunsSubmenuClick() {
 
-        log.info("info");
+        log.info("Click on test run submenu");
 
         driver.findElement(TEST_RUNS_SUBMENU).click();
+        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Click on the button to start of the test run")
     public void setStartNewTestRunButtonClick() {
 
-        log.info("info");
+        log.info("Click on the button to start of the test run");
 
         driver.findElement(START_NEW_TEST_RUN_BUTTON).click();
+        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Enter title of the test run")
     public void enterRunTitle(String testRunTitle) {
 
-        log.info("info");
+        log.info(String.format("Enter title '%s' of the test run", testRunTitle));
 
         new Input(driver, "Run title").write(testRunTitle);
+        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Enter description of the test run")
     public void enterTestRunDescription(String testRunDescription) {
 
-        log.info("info");
+        log.info("Enter description of the test run");
 
         new Input(driver, "Description").write(testRunDescription);
+        AllureUtils.takeScreenshot(driver);
     }
 
     public void planValueSelect(String planValue) {
 
-        log.info("info");
+        log.info("Select of Plan value");
 
         new Dropdown(driver, "Plan", "Select...", planValue).dropDownClick();
+        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Select assignee of the test run")
     public void assigneeSelect(String assigneeValueToClick) {
 
-        log.info("info");
+        log.info("Select assignee of the test run");
 
         new CustomDropdown(driver, "Default assignee", "Select...", assigneeValueToClick).dropDownClick();
+        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Click on 'Add cases' button")
     public void setAddCasesButtonClick() {
 
-        log.info("info");
+        log.info("Click on 'Add cases' button");
 
         driver.findElement(ADD_CASES_BUTTON).click();
+        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Click on checkbox")
     public void checkboxClick() {
 
-        log.info("info");
+        log.info("Click on checkbox");
 
         driver.findElement(CHECKBOX).click();
+        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Click on 'Done' button")
     public void doneButtonClick() {
 
-        log.info("info");
+        log.info("Click on 'Done' button");
 
         driver.findElement(DONE_BUTTON).click();
+        AllureUtils.takeScreenshot(driver);
     }
 
     @Step("Click on 'Start test run' button")
     public void startRunButtonClick() {
 
-        log.info("info");
+        log.info("Click on 'Start test run' button");
 
         driver.findElement(START_RUN_BUTTON).click();
+        AllureUtils.takeScreenshot(driver);
     }
 }

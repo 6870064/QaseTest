@@ -11,9 +11,6 @@ public class LoginTest extends BaseTest {
     @Test(description = "Username should be required")
     public void validUserLogin() {
 
-        log.warn("warn");
-        log.error("error");
-
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
         loginPage.enterUserLogin(USER_LOGIN);
