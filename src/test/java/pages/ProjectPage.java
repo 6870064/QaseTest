@@ -11,7 +11,6 @@ public class ProjectPage extends BasePage {
 
     public static final By CREATE_NEW_PROJECT_BUTTON = By.id("createButton");
     public static final By PROJECT_NAME_FIELD = By.id("inputTitle");
-    public static final By PROJECT_CODE_FILED = By.id("inputCode");
     public static final By PROJECT_DESCRIPTION_FIELD = By.id("inputDescription");
     public static final By PROJECT_PUBLIC_ACCESS_RADIOBUTTON = By.id("public-access-type");
     public static final By CREATE_PROJECT_BUTTON = By.xpath("//button[text()='Create project']");
@@ -47,7 +46,7 @@ public class ProjectPage extends BasePage {
     }
 
     @Step("Enter project description")
-    public void EnterProjectDescriptionField(String projectDescription) {
+    public void EnterDescription(String projectDescription) {
         driver.findElement(PROJECT_DESCRIPTION_FIELD).sendKeys(projectDescription);
 
         log.info("Enter project description");

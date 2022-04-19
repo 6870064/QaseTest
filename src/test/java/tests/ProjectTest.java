@@ -31,7 +31,7 @@ public class ProjectTest extends BaseTest {
         projectPage.createNewProjectButtonClick();
         assertTrue(projectPage.isPageOpened(), "Projects Page is not opened");
         projectPage.EnterProjectName(publicProjectName);
-        projectPage.EnterProjectDescriptionField(publicDescription);
+        projectPage.EnterDescription(publicDescription);
         projectPage.ProjectPublicAccessRadioButtonClick();
         projectPage.CreateProjectButton();
         String errorText = String.format("New project titled %s is not created", publicProjectName);
@@ -48,7 +48,7 @@ public class ProjectTest extends BaseTest {
         projectPage.createNewProjectButtonClick();
         assertTrue(projectPage.isPageOpened(), "Projects Page is not opened");
         projectPage.EnterProjectName(privateProjectName);
-        projectPage.EnterProjectDescriptionField(privateDescription);
+        projectPage.EnterDescription(privateDescription);
         projectPage.CreateProjectButton();
         String errorText = String.format("New project titled %s is not created", privateProjectName);
         assertTrue(projectPage.isProjectCreated(), errorText);
