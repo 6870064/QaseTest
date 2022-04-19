@@ -8,6 +8,7 @@ import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import utils.AllureUtils;
 
 @Log4j2
 public class TestCasePage extends BasePage {
@@ -39,20 +40,14 @@ public class TestCasePage extends BasePage {
         return isElementExist(CREATE_CASE_BUTTON);
     }
 
-    public boolean addStepButtonIsDisplayed() {
-        return isElementExist(ADD_STEP_BUTTON);
-    }
-
     @Override
     public boolean isCongratsPageOpened() {
         return false;
     }
 
-
     @Step("Click on the button 'Create test case'")
     public void createTestCaseButtonClick() {
         driver.findElement(CREATE_CASE_BUTTON).click();
-
         log.info("Click on the button 'Create test case'");
     }
 
@@ -167,16 +162,27 @@ public class TestCasePage extends BasePage {
                                    String testCaseBehavior, String testCaseAutoStatus) {
 
         createTestCaseButtonClick();
+        AllureUtils.takeScreenshot(driver);
         enterTestCaseTitle(testCaseTitle);
+        AllureUtils.takeScreenshot(driver);
         enterDescription(testCaseDescription);
+        AllureUtils.takeScreenshot(driver);
         selectStatus(testCaseStatus);
+        AllureUtils.takeScreenshot(driver);
         selectSeverity(testCaseSeverity);
+        AllureUtils.takeScreenshot(driver);
         selectPriority(testCasePriority);
+        AllureUtils.takeScreenshot(driver);
         selectType(testCaseType);
+        AllureUtils.takeScreenshot(driver);
         selectLayer(testCaseLayer);
+        AllureUtils.takeScreenshot(driver);
         selectIsFlaky(testCaseIsFlaky);
+        AllureUtils.takeScreenshot(driver);
         selectBehavior(testCaseBehavior);
+        AllureUtils.takeScreenshot(driver);
         selectAutomationStatus(testCaseAutoStatus);
+        AllureUtils.takeScreenshot(driver);
         saveButtonClick();
 
         log.info("Creation of the base test case");
@@ -191,6 +197,7 @@ public class TestCasePage extends BasePage {
 
         int a = i + 1;
         new CustomInput(driver, "action", Integer.toString(i)).write(action + a);
+        AllureUtils.takeScreenshot(driver);
         new CustomInput(driver, "data", Integer.toString(i)).write(inputData + a);
         new CustomInput(driver, "expected_result", Integer.toString(i)).write(expectedResult + a);
 

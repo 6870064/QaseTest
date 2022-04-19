@@ -1,6 +1,10 @@
 package tests;
 
 import adapters.ProjectAdapter;
+import com.github.javafaker.Faker;
+import models.Project;
+import models.ResponseProject;
+import models.ResponseStatus;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
@@ -9,33 +13,80 @@ import static org.testng.Assert.assertEquals;
 
 public class ApiTest {
 
+    Faker faker = new Faker();
+    String code = faker.name().firstName().toUpperCase();
+
     @Test
-    public void projectTest(){
-        String response = new ProjectAdapter().post("{}",400);
-        assertEquals(response,"{\n" +
-                "    \"status\": false,\n" +
-                "    \"errorMessage\": \"Data is invalid.\",\n" +
-                "    \"errorFields\": [\n" +
-                "        {\n" +
-                "            \"field\": \"title\",\n" +
-                "            \"error\": \"Title is required.\"\n" +
-                "        },\n" +
-                "        {\n" +
-                "            \"field\": \"code\",\n" +
-                "            \"error\": \"Project code is required.\"\n" +
-                "        }\n" +
-                "    ]\n" +
-                "}");
+    public void createProject() {
+        Project project = Project.builder()
+                .title("TEST "+ code)
+                .code(code)
+                .build();
+
+        ResponseStatus actual = new ProjectAdapter().create(project, 200);
+        assertEquals(actual.isStatus(), true);
+        assertEquals(actual.getResult().getCode(), project.getCode());
     }
 
     @Test
-    public void projectTest2(){
-        String response = new ProjectAdapter().post("{\"title\": \"TEeST56\", \"code\": \"TSRRFS\"}", 200);
-        assertEquals(response, "{\n" +
-                "    \"status\": true,\n" +
-                "    \"result\": {\n" +
-                "        \"code\": \"TSRRFS\"\n" +
-                "    }\n" +
-                "}");
+    public void createpPojectWithDescription() {
+        Project project = Project.builder()
+                .title("TEST "+ code)
+                .code(code)
+                .description("Project test description")
+                .build();
+
+        ResponseStatus actual = new ProjectAdapter().create(project, 200);
+        assertEquals(actual.isStatus(), true);
+        assertEquals(actual.getResult().getCode(), project.getCode());
+    }
+
+    @Test
+    public void createGroupProject() {
+        Project project = Project.builder()
+                .title("TEST "+ code)
+                .code(code)
+                .description("Project test description")
+                .access("group")
+                .group("YTRODFKDKSK" + code)
+                .build();
+
+        ResponseStatus actual = new ProjectAdapter().create(project, 200);
+        assertEquals(actual.isStatus(), true);
+        assertEquals(actual.getResult().getCode(), project.getCode());
+    }
+
+    @Test
+    public void createPrivateProject() {
+        Project project = Project.builder()
+                .title("TEST "+ code)
+                .code(code)
+                .description("Private Project test description")
+                .access("none")
+                .build();
+
+        ResponseStatus actual = new ProjectAdapter().create(project, 200);
+        assertEquals(actual.isStatus(), true);
+        assertEquals(actual.getResult().getCode(), project.getCode());
+    }
+
+    @Test
+    public void createAllAccessProject() {
+        Project project = Project.builder()
+                .title("TEST "+ code)
+                .code(code)
+                .description("All Access Project test description")
+                .access("all")
+                .build();
+
+        ResponseStatus actual = new ProjectAdapter().create(project, 200);
+        assertEquals(actual.isStatus(), true);
+        assertEquals(actual.getResult().getCode(), project.getCode());
+    }
+
+    @Test
+    public void get() {
+      ResponseProject project = new ProjectAdapter().getProject("TEST3");
+      System.out.println(project);
     }
 }

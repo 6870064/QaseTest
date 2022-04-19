@@ -5,6 +5,7 @@ import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utils.AllureUtils;
 
 @Log4j2
 public class TestPlanPage extends BasePage {
@@ -14,7 +15,6 @@ public class TestPlanPage extends BasePage {
     public static final By CHECKBOX = By.id("suite-0-checkbox");
     public static final By ADD_CASES_DONE_BUTTON = By.id("select-cases-done-button");
     public static final By SAVE_PLAN_BUTTON = By.id("save-plan");
-
 
     public TestPlanPage(WebDriver driver) {
         super(driver);
@@ -94,11 +94,17 @@ public class TestPlanPage extends BasePage {
     public void createBaseTestPlan(String testPlanTitleForRun, String testPlanDescriptionForRun) {
 
         createPlanButtonClick();
+        AllureUtils.takeScreenshot(driver);
         enterTestPlanTitle(testPlanTitleForRun);
+        AllureUtils.takeScreenshot(driver);
         enterTestPlanDescription(testPlanDescriptionForRun);
+        AllureUtils.takeScreenshot(driver);
         addCasesButtonClick();
+        AllureUtils.takeScreenshot(driver);
         checkboxSelect();
+        AllureUtils.takeScreenshot(driver);
         addCasesDoneButton();
+        AllureUtils.takeScreenshot(driver);
         savePlanButtonClick();
 
         log.info(String.format("Creation of base test plan with title '%s' and description '%s'", testPlanTitleForRun, testPlanDescriptionForRun));
