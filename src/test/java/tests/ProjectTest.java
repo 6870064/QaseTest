@@ -13,16 +13,16 @@ public class ProjectTest extends BaseTest {
 
     String publicProjectName = faker.date().toString() + " project" + " " + faker.date().toString();
     String privateProjectName = faker.date().toString() + " project" + " " + faker.date().toString();
-    String publicProjectDescription = faker.name().firstName();
-    String privateProjectDescription = faker.name().firstName() + " " + faker.name().lastName();
+    String publicDescription = faker.name().firstName().toUpperCase();
+    String privateDescription = faker.name().firstName() + " " + faker.name().lastName();
 
     @Test(description = "Creation of the new public project")
     public void createNewPublicProject() {
 
         log.warn(String.format("Creation of new public project with the title '%s' and " +
-                "description '%s'", publicProjectName, publicProjectDescription));
+                "description '%s'", publicProjectName, publicDescription));
         log.error(String.format("Error in creation of new public project with the title '%s' and " +
-                "description '%s'", publicProjectName, publicProjectDescription));
+                "description '%s'", publicProjectName, publicDescription));
 
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
@@ -31,7 +31,7 @@ public class ProjectTest extends BaseTest {
         projectPage.createNewProjectButtonClick();
         assertTrue(projectPage.isPageOpened(), "Projects Page is not opened");
         projectPage.EnterProjectName(publicProjectName);
-        projectPage.EnterProjectDescriptionField(publicProjectDescription);
+        projectPage.EnterProjectDescriptionField(publicDescription);
         projectPage.ProjectPublicAccessRadioButtonClick();
         projectPage.CreateProjectButton();
         String errorText = String.format("New project titled %s is not created", publicProjectName);
@@ -48,7 +48,7 @@ public class ProjectTest extends BaseTest {
         projectPage.createNewProjectButtonClick();
         assertTrue(projectPage.isPageOpened(), "Projects Page is not opened");
         projectPage.EnterProjectName(privateProjectName);
-        projectPage.EnterProjectDescriptionField(privateProjectDescription);
+        projectPage.EnterProjectDescriptionField(privateDescription);
         projectPage.CreateProjectButton();
         String errorText = String.format("New project titled %s is not created", privateProjectName);
         assertTrue(projectPage.isProjectCreated(), errorText);
