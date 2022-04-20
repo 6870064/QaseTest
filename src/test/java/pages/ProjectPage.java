@@ -47,13 +47,13 @@ public class ProjectPage extends BasePage {
     }
 
     @Step("Enter project description")
-    public void EnterDescription(String projectDescription) {
+    public void enterDescription(String projectDescription) {
         driver.findElement(PROJECT_DESCRIPTION_FIELD).sendKeys(projectDescription);
         log.info("Enter project description");
     }
 
     @Step("Click on the radiobutton 'Public access project'")
-    public void projectPublicAccessRadioButtonClick() {
+    public void publicAccessRadioButtonClick() {
 
         driver.findElement(PROJECT_PUBLIC_ACCESS_RADIOBUTTON).click();
 
