@@ -16,7 +16,7 @@ public class JSExecutor {
     }
 
     public void scrollToElement(WebElement element) {
-
+        //TODO использовать WebDriverWait из класса
         wait = new WebDriverWait(driver, 20);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
         wait.until(ExpectedConditions.elementToBeClickable(element));

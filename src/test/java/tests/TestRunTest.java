@@ -53,14 +53,17 @@ public class TestRunTest extends BaseTest {
         //создание test run
         testRunPage.testRunsSubmenuClick();
         assertTrue(testRunPage.startNewTestRunButtonIsDisplayed(), "Test run page is not opened");
+        //TODO странное название метода. Что за слово set?
         testRunPage.setStartNewTestRunButtonClick();
         testRunPage.enterRunTitle(testRunTitle);
         testRunPage.enterTestRunDescription(testRunDescription);
         testRunPage.assigneeSelect(assigneeValueToClick);
         testRunPage.setAddCasesButtonClick();
+        //TODO а за что checkbox твечает? переименуй
         testRunPage.checkboxClick();
         testRunPage.doneButtonClick();
         testRunPage.startRunButtonClick();
+        //TODO какая-то вялая проверка. Нажал на кнопку start и проверка что кнопка start jтображается? Может все же ручками делается больше проверок после создания test run?
         assertTrue(testRunPage.startNewTestRunButtonIsDisplayed(), "Test run page is not opened");
     }
 }

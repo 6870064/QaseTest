@@ -33,6 +33,7 @@ public class TestCaseTest extends BaseTest {
     @Test(description = "Creation of the test case without adding conditions and the steps")
     public void createTestCaseWithoutConditionsAndSteps() {
 
+        //TODO удалить. Никаких логов в тесте
         log.warn(String.format("Creation of new test case with the title '%s'", testCaseTitleWithoutConditions));
         log.error(String.format("Error in creation of new test case with the title '%s'", testCaseTitleWithoutConditions));
 
@@ -54,6 +55,7 @@ public class TestCaseTest extends BaseTest {
         testCasePage.selectBehavior(testCaseBehavior);
         testCasePage.selectAutomationStatus(testCaseAutoStatus);
         testCasePage.saveButtonClick();
+        //TODO слабый ассерт
         assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
     }
 
@@ -82,11 +84,13 @@ public class TestCaseTest extends BaseTest {
         testCasePage.selectAutomationStatus(testCaseAutoStatus);
         testCasePage.enterPreConditions(preConditions);
 
+        //TODO нет. Это где-то в степе должно быть
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,250)", "");
 
         testCasePage.addStep(0, stepAction, stepInputData, stepExpectedResult);
         testCasePage.saveButtonClick();
+        //TODO слабый ассерт
         assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
     }
 
@@ -117,12 +121,14 @@ public class TestCaseTest extends BaseTest {
         testCasePage.enterPostConditions(postConditions);
         testCasePage.addStep(0, stepAction, stepInputData, stepExpectedResult);
         testCasePage.saveButtonClick();
+        //TODO слабый ассерт
         assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
     }
 
     @Test(description = "Creation of the test case with adding Pre-Conditions, Post-Conditions and 10 steps without attachment")
     public void createTestCaseWithTenSteps() {
 
+        //TODO  удалить логи
         log.warn(String.format("Creation of new test case with the title '%s' and 10 steps", testCaseTitleWithConditions));
         log.error(String.format("Error in creation of new test case with the title '%s' and 10 steps", testCaseTitleWithConditions));
 
@@ -146,10 +152,12 @@ public class TestCaseTest extends BaseTest {
         testCasePage.enterPreConditions(preConditions);
         testCasePage.enterPostConditions(postConditions);
 
+        //TODO верни переменную сюда. Она не нужна видимой во всем классе
         for (int b = 0; b < amountOfSteps; b++) { //Добавление 10 шагов в тест-кейс
             testCasePage.addStep(b, stepAction, stepInputData, stepExpectedResult);
         }
         testCasePage.saveButtonClick();
+        //TODO слабый ассерт
         assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
     }
 
@@ -180,6 +188,7 @@ public class TestCaseTest extends BaseTest {
         defectPage.checkTitleOfFileUploaded(fileName);
         testCasePage.addStep(0, stepAction, stepInputData, stepExpectedResult);
         testCasePage.saveButtonClick();
+        //TODO слабый ассерт
         assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
     }
 
@@ -208,10 +217,12 @@ public class TestCaseTest extends BaseTest {
         testCasePage.selectAutomationStatus(testCaseAutoStatus);
         defectPage.fileUpload(filePath);
         defectPage.checkTitleOfFileUploaded(fileName);
+        //TODO сделать переменную локлаьной
         for (int b = 0; b < amountOfSteps; b++) { //Добавление 10 шагов в тест-кейс
             testCasePage.addStep(b, stepAction, stepInputData, stepExpectedResult);
         }
         testCasePage.saveButtonClick();
+        //TODO слабый ассерт
         assertTrue(testCasePage.addCaseButtonIsDisplayed(), "Repository page is not opened");
     }
 
@@ -243,6 +254,7 @@ public class TestCaseTest extends BaseTest {
         testCasePage.deleteCasesButtonClick();
         testCasePage.enterTextConfirmDeleteField(confirmText);
         testCasePage.deleteCasesConfirmButtonClick();
+        //TODO слабый ассерт
         assertTrue(testCasePage.addFirstCaseButtonIsDisplayed(), "Repository page is not opened");
     }
 }

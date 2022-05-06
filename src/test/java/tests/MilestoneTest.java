@@ -24,6 +24,7 @@ public class MilestoneTest extends BaseTest {
         milestonePage.enterMilestoneName(milestoneName);
         milestonePage.enterMilestoneDescription(milestoneDescription);
         milestonePage.createNewMilestoneButtonClick();
+        //TODO ассерта нет
         milestonePage.isPageOpened();
     }
 }
