@@ -9,6 +9,7 @@ public class AllureUtils {
 
     @Attachment(value = "screenshot", type = "image/png")
     public static byte[] takeScreenshot(WebDriver driver) {
+        //TODO добавь логирование
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 }

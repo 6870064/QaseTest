@@ -8,6 +8,7 @@ import static org.testng.Assert.assertTrue;
 @Log4j2
 public class TestPlanTest extends BaseTest {
 
+    //TODO зачем переменная?
     String testCaseTitleWithoutConditions = "The test case without picture and Conditions Jan 25 2022";
     String testCaseTitle = "Base test case";
     String testCaseDescription = "Description of the new test case title";
@@ -22,6 +23,7 @@ public class TestPlanTest extends BaseTest {
     String testPlanTitle = "Test plan for regression testing #1";
     String testPlanDescription = "Description for regression testing Test plan for #1";
 
+    //TODO думал по английский правильнее "Creation of Test Plan"
     @Test(description = "Creation test plan")
     public void createTestPlan() {
 
@@ -43,10 +45,12 @@ public class TestPlanTest extends BaseTest {
         testPlanPage.createPlanButtonClick();
         testPlanPage.enterTestPlanTitle(testPlanTitle);
         testPlanPage.enterTestPlanDescription(testPlanDescription);
+        //TODO я избегаю слово button в названии метода. Просто addCases() просто savePlan()
         testPlanPage.addCasesButtonClick();
         testPlanPage.checkboxSelect();
         testPlanPage.addCasesDoneButton();
         testPlanPage.savePlanButtonClick();
+        //TODO вялая проверка. Как руками проверяешь?
         assertTrue(testPlanPage.createPlanButtonIsDisplayed(), "Test plans page is not opened");
     }
 }

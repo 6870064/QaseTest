@@ -19,6 +19,7 @@ public class ProjectTest extends BaseTest {
     @Test(description = "Creation of the new public project")
     public void createNewPublicProject() {
 
+        //TODO удалить логи
         log.warn(String.format("Creation of new public project with the title '%s' and " +
                 "description '%s'", publicProjectName, publicDescription));
         log.error(String.format("Error in creation of new public project with the title '%s' and " +

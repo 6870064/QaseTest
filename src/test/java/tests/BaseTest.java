@@ -15,6 +15,7 @@ import java.util.concurrent.TimeUnit;
 
 public abstract class BaseTest {
 
+    //TODO использовать PropertyReader и application.properties, чтобы туда это спрятать. Грубое нарушение
     public static final String USER_LOGIN = "6870064@gmail.com";
     public static final String USER_PASSWORD = "qwe1122qwe";
 
@@ -35,6 +36,7 @@ public abstract class BaseTest {
         if (browser.equals("chrome")) {
             WebDriverManager.chromedriver().setup();
             ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.setHeadless(true);
             driver = new ChromeDriver(chromeOptions);
             driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);//Неявные ожидания
             driver.manage().window().maximize();
