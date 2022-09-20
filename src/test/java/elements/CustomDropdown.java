@@ -23,7 +23,8 @@ public class CustomDropdown {
 
     public void dropDownClick() {
 
-        log.debug(String.format("Clicking Dropdown titled '%s' with default value '%s' and choose value '%s'", label, defaultValue, valueToClick));
+        log.debug(String.format("Clicking Dropdown titled '%s' with default value '%s' and choose value '%s'", label,
+                defaultValue, valueToClick));
 
         driver.findElement(By.xpath(String.format(DROPDOWN_LOCATOR, label, defaultValue))).click();
         driver.findElement(By.xpath(String.format(DROPDOWN_VALUE, valueToClick))).click();

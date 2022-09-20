@@ -3,10 +3,6 @@ package adapters;
 import models.Project;
 import models.ResponseProject;
 import models.ResponseStatus;
-import tests.BaseTest;
-
-import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
 
 public class ProjectAdapter extends BaseAdapter {
 

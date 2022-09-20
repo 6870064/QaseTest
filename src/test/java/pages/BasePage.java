@@ -31,14 +31,11 @@ public abstract class BasePage {
         jsExecutor = new JSExecutor(driver);
     }
 
-
     public void projectOpen() {
         driver.get(PROJECT_URL);
     }
 
     public abstract boolean isPageOpened();
-
-    public abstract boolean isCongratsPageOpened();
 
     public boolean isElementExist(By locator) {
         try {
