@@ -17,9 +17,4 @@ public class TestRepositoryPage extends BasePage {
     public boolean isPageOpened() {
         return false;
     }
-
-    @Override
-    public boolean isCongratsPageOpened() {
-        return false;
-    }
 }

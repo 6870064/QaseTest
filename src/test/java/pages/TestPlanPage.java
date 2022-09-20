@@ -25,11 +25,6 @@ public class TestPlanPage extends BasePage {
         return false;
     }
 
-    @Override
-    public boolean isCongratsPageOpened() {
-        return false;
-    }
-
     public boolean createPlanButtonIsDisplayed() {
         return isElementExist(CREATE_PLAN_BUTTON);
 

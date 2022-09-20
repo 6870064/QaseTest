@@ -28,11 +28,6 @@ public class TestRunPage extends BasePage {
         return false;
     }
 
-    @Override
-    public boolean isCongratsPageOpened() {
-        return false;
-    }
-
     public boolean startNewTestRunButtonIsDisplayed() {
         return isElementExist(START_NEW_TEST_RUN_BUTTON);
     }

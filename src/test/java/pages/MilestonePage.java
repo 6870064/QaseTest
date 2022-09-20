@@ -29,11 +29,6 @@ public class MilestonePage extends BasePage {
         return isElementExist(CREATE_MILESTONE_BUTTON);
     }
 
-    @Override
-    public boolean isCongratsPageOpened() {
-        return false;
-    }
-
     @Step("Click on milestone submenu")
     public void clickMilestoneSubmenu() {
 

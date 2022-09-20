@@ -40,11 +40,6 @@ public class TestCasePage extends BasePage {
         return isElementExist(CREATE_CASE_BUTTON);
     }
 
-    @Override
-    public boolean isCongratsPageOpened() {
-        return false;
-    }
-
     @Step("Click on the button 'Create test case'")
     public void createTestCaseButtonClick() {
         driver.findElement(CREATE_CASE_BUTTON).click();

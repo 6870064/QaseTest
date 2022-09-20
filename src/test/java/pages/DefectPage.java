@@ -32,11 +32,6 @@ public class DefectPage extends BasePage {
         return isElementExist(CREATE_NEW_DEFECT_BUTTON);
     }
 
-    @Override
-    public boolean isCongratsPageOpened() {
-        return false;
-    }
-
     public void clickDefectsButton() {
 
         driver.findElement(DEFECTS_SUBMENU).click();

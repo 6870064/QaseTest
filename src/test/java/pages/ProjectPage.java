@@ -27,11 +27,6 @@ public class ProjectPage extends BasePage {
         return isElementExist(PROJECT_NAME_FIELD);
     }
 
-    @Override
-    public boolean isCongratsPageOpened() {
-        return false;
-    }
-
     @Step("Click on the button to create new project")
     public void createNewProjectButtonClick() {
         driver.findElement(CREATE_NEW_PROJECT_BUTTON).click();

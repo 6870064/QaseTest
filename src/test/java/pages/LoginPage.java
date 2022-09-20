@@ -28,11 +28,6 @@ public class LoginPage extends BasePage {
         return isElementExist(LOGIN_BUTTON);
     }
 
-    @Override
-    public boolean isCongratsPageOpened() {
-        return false;
-    }
-
     @Step("Login by user: {userLogin}, {userPassword}")
     public void login(String userLogin, String userPassword) {
 

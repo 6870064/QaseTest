@@ -19,8 +19,4 @@ public class HomePage extends BasePage {
         return isElementExist(CREATE_BUTTON);
     }
 
-    @Override
-    public boolean isCongratsPageOpened() {
-        return isElementExist(RESEND_BUTTON);
-    }
 }
