@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.JSExecutor;
+import utils.PropertyReader;
 
 import java.io.File;
 
@@ -16,7 +17,8 @@ import static pages.ProjectPage.PROJECT_URL;
 
 @Log4j2
 public abstract class BasePage {
-    public static final String BASE_URL = "https://app.qase.io/login";
+    protected PropertyReader propertyReader = new PropertyReader("src/test/resources/configuration.properties");
+    public final String BASE_URL = propertyReader.getPropertyValueByKey("base.url");
     public static final By ADD_ATTACHMENT_BUTTON = By.xpath("//button[text()=' Add attachment']");
     public static final By DROP_FILES_AREA = By.xpath("//input[@class='dz-hidden-input']");
     public static final By UPLOADED_FILE = By.xpath("//div//p[@class='suitecase-attachment-filename']");
