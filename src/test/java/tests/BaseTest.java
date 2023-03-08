@@ -28,6 +28,9 @@ public abstract class BaseTest {
     TestPlanPage testPlanPage;
     TestRunPage testRunPage;
 
+    public String loginFieldTitle = "Email";
+    public String passwordFieldTitle = "Password";
+
     @Parameters({"browser"})
     @BeforeMethod(description = "Open browser")
     public void setUp(@Optional("chrome") String browser) {

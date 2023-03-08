@@ -26,7 +26,7 @@ public class ProjectTest extends BaseTest {
 
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
-        loginPage.login(USER_LOGIN, USER_PASSWORD);
+        loginPage.login(loginFieldTitle, USER_LOGIN, passwordFieldTitle, USER_PASSWORD);
         assertTrue(homePage.isPageOpened(), "Home Page is not opened");
         projectPage.createNewProjectButtonClick();
         assertTrue(projectPage.isPageOpened(), "Projects Page is not opened");
@@ -44,7 +44,7 @@ public class ProjectTest extends BaseTest {
 
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
-        loginPage.login(USER_LOGIN, USER_PASSWORD);
+        loginPage.login(loginFieldTitle, USER_LOGIN, passwordFieldTitle, USER_PASSWORD);
         assertTrue(homePage.isPageOpened(), "Home Page is not opened");
         projectPage.createNewProjectButtonClick();
         assertTrue(projectPage.isPageOpened(), "Projects Page is not opened");
