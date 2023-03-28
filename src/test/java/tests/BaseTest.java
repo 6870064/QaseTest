@@ -1,6 +1,7 @@
 package tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -8,16 +9,20 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.*;
 import pages.*;
 import tests.base.TestListener;
+import utils.PropertyReader;
 
 import java.util.concurrent.TimeUnit;
 
+@Log4j2
 @Listeners(TestListener.class)
-
 public abstract class BaseTest {
 
-    public static final String USER_LOGIN = "6870064@gmail.com";
-    public static final String USER_PASSWORD = "qwe1122qwe";
+//    public static final String USER_LOGIN = "6870064@gmail.com";
+//    public static final String USER_PASSWORD = "qwe1122qwe";
 
+    protected PropertyReader propertyReader = new PropertyReader("src/test/resources/configuration.properties");
+    protected final String USER_LOGIN = System.getProperty("username", propertyReader.getPropertyValueByKey("username"));
+    protected final String USER_PASSWORD = System.getProperty("username", propertyReader.getPropertyValueByKey("password"));
     WebDriver driver;
     LoginPage loginPage;
     HomePage homePage;
@@ -41,7 +46,10 @@ public abstract class BaseTest {
             /**
              * --headless - запуск тестов в браузере без UI
              */
-        //    chromeOptions.addArguments("--headless");
+            if (propertyReader.getPropertyValueByKey("headless").equals("true")) {
+                chromeOptions.addArguments("--headless");
+            }
+
         } else if (browser.equals("firefox")) {
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
