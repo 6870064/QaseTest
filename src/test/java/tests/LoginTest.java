@@ -13,8 +13,8 @@ public class LoginTest extends BaseTest {
 
         loginPage.pageOpen();
         assertTrue(loginPage.isPageOpened(), "Login page is not opened");
-        loginPage.enterUserLogin(USER_LOGIN);
-        loginPage.enterUserPassword(USER_PASSWORD);
+        loginPage.setValue(loginFieldTitle, USER_LOGIN);
+        loginPage.setValue(passwordFieldTitle, USER_PASSWORD);
         loginPage.clickCheckBoxInput();
         loginPage.clickLoginButton();
         assertTrue(homePage.isPageOpened(), "Home Page is not opened");

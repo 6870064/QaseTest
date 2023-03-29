@@ -4,15 +4,12 @@ import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import utils.AllureUtils;
 
 @Log4j2
 public class LoginPage extends BasePage {
 
-    public static final By LOGIN_INPUT = By.id("inputEmail");
-    public static final By PASSWORD_INPUT = By.id("inputPassword");
+    public static final String INPUT_LOCATOR = "//label[text()='%s']/../input";
     public static final By CHECKBOX_INPUT = By.className("custom-control-indicator");
-    public static final By SIGN_UP_BUTTON = By.linkText("Sign up");
     public static final By LOGIN_BUTTON = By.id("btnLogin");
 
     public LoginPage(WebDriver driver) {
@@ -28,30 +25,27 @@ public class LoginPage extends BasePage {
         return isElementExist(LOGIN_BUTTON);
     }
 
-    @Step("Login by user: {userLogin}, {userPassword}")
-    public void login(String userLogin, String userPassword) {
-
-        log.info(String.format("Valid login with user login '%s' and valid password '%s'",userLogin, userPassword));
-
-        driver.findElement(LOGIN_INPUT).sendKeys(userLogin);
-        driver.findElement(PASSWORD_INPUT).sendKeys(userPassword);
-        driver.findElement(CHECKBOX_INPUT).click();
-        driver.findElement(LOGIN_BUTTON).click();
+    @Step("Login by valid user")
+    public void login(String loginFieldTitle, String userLogin, String passwordFieldTitle, String userPassword) {
+        log.info(String.format("Valid login with user login: {} and valid password: {}",userLogin, userPassword));
+        setValue(loginFieldTitle, userLogin);
+        setValue(passwordFieldTitle, userPassword);
+        clickCheckBoxInput();
+        clickLoginButton();
     }
 
-    public void enterUserLogin(String userLogin) {
-        driver.findElement(LOGIN_INPUT).sendKeys(userLogin);
-    }
-
-    public void enterUserPassword(String userPassword) {
-        driver.findElement(PASSWORD_INPUT).sendKeys(userPassword);
+    public void setValue(String fieldTitle, String input) {
+        log.info("Entering value {} in the field {}", input, fieldTitle);
+        driver.findElement(By.xpath(String.format(INPUT_LOCATOR, fieldTitle))).sendKeys(input);
     }
 
     public void clickCheckBoxInput(){
+        log.info("Clicking on checkbox 'Remember me'");
         driver.findElement(CHECKBOX_INPUT).click();
     }
 
     public void clickLoginButton(){
+        log.info("Clicking on [Login] button");
         driver.findElement(LOGIN_BUTTON).click();
     }
 }
