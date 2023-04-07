@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.*;
 import pages.*;
+import utils.WebDriver_Initializer;
 import tests.base.TestListener;
 import utils.PropertyReader;
 
@@ -17,30 +18,29 @@ import java.util.concurrent.TimeUnit;
 @Listeners(TestListener.class)
 public abstract class BaseTest {
 
-//    public static final String USER_LOGIN = "6870064@gmail.com";
-//    public static final String USER_PASSWORD = "qwe1122qwe";
-
+    private final WebDriver_Initializer webDriverInitializer = WebDriver_Initializer.getInstance();
+    public String loginFieldTitle = "Email";
+    public String passwordFieldTitle = "Password";
     protected PropertyReader propertyReader = new PropertyReader("src/test/resources/configuration.properties");
     protected final String USER_LOGIN = System.getProperty("username", propertyReader.getPropertyValueByKey("username"));
     protected final String USER_PASSWORD = System.getProperty("username", propertyReader.getPropertyValueByKey("password"));
     WebDriver driver;
-    LoginPage loginPage;
-    HomePage homePage;
-    ProjectPage projectPage;
-    DefectPage defectPage;
-    MilestonePage milestonePage;
-    TestCasePage testCasePage;
-    TestPlanPage testPlanPage;
-    TestRunPage testRunPage;
-
-    public String loginFieldTitle = "Email";
-    public String passwordFieldTitle = "Password";
+    LoginPage loginPage = new LoginPage(driver);
+    HomePage homePage = new HomePage(driver);
+    ProjectPage projectPage = new ProjectPage(driver);
+    DefectPage defectPage = new DefectPage(driver);
+    MilestonePage milestonePage = new MilestonePage(driver);
+    TestCasePage testCasePage = new TestCasePage(driver);
+    TestPlanPage testPlanPage = new TestPlanPage(driver);
+    TestRunPage testRunPage = new TestRunPage(driver);
 
     @Parameters({"browser"})
     @BeforeMethod(description = "Open browser")
     public void setUp(@Optional("chrome") String browser) {
+        driver = webDriverInitializer.driverInitialization();
 
         if (browser.equals("chrome")) {
+
             WebDriverManager.chromedriver().setup();
             ChromeOptions chromeOptions = new ChromeOptions();
             driver = new ChromeDriver(chromeOptions);
@@ -57,22 +57,13 @@ public abstract class BaseTest {
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
         }
-
-        loginPage = new LoginPage(driver); // и перечислять все последующие Pages так же туть
-        homePage = new HomePage(driver);
-        projectPage = new ProjectPage(driver);
-        defectPage = new DefectPage(driver);
-        milestonePage = new MilestonePage(driver);
-        testCasePage = new TestCasePage(driver);
-        testPlanPage = new TestPlanPage(driver);
-        testRunPage = new TestRunPage(driver);
     }
 
     @AfterMethod(alwaysRun = true, description = "Close browser")
     public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
+        webDriverInitializer.closeDriver();
+//        if (driver != null) {
+//            driver.quit();
+//        }
     }
-
 }

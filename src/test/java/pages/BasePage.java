@@ -51,12 +51,9 @@ public abstract class BasePage {
 
     @Step("Upload File as attachment")
     public void fileUpload(String filePath) {
-
         log.info("Upload File with the path "+ filePath +" as attachment");
-
-        WebElement element = driver.findElement(ADD_ATTACHMENT_BUTTON); //scrolling
-        jsExecutor.scrollToElement(element);
-        jsExecutor.clickOnElement(element);
+        jsExecutor.scrollToElement(driver.findElement(ADD_ATTACHMENT_BUTTON));
+        jsExecutor.clickOnElement(driver.findElement(ADD_ATTACHMENT_BUTTON));
         File file = new File(filePath);
         WebElement input_field = driver.findElement(DROP_FILES_AREA);
         input_field.sendKeys(file.getAbsolutePath());
