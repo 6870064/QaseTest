@@ -9,6 +9,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import utils.AllureUtils;
 
+import static tests.BaseTest.driver;
+
 @Log4j2
 public class DefectPage extends BasePage {
 
@@ -29,7 +31,7 @@ public class DefectPage extends BasePage {
 
     @Override
     public boolean isPageOpened() {
-        return isElementExist(CREATE_NEW_DEFECT_BUTTON);
+        return BasePage.isElementExist(CREATE_NEW_DEFECT_BUTTON);
     }
 
     public void clickDefectsButton() {

@@ -5,7 +5,10 @@ import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import utils.AllureUtils;
+import tests.BaseTest;
+
+import static tests.BaseTest.driver;
+
 
 @Log4j2
 public class ProjectPage extends BasePage {
@@ -18,18 +21,19 @@ public class ProjectPage extends BasePage {
     public static final By CREATE_NEW_SUITE = By.xpath("//*[contains(text(),'Create new suite')]");
     public static final String PROJECT_URL = "https://app.qase.io/project/12";
 
+
     public ProjectPage(WebDriver driver) {
         super(driver);
     }
 
     @Override
     public boolean isPageOpened() {
-        return isElementExist(PROJECT_NAME_FIELD);
+        return BasePage.isElementExist(PROJECT_NAME_FIELD);
     }
 
     @Step("Click on the button to create new project")
     public void createNewProjectButtonClick() {
-        driver.findElement(CREATE_NEW_PROJECT_BUTTON).click();
+        BaseTest.driver.findElement(CREATE_NEW_PROJECT_BUTTON).click();
 
         log.warn("Click on the button to create new project");
         log.error("Click on the button to create new project");
@@ -68,6 +72,6 @@ public class ProjectPage extends BasePage {
     }
 
     public boolean isProjectCreated() {
-        return isElementExist(CREATE_NEW_SUITE);
+        return BasePage.isElementExist(CREATE_NEW_SUITE);
     }
 }
