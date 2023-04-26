@@ -19,6 +19,7 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
+    @Step("Open page")
     public void pageOpen() {
         driver.get(BaseTest.BASE_URL);
     }
@@ -42,11 +43,13 @@ public class LoginPage extends BasePage {
         driver.findElement(By.xpath(String.format(INPUT_LOCATOR, fieldTitle))).sendKeys(input);
     }
 
+    @Step("Checkbox Input was checked")
     public void clickCheckBoxInput(){
         log.info("Clicking on checkbox 'Remember me'");
         driver.findElement(CHECKBOX_INPUT).click();
     }
 
+    @Step("Click on Login button")
     public void clickLoginButton(){
         log.info("Clicking on [Login] button");
         driver.findElement(LOGIN_BUTTON).click();

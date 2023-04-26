@@ -9,7 +9,7 @@ import static org.testng.Assert.assertTrue;
 @Log4j2
 public class LoginTest extends BaseTest {
 
-    @Feature("namename")
+    @Feature("Login Feature")
     @Test(description = "Username should be required")
     public void validUserLogin() {
         loginPage.pageOpen();
