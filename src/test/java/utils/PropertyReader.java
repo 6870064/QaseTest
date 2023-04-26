@@ -29,7 +29,7 @@ public class PropertyReader {
             return properties.getProperty(key);
         } else {
             String errorMessage = String.format("Cannot find property by key: %s. Make sure that it exists inside %s", key, propertyFile);
-            log.error(errorMessage);
+            //log.error(errorMessage);
             throw new RuntimeException(errorMessage);
         }
     }

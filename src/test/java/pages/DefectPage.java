@@ -12,7 +12,7 @@ import utils.AllureUtils;
 import static tests.BaseTest.driver;
 
 @Log4j2
-public class DefectPage extends BasePage {
+public class DefectPage extends BasePage{
 
     public static final By DEFECTS_SUBMENU = By.id("menu-link-test-defects");
     public static final By CREATE_NEW_DEFECT_BUTTON = By.xpath("//*[text()='Create new defect']");

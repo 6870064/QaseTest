@@ -10,7 +10,7 @@ import utils.PropertyReader;
 
 @Log4j2
 @Listeners(TestListener.class)
-public class BaseTest {
+public abstract class BaseTest {
 
     public static PropertyReader propertyReader = new PropertyReader("src/test/resources/configuration.properties");
     public static WebDriver_Initializer webDriverInitializer = WebDriver_Initializer.getInstance();

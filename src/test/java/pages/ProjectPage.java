@@ -9,7 +9,6 @@ import tests.BaseTest;
 
 import static tests.BaseTest.driver;
 
-
 @Log4j2
 public class ProjectPage extends BasePage {
 
@@ -20,7 +19,6 @@ public class ProjectPage extends BasePage {
     public static final By CREATE_PROJECT_BUTTON = By.xpath("//button[text()='Create project']");
     public static final By CREATE_NEW_SUITE = By.xpath("//*[contains(text(),'Create new suite')]");
     public static final String PROJECT_URL = "https://app.qase.io/project/12";
-
 
     public ProjectPage(WebDriver driver) {
         super(driver);
@@ -58,8 +56,8 @@ public class ProjectPage extends BasePage {
 
         log.info("Click on the radiobutton 'Public access project'");
     }
-    
-      @Step("Click on the radiobutton 'Public access project'")
+
+    @Step("Click on the radiobutton 'Public access project'")
     public void createProjectButton() {
 
         driver.findElement(CREATE_PROJECT_BUTTON).click();
