@@ -7,8 +7,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import utils.AllureUtils;
 
+import static tests.BaseTest.driver;
+
 @Log4j2
 public class TestPlanPage extends BasePage {
+
     public static final By TEST_PLANS_SUBMENU = By.xpath("//*[text()='Test Plans']");
     public static final By CREATE_PLAN_BUTTON = By.id("createButton");
     public static final By ADD_CASES_BUTTON = By.id("edit-plan-add-cases-button");
@@ -26,7 +29,7 @@ public class TestPlanPage extends BasePage {
     }
 
     public boolean createPlanButtonIsDisplayed() {
-        return isElementExist(CREATE_PLAN_BUTTON);
+        return BasePage.isElementExist(CREATE_PLAN_BUTTON);
 
     }
 

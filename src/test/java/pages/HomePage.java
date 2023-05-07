@@ -16,7 +16,7 @@ public class HomePage extends BasePage {
 
     @Override
     public boolean isPageOpened() {
-        return isElementExist(CREATE_BUTTON);
+        return BasePage.isElementExist(CREATE_BUTTON);
     }
 
 }
