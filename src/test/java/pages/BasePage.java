@@ -6,40 +6,31 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.JSExecutor;
-import utils.PropertyReader;
 
 import java.io.File;
 
 import static org.testng.Assert.assertEquals;
-import static pages.ProjectPage.PROJECT_URL;
+import static tests.BaseTest.driver;
 
 @Log4j2
 public abstract class BasePage {
-    protected PropertyReader propertyReader = new PropertyReader("src/test/resources/configuration.properties");
-    public final String BASE_URL = propertyReader.getPropertyValueByKey("base.url");
     public static final By ADD_ATTACHMENT_BUTTON = By.xpath("//button[text()=' Add attachment']");
     public static final By DROP_FILES_AREA = By.xpath("//input[@class='dz-hidden-input']");
     public static final By UPLOADED_FILE = By.xpath("//div//p[@class='suitecase-attachment-filename']");
-
-    WebDriver driver;
-    WebDriverWait wait;
-    JSExecutor jsExecutor;
+    public static JSExecutor jsExecutor;
 
     public BasePage(WebDriver driver) {
-        this.driver = driver;
-        wait = new WebDriverWait(driver, 20);
         jsExecutor = new JSExecutor(driver);
-    }
-
-    public void projectOpen() {
-        driver.get(PROJECT_URL);
     }
 
     public abstract boolean isPageOpened();
 
-    public boolean isElementExist(By locator) {
+    public void projectOpen() {
+        driver.get(ProjectPage.PROJECT_URL);
+    }
+
+    public static boolean isElementExist(By locator) {
         try {
             driver.findElement(locator);
             return true;
@@ -51,7 +42,7 @@ public abstract class BasePage {
 
     @Step("Upload File as attachment")
     public void fileUpload(String filePath) {
-        log.info("Upload File with the path "+ filePath +" as attachment");
+        log.info("Upload File with the path " + filePath + " as attachment");
         jsExecutor.scrollToElement(driver.findElement(ADD_ATTACHMENT_BUTTON));
         jsExecutor.clickOnElement(driver.findElement(ADD_ATTACHMENT_BUTTON));
         File file = new File(filePath);
@@ -61,9 +52,7 @@ public abstract class BasePage {
     }
 
     public void checkTitleOfFileUploaded(String fileName) {
-
-        log.info("check upload of the file titled " +fileName);
-
+        log.info("check upload of the file titled " + fileName);
         String titleOfFile = driver.findElement(UPLOADED_FILE).getAttribute("innerText");
         assertEquals(titleOfFile, fileName, "Title of the uploaded file is not equal"); //Проверить, что имя файла
         // на странице совпадает с именем загруженного файла

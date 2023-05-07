@@ -10,6 +10,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import utils.AllureUtils;
 
+import static tests.BaseTest.driver;
+
 @Log4j2
 public class TestCasePage extends BasePage {
 
@@ -23,7 +25,6 @@ public class TestCasePage extends BasePage {
     public static final By DELETE_CASES_CONFIRM_BUTTON = By.xpath("//button[text()='Delete']");
 
     public TestCasePage(WebDriver driver) {
-
         super(driver);
     }
 
@@ -33,11 +34,11 @@ public class TestCasePage extends BasePage {
     }
 
     public boolean addFirstCaseButtonIsDisplayed() {
-        return isElementExist(CREATE_FIRST_CASE_BUTTON);
+        return BasePage.isElementExist(CREATE_FIRST_CASE_BUTTON);
     }
 
     public boolean addCaseButtonIsDisplayed() {
-        return isElementExist(CREATE_CASE_BUTTON);
+        return BasePage.isElementExist(CREATE_CASE_BUTTON);
     }
 
     @Step("Click on the button 'Create test case'")
@@ -187,8 +188,8 @@ public class TestCasePage extends BasePage {
     public void addStep(int i, String action, String inputData, String expectedResult) {  //Метод по добавлению шагов в тест-кейс испольуя CustomInput
 
         WebElement element = driver.findElement(ADD_STEP_BUTTON); //scrolling
-        jsExecutor.scrollToElement(element);
-        jsExecutor.clickOnElement(element);
+        BasePage.jsExecutor.scrollToElement(element);
+        BasePage.jsExecutor.clickOnElement(element);
 
         int a = i + 1;
         new CustomInput(driver, "action", Integer.toString(i)).write(action + a);

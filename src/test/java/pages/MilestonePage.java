@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import utils.AllureUtils;
 
-import static pages.ProjectPage.PROJECT_URL;
+import static tests.BaseTest.driver;
 
 @Log4j2
 public class MilestonePage extends BasePage {
@@ -21,12 +21,12 @@ public class MilestonePage extends BasePage {
     }
 
     public void projectOpen() {
-        driver.get(PROJECT_URL);
+        driver.get(ProjectPage.PROJECT_URL);
     }
 
     @Override
     public boolean isPageOpened() {
-        return isElementExist(CREATE_MILESTONE_BUTTON);
+        return BasePage.isElementExist(CREATE_MILESTONE_BUTTON);
     }
 
     @Step("Click on milestone submenu")

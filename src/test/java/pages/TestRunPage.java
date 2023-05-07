@@ -9,6 +9,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import utils.AllureUtils;
 
+import static tests.BaseTest.driver;
+
 @Log4j2
 public class TestRunPage extends BasePage {
 
@@ -29,7 +31,7 @@ public class TestRunPage extends BasePage {
     }
 
     public boolean startNewTestRunButtonIsDisplayed() {
-        return isElementExist(START_NEW_TEST_RUN_BUTTON);
+        return BasePage.isElementExist(START_NEW_TEST_RUN_BUTTON);
     }
 
     @Step("Click on test run submenu")
