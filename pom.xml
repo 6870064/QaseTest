@@ -28,8 +28,8 @@
         <javafaker.version>1.0.2</javafaker.version>
         <log4j-core.version>2.14.1</log4j-core.version>
         <lombok.version>1.18.26</lombok.version>
-        <maven.compiler.source>12</maven.compiler.source>
-        <maven.compiler.target>12</maven.compiler.target>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
         <rest-assured.version>4.4.0</rest-assured.version>
         <selenium-java.version>3.141.59</selenium-java.version>
         <slf4j-nop.version>1.7.13</slf4j-nop.version>
@@ -45,8 +45,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.0</version>
                 <configuration>
-                    <source>12</source> <!--For JAVA 8 use 1.8-->
-                    <target>12</target> <!--For JAVA 8 use 1.8-->
+                    <source>8</source> <!--For JAVA 8 use 1.8-->
+                    <target>8</target> <!--For JAVA 8 use 1.8-->
                 </configuration>
             </plugin>
             <plugin>
