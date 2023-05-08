@@ -59,7 +59,6 @@
                     </suiteXmlFiles>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-<!--                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.4/aspectjweaver-1.9.4.jar"-->
                     </argLine>
                     <properties>
                         <!--Правила для сбора информации Allure, на которые смотрит aspectj при работе-->
