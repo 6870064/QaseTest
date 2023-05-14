@@ -23,7 +23,6 @@ public class WebDriver_Initializer {
     }
 
     public WebDriver driverInitialization() {
-
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver(setOptionsForChromeDriver("chrome"));
         driver.manage().window().maximize();
@@ -31,7 +30,7 @@ public class WebDriver_Initializer {
         return driver;
     }
 
-     private ChromeOptions setOptionsForChromeDriver(@Optional("chrome") String browser) {
+    private ChromeOptions setOptionsForChromeDriver(@Optional("chrome") String browser) {
         ChromeOptions chromeOptions = new ChromeOptions();
         if (browser.equals("chrome")) {
             WebDriverManager.chromedriver().setup();
