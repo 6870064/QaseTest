@@ -34,7 +34,7 @@
         <selenium-java.version>3.141.59</selenium-java.version>
         <slf4j-nop.version>1.7.13</slf4j-nop.version>
         <suiteXmlFile>src/test/resources/smoke.xml</suiteXmlFile>
-        <testng.version>7.4.0</testng.version>
+        <testng.version>7.7.1</testng.version>
         <vebdrivermanager.version>3.8.1</vebdrivermanager.version>
     </properties>
 
